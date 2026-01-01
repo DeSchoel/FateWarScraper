@@ -4,7 +4,7 @@ from pathlib import Path
 from PIL import Image
 from fatewarscraper.ocr import configure_tesseract
 from fatewarscraper.parse import parse_image_by_rows, parse_podium_image, deduplicate_records, sort_records
-from fatewarscraper.export import write_member_csv, write_member_html
+from fatewarscraper.export import write_member_csv, write_member_html, write_member_json
 
 def get_metric_from_filename(filename: str) -> str:
     """Guess metric type from filename.
@@ -85,6 +85,11 @@ def main():
     # Save structured reports
     csv_path = write_member_csv(sorted_records, output_dir)
     html_path = write_member_html(sorted_records, output_dir)
+    json_path = write_member_json(sorted_records, output_dir)
+    
+    # Verify static exports
+    write_member_html(sorted_records, output_dir, filename="index.html")
+    write_member_json(sorted_records, output_dir, filename="members.json")
     
     # Save debug txt
     output_file = output_dir / "parsed_members.txt"
