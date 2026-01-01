@@ -63,9 +63,33 @@ The scraper will:
 ## Output Files
 
 - `outputs/members_YYYY-MM-DD_HH-MM-SS.csv`: Structured data for Excel/Google Sheets.
-- `outputs/members_YYYY-MM-DD_HH-MM-SS.html`: A beautiful, shareable HTML table.
+- `outputs/index.html`: A searchable/sortable web dashboard for the latest data.
+- `outputs/members.json`: The latest raw data in JSON format.
 - `outputs/parsed_members.txt`: A debug log showing raw OCR readings.
 - `outputs/*.png`: Cropped debug images for verification.
+
+## Web Hosting (Free on GitHub Pages)
+
+You can easily host the latest alliance rankings for free using GitHub Pages:
+
+### Setup (First Time Only)
+
+1. Ensure your project is pushed to a GitHub repository.
+2. Run the deployment script once: `./deploy_gh_pages.ps1`
+3. In your repository settings on GitHub, go to **Settings** -> **Pages**.
+4. Under **Build and deployment**, set the source to **Deploy from a branch**.
+5. Choose the `gh-pages` branch and the `/ (root)` folder.
+6. Click **Save**.
+
+### Deploying Updates
+
+After running a scan, run the provided deployment script to push the latest data to your website:
+
+```powershell
+./deploy_gh_pages.ps1
+```
+
+Your site will be available at `https://<your-username>.github.io/<your-repo-name>/`.
 
 ## Project Structure
 
