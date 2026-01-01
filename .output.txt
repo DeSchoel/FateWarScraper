@@ -1,361 +1,365 @@
 ======================================================================
-Phase 3: Power-Based Ranking with Mismatch Detection
+Phase 4: Multi-Metric Member Tracking
 ======================================================================
-Processing podium (top 3)...
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse rank 1 from podium: Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse rank 2 from podium: Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse rank 3 from podium: Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-  ✓ Extracted 0 members from podium
-Processing 27 regular member list images...
-  crop_002.png... Initializing EasyOCR with GPU (CUDA) and languages ['en']...
-  Detected 6 rows via EasyOCR (first at y=16, last at y=479)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=16-46): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=106-136): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=195-224): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=284-314): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=372-404): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=465-479): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
+Processing 150 member list images...
+  crop_construction_000.png (Metric: construction)... Initializing EasyOCR with GPU (CUDA) and languages ['en']...
+  Detected 2 rows via EasyOCR (first at y=26, last at y=146)
+Initializing EasyOCR with GPU (CUDA) and languages ['en', 'vi']...
+Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ko']...
+Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ja']...
+Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ch_sim']...
+Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru']...
+2 members
+  crop_construction_001.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=17, last at y=473)
+5 members
+  crop_construction_002.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=17, last at y=490)
+6 members
+  crop_construction_003.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=38, last at y=427)
+5 members
+  crop_construction_004.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
+5 members
+  crop_construction_005.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
+6 members
+  crop_construction_006.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
+6 members
+  crop_construction_007.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+5 members
+  crop_construction_008.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=51, last at y=440)
+5 members
+  crop_construction_009.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
+5 members
+  crop_construction_010.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=6, last at y=482)
+6 members
+  crop_construction_011.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
+5 members
+  crop_construction_012.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
+5 members
+  crop_construction_013.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
+5 members
+  crop_construction_014.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=2, last at y=480)
+6 members
+  crop_construction_015.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
+6 members
+  crop_construction_016.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=42, last at y=432)
+5 members
+  crop_construction_017.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
+4 members
+  crop_construction_018.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
+3 members
+  crop_construction_019.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
+2 members
+  crop_construction_020.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
+2 members
+  crop_construction_021.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=53, last at y=446)
+2 members
+  crop_construction_022.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
+2 members
+  crop_construction_023.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
+1 members
+  crop_construction_024.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+3 members
+  crop_construction_025.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=54, last at y=442)
+2 members
+  crop_construction_026.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
+3 members
+  crop_construction_027.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
+3 members
+  crop_construction_028.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
+2 members
+  crop_construction_podium.png (Metric: construction)... 3 members
+  crop_kills_000.png (Metric: kills)...   Detected 2 rows via EasyOCR (first at y=24, last at y=146)
+2 members
+  crop_kills_001.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=17, last at y=470)
+5 members
+  crop_kills_002.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=12, last at y=490)
+6 members
+  crop_kills_003.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=38, last at y=427)
+5 members
+  crop_kills_004.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
+5 members
+  crop_kills_005.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=469)
+6 members
+  crop_kills_006.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=12, last at y=489)
+6 members
+  crop_kills_007.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+5 members
+  crop_kills_008.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=51, last at y=440)
+5 members
+  crop_kills_009.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
+5 members
+  crop_kills_010.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=6, last at y=482)
+6 members
+  crop_kills_011.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=25, last at y=496)
+5 members
+  crop_kills_012.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
+5 members
+  crop_kills_013.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
+5 members
+  crop_kills_014.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=2, last at y=480)
+6 members
+  crop_kills_015.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
+6 members
+  crop_kills_016.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=44, last at y=430)
+5 members
+  crop_kills_017.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
+5 members
+  crop_kills_018.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
+6 members
+  crop_kills_019.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
+6 members
+  crop_kills_020.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=38, last at y=428)
+5 members
+  crop_kills_021.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=57, last at y=449)
+5 members
+  crop_kills_022.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
+6 members
+  crop_kills_023.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
+6 members
+  crop_kills_024.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+5 members
+  crop_kills_025.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=54, last at y=442)
+5 members
+  crop_kills_026.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=73, last at y=462)
+5 members
+  crop_kills_027.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
+6 members
+  crop_kills_028.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
+5 members
+  crop_kills_podium.png (Metric: kills)... 3 members
+  crop_power_000.png (Metric: power)...   Detected 2 rows via EasyOCR (first at y=25, last at y=146)
+2 members
+  crop_power_001.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
+5 members
+  crop_power_002.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=16, last at y=490)
+6 members
+  crop_power_003.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=38, last at y=427)
+5 members
+  crop_power_004.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
+5 members
+  crop_power_005.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
+6 members
+  crop_power_006.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
+6 members
+  crop_power_007.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+5 members
+  crop_power_008.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=51, last at y=440)
+5 members
+  crop_power_009.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
+5 members
+  crop_power_010.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=6, last at y=485)
+6 members
+  crop_power_011.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
+5 members
+  crop_power_012.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
+5 members
+  crop_power_013.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
+5 members
+  crop_power_014.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=2, last at y=478)
+6 members
+  crop_power_015.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
+6 members
+  crop_power_016.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=44, last at y=432)
+5 members
+  crop_power_017.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
+5 members
+  crop_power_018.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
+6 members
+  crop_power_019.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
+6 members
+  crop_power_020.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
+5 members
+  crop_power_021.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=57, last at y=446)
+5 members
+  crop_power_022.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
+6 members
+  crop_power_023.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=12, last at y=490)
+6 members
+  crop_power_024.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+5 members
+  crop_power_025.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=54, last at y=442)
+5 members
+  crop_power_026.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=73, last at y=465)
+5 members
+  crop_power_027.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
+6 members
+  crop_power_028.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
+6 members
+  crop_power_podium.png (Metric: power)... 3 members
+  crop_tribe_assistance_000.png (Metric: tribe_assistance)...   Detected 2 rows via EasyOCR (first at y=26, last at y=144)
+2 members
+  crop_tribe_assistance_001.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=18, last at y=470)
+5 members
+  crop_tribe_assistance_002.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=16, last at y=490)
+6 members
+  crop_tribe_assistance_003.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=36, last at y=427)
+5 members
+  crop_tribe_assistance_004.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
+5 members
+  crop_tribe_assistance_005.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
+6 members
+  crop_tribe_assistance_006.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
+6 members
+  crop_tribe_assistance_007.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=29, last at y=420)
+5 members
+  crop_tribe_assistance_008.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=49, last at y=440)
+5 members
+  crop_tribe_assistance_009.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
+5 members
+  crop_tribe_assistance_010.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=6, last at y=485)
+6 members
+  crop_tribe_assistance_011.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
+5 members
+  crop_tribe_assistance_012.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
+5 members
+  crop_tribe_assistance_013.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=67, last at y=458)
+5 members
+  crop_tribe_assistance_014.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=478)
+6 members
+  crop_tribe_assistance_015.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
+6 members
+  crop_tribe_assistance_016.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=43, last at y=430)
+5 members
+  crop_tribe_assistance_017.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
+5 members
+  crop_tribe_assistance_018.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
+6 members
+  crop_tribe_assistance_019.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=15, last at y=495)
+6 members
+  crop_tribe_assistance_020.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
+5 members
+  crop_tribe_assistance_021.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=60, last at y=449)
+5 members
+  crop_tribe_assistance_022.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
+6 members
+  crop_tribe_assistance_023.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=11, last at y=488)
+6 members
+  crop_tribe_assistance_024.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=32, last at y=425)
+5 members
+  crop_tribe_assistance_025.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=54, last at y=444)
+2 members
+  crop_tribe_assistance_026.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=73, last at y=462)
 0 members
-  crop_003.png...   Detected 5 rows via EasyOCR (first at y=37, last at y=427)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=37-68): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=126-158): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=216-248): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=304-336): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=391-427): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
+  crop_tribe_assistance_027.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
 0 members
-  crop_004.png...   Detected 5 rows via EasyOCR (first at y=56, last at y=446)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=56-90): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=145-181): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=236-268): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=323-359): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=414-446): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_005.png...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=0-19): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=77-113): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=168-200): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=253-290): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=346-378): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=436-468): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_006.png...   Detected 6 rows via EasyOCR (first at y=7, last at y=479)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=7-44): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=100-132): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=187-223): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=277-310): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=365-401): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=459-479): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_007.png...   Detected 5 rows via EasyOCR (first at y=31, last at y=422)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=31-64): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=122-154): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=210-242): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=297-333): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=388-422): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_008.png...   Detected 5 rows via EasyOCR (first at y=54, last at y=440)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=54-86): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=142-174): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=232-264): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=320-352): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=410-440): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_009.png...   Detected 5 rows via EasyOCR (first at y=74, last at y=462)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=74-106): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=161-197): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=252-286): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=342-374): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=430-462): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_010.png...   Detected 6 rows via EasyOCR (first at y=6, last at y=479)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=6-40): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=93-129): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=184-216): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=274-306): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=362-394): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=450-479): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_011.png...   Detected 5 rows via EasyOCR (first at y=25, last at y=417)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=25-61): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=116-148): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=203-239): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=294-326): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=381-417): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_012.png...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=48-80): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=138-170): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=226-258): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=316-348): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=404-436): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_013.png...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=67-103): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=158-190): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=245-281): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=336-368): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=426-456): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_014.png...   Detected 6 rows via EasyOCR (first at y=2, last at y=476)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=2-34): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=90-122): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=180-210): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=268-301): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=352-391): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=446-476): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_015.png...   Detected 5 rows via EasyOCR (first at y=22, last at y=410)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=22-55): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=107-145): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=200-230): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=290-320): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=378-410): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_016.png...   Detected 5 rows via EasyOCR (first at y=44, last at y=430)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=44-76): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=132-164): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=222-252): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=310-342): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=400-430): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_017.png...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=64-96): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=152-184): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=242-274): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=332-364): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=420-452): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_018.png...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=0-28): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=85-118): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=174-206): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=261-297): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=352-384): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=442-474): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_019.png...   Detected 6 rows via EasyOCR (first at y=15, last at y=479)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=15-51): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=106-138): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=196-228): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=284-316): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=374-406): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=467-479): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_020.png...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=38-70): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=128-160): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=215-250): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=303-339): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=394-426): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_021.png...   Detected 5 rows via EasyOCR (first at y=57, last at y=446)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=57-93): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=148-180): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=236-268): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=326-358): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=414-446): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_022.png...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=0-22): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=80-112): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=168-200): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=258-290): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=345-381): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=433-470): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_023.png...   Detected 6 rows via EasyOCR (first at y=12, last at y=479)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=12-44): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=98-135): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=187-224): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=278-310): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=368-400): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=456-479): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_024.png...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=32-64): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=122-154): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=209-245): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=300-332): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=388-420): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_025.png...   Detected 5 rows via EasyOCR (first at y=54, last at y=442)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=54-86): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=142-174): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=232-264): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=320-352): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=410-442): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_026.png...   Detected 5 rows via EasyOCR (first at y=73, last at y=462)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=73-109): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=164-196): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=254-286): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=342-374): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=432-462): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_027.png...   Detected 6 rows via EasyOCR (first at y=4, last at y=479)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=4-41): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=96-128): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=186-216): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=274-306): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=361-397): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=452-479): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-  crop_028.png...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 0 (y=0-24): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 1 (y=82-114): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 2 (y=170-202): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 3 (y=260-292): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 4 (y=348-380): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru', 'vi']...
-  Warning: Failed to parse row 5 (y=438-470): Cyrillic is only compatible with English, try lang_list=["ru","rs_cyrillic","be","bg","uk","mn","en"]
-0 members
-✓ Extracted 0 total records
-✗ No records extracted!
+  crop_tribe_assistance_028.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
+2 members
+  crop_tribe_assistance_podium.png (Metric: tribe_assistance)... 3 members
+  crop_weekly_contribution_000.png (Metric: weekly_contribution)...   Detected 2 rows via EasyOCR (first at y=26, last at y=146)
+2 members
+  crop_weekly_contribution_001.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=18, last at y=476)
+5 members
+  crop_weekly_contribution_002.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=17, last at y=490)
+6 members
+  crop_weekly_contribution_003.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=33, last at y=427)
+5 members
+  crop_weekly_contribution_004.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=55, last at y=446)
+5 members
+  crop_weekly_contribution_005.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=469)
+6 members
+  crop_weekly_contribution_006.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=11, last at y=488)
+6 members
+  crop_weekly_contribution_007.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+5 members
+  crop_weekly_contribution_008.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=51, last at y=441)
+5 members
+  crop_weekly_contribution_009.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
+5 members
+  crop_weekly_contribution_010.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=6, last at y=485)
+6 members
+  crop_weekly_contribution_011.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
+5 members
+  crop_weekly_contribution_012.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
+5 members
+  crop_weekly_contribution_013.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
+5 members
+  crop_weekly_contribution_014.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=2, last at y=478)
+6 members
+  crop_weekly_contribution_015.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
+6 members
+  crop_weekly_contribution_016.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=44, last at y=430)
+5 members
+  crop_weekly_contribution_017.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
+5 members
+  crop_weekly_contribution_018.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
+6 members
+  crop_weekly_contribution_019.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
+6 members
+  crop_weekly_contribution_020.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
+5 members
+  crop_weekly_contribution_021.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=57, last at y=447)
+5 members
+  crop_weekly_contribution_022.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
+6 members
+  crop_weekly_contribution_023.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
+6 members
+  crop_weekly_contribution_024.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
+5 members
+  crop_weekly_contribution_025.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=52, last at y=442)
+5 members
+  crop_weekly_contribution_026.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
+6 members
+  crop_weekly_contribution_027.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
+6 members
+  crop_weekly_contribution_028.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
+6 members
+  crop_weekly_contribution_podium.png (Metric: weekly_contribution)... 3 members
+✓ Extracted 730 total records
+Merging records and deduplicating...
+✓ 91 unique members identified
+Sorting by POWER and calculating ranks...
+Rank  | Name                 | Power        | Kills        | Weekly     | Const.     | Asst.
+-------------------------------------------------------------------------------------------------
+1     | Razsiel              | 44,159,316   | 5,073        | 86,700     | 0          | 1,687
+2     | kimse81              | 24,399,349   | 0            | 67,800     | 24,602     | 1,052
+3     | Raffyy               | 23,219,611   | 0            | 82,300     | 0          | 1,501
+4     | AntyDeath            | 20,949,408   | 1,392,524    | 76,300     | 89,891     | 1,220
+5     | bigcheese            | 20,739,075   | 399,235      | 83,100     | 0          | 0
+6     | Taidana              | 17,847,540   | 0            | 77,000     | 87,369     | 968
+7     | XSTORMX              | 16,796,407   | 18,407       | 75,900     | 2,813      | 1,728
+8     | KMGLAY               | 13,896,723   | 0            | 69,700     | 4,565      | 1,528
+9     | xAeolus              | 13,692,675   | 17,302       | 75,200     | 59,032     | 1,179
+10    | NanP                 | 13,227,194   | 0            | 83,800     | 132,015    | 1,353
+11    | Batangbata           | 13,196,035   | 698,716      | 76,400     | 126,181    | 978
+12    | Marinel              | 11,562,629   | 11,568       | 84,800     | 3,938      | 1,130
+13    | Tecchi               | 11,540,317   | 182,952      | 72,100     | 39,742     | 1,006
+14    | xMorphx              | 11,281,934   | 7,412        | 78,700     | 30,127     | 1,517
+15    | Baronbee             | 10,535,669   | 0            | 75,900     | 58,441     | 1,714
+16    | TeddyT               | 10,169,337   | 379,808      | 64,900     | 49,572     | 661
+17    | VonGodeuro           | 10,062,053   | 209,374      | 77,000     | 0          | 833
+18    | Douzeper             | 10,009,995   | 108,468      | 61,100     | 11,707     | 625
+19    | AutisticDragon       | 9,692,524    | 328,782      | 82,700     | 0          | 1,035
+20    | CHADZ                | 9,658,338    | 6,760        | 80,100     | 19,896     | 1,384
+21    | 在下梅遊鉛           | 9,465,980    | 20,951       | 66,700     | 0          | 838
+22    | redripe              | 9,149,795    | 0            | 43,100     | 0          | 535
+23    | xesseku              | 9,070,612    | 10,249       | 79,700     | 155,520    | 843
+24    | bloodyxmary          | 9,069,089    | 55,973       | 82,100     | 20,763     | 637
+25    | Ornthrond            | 9,012,184    | 31,861       | 85,600     | 0          | 1,491
+26    | Novac                | 8,839,059    | 3,521        | 97,500     | 11,158     | 2,061
+27    | BestGodoo7x          | 8,750,014    | 38,601       | 74,200     | 11,410     | 1,003
+28    | mamon                | 8,710,524    | 36,627       | 73,900     | 0          | 651
+29    | Riggles              | 8,454,750    | 0            | 10,600     | 0          | 104
+30    | DragonKiller         | 8,437,030    | 176,447      | 80,200     | 4,523      | 877
+31    | SeRaFeTTiN           | 8,427,320    | 168,406      | 71,400     | 3,306      | 505
+32    | Zph                  | 8,409,767    | 553,767      | 5,400      | 4,501      | 281
+33    | AuditorMuda          | 8,318,158    | 0            | 75,200     | 158,196    | 1,545
+34    | no3Ldev              | 7,966,188    | 1,238,920    | 78,200     | 22,039     | 1,113
+35    | すももん             | 7,870,435    | 0            | 78,800     | 0          | 1,340
+36    | Helikaeon            | 7,783,026    | 0            | 63,300     | 48,566     | 679
+37    | Shreff               | 7,758,066    | 0            | 67,100     | 0          | 777
+38    | Kalbaram             | 7,696,759    | 0            | 80,600     | 16,866     | 2,090
+39    | Khaleesil3           | 7,657,819    | 0            | 73,500     | 41,192     | 1,130
+40    | AlfaStraik           | 7,406,296    | 8,606        | 76,400     | 0          | 803
+41    | beast                | 7,097,470    | 0            | 1,000      | 0          | 0
+42    | ゆ一一               | 6,830,912    | 7,182        | 30,200     | 850        | 445
+43    | HoTDog               | 6,772,616    | 24,866       | 56,200     | 79,429     | 728
+44    | ThoroMG              | 6,761,223    | 0            | 55,900     | 2,627      | 920
+45    | Abanob               | 6,720,256    | 18,743       | 7,700      | 0          | 122
+46    | TheGuardainz         | 6,654,726    | 0            | 50,900     | 25,534     | 381
+47    | Denton1o4            | 6,597,792    | 0            | 0          | 0          | 0
+48    | Zoraool              | 6,545,957    | 0            | 83,800     | 139,199    | 905
+49    | drikol               | 6,436,338    | 3,346        | 68,600     | 48,030     | 448
+50    | chamame              | 6,406,455    | 2,997        | 35,400     | 0          | 613
+... and 32 more
+✓ CSV report saved:  outputs\members_2026-01-01_23-46-52.csv
+✓ HTML report saved: outputs\members_2026-01-01_23-46-52.html
+✓ Debug log saved:   outputs\parsed_members.txt

@@ -1,202 +1,89 @@
 # Fate War Alliance Member Scraper
 
-Extract alliance member ranking data from the Fate War game UI using screen capture and OCR.
+Extract comprehensive alliance member data from the Fate War game UI using screen capture and multi-language OCR.
 
 ## Features
 
-- **Window Capture**: Captures only the game window (no full-screen screenshot)
-- **Smart Cropping**: Configurable region extraction for the member list
-- **OCR Processing**: Uses Tesseract OCR with preprocessing for accuracy
-- **Robust Parsing**: Handles OCR noise and extracts Name, Power, Helps
-- **Clean Output**: Exports to CSV and a shareable HTML table
-- **Debug Mode**: Saves intermediate images for troubleshooting
+- **Multi-Category Tracking**: Automatically scrapes Power, Kills, Weekly Contribution, Construction, Tribe Assistance, and Gold Donation.
+- **Automated Navigation**: Uses OCR to find and click category buttons within the game window.
+- **Auto-Scrolling**: Automatically scrolls through the entire member list for each category.
+- **International Language Support**: Specialized OCR for English, Korean, Japanese, Chinese (Simplified), Russian, and Vietnamese.
+- **Fuzzy Deduplication**: Intelligently merges records from different scans, even with minor OCR noise or name variations.
+- **Window Capture**: Captures only the game window (no full-screen screenshot required).
+- **Clean Output**: Exports to CSV and a styled, shareable HTML table.
 
 ## Requirements
 
 - Python 3.12+
 - Windows 10/11
-- Tesseract OCR installed
+- NVIDIA GPU with CUDA (recommended for fast OCR)
 
 ## Installation
 
-### 1. Install Tesseract OCR
-
-Download and install from: https://github.com/UB-Mannheim/tesseract/wiki
-
-Default installation path: `C:\Program Files\Tesseract-OCR\tesseract.exe`
-
-### 2. Install the Project
-
 ```bash
 # Clone or download this repository
-cd fate-war-scraper
+cd FateWarScraper
 
 # Create virtual environment (recommended)
 python -m venv venv
 venv\Scripts\activate
 
-# Install in editable mode
+# Install dependencies
+pip install -r requirements.txt
+
+# Install the project in editable mode
 pip install -e .
 ```
 
 ## Usage
 
-### Basic Usage
-
-1. Start the Fate War game
-2. Open the alliance member list screen
+1. Start the Fate War game.
+2. Open the alliance member list ranking screen.
 3. Run the scraper:
 
 ```bash
+# Standard scan (excludes Gold Donation)
 python -m fatewarscraper
+
+# Complete scan (includes Gold Donation)
+python -m fatewarscraper --gold
 ```
 
 The scraper will:
-1. Find and capture the "Fate War" window
-2. Crop to the member list region
-3. Run OCR to extract text
-4. Parse member data (Name, Power, Helps)
-5. Export to `outputs/alliance_members.csv` and `outputs/alliance_members.html`
-
-### Adjusting Crop Region
-
-The default crop region may not match your screen resolution. To adjust:
-
-1. Run the scraper once to generate `outputs/debug_full.png`
-2. Open the debug image and note the pixel coordinates of the member list
-3. Edit `src/fatewarscraper/config.py`:
-
-```python
-@dataclass(frozen=True)
-class CropConfig:
-    left: int = 50      # Left edge of member list
-    top: int = 150      # Top edge
-    right: int = 800    # Right edge
-    bottom: int = 900   # Bottom edge
-```
-
-4. Run again and check `outputs/debug_crop.png` to verify
-
-### Custom Window Title
-
-If your game window has a different title:
-
-```python
-# In config.py
-@dataclass(frozen=True)
-class ScraperConfig:
-    window_title: str = "Your Window Title"
-    # ... other settings
-```
+1. Find the "Fate War" window.
+2. Iterate through all categories (Individual Might, Killing Machine, etc.).
+3. For each category:
+   - Click the tab.
+   - Scroll and capture the entire list.
+4. Process all images using EasyOCR.
+5. Merge data into a single record per member.
+6. Sort by Power (highest to lowest).
+7. Export to `outputs/`.
 
 ## Output Files
 
-### CSV (`outputs/alliance_members.csv`)
-```csv
-Name,Power,Helps,Valid,Raw Line
-PlayerOne,123456,789,Yes,PlayerOne 123456 789
-PlayerTwo,234567,890,Yes,PlayerTwo 234567 890
-```
-
-### HTML (`outputs/alliance_members.html`)
-- Clean, shareable table
-- Sortable columns (click headers)
-- Responsive design
-- Highlights rows with parsing issues
-
-### Debug Files (when `debug_enabled=True`)
-- `debug_full.png`: Full window capture
-- `debug_crop.png`: Cropped member list region
-- `debug_processed.png`: Preprocessed image (after enhancement)
-- `debug_ocr.txt`: Raw OCR text output
-
-## Configuration
-
-All configuration is in `src/fatewarscraper/config.py`:
-
-```python
-@dataclass(frozen=True)
-class ScraperConfig:
-    window_title: str = "Fate War"              # Window to capture
-    crop: CropConfig = CropConfig()             # Crop coordinates
-    ocr: OCRConfig = OCRConfig()                # OCR settings
-    output_dir: Path = Path("outputs")          # Output directory
-    debug_enabled: bool = True                  # Save debug files
-```
-
-### OCR Configuration
-
-```python
-@dataclass(frozen=True)
-class OCRConfig:
-    tesseract_cmd: str = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-    tesseract_config: str = "--psm 6 --oem 3"   # Tesseract parameters
-    language: str = "eng"                        # OCR language
-```
-
-## Troubleshooting
-
-### "Window not found"
-- Ensure Fate War is running
-- Check the window title matches exactly
-- Try adjusting `window_title` in config
-
-### Poor OCR Results
-1. Check `debug_crop.png` - is the member list fully visible?
-2. Adjust crop coordinates in `CropConfig`
-3. Check `debug_processed.png` - text should be clear black-on-white
-4. Try adjusting preprocessing in `preprocess.py`:
-   - `contrast_factor`: 1.5 to 3.0
-   - `threshold`: 100 to 150
-
-### "Tesseract not found"
-- Verify Tesseract is installed
-- Update `tesseract_cmd` path in `OCRConfig`
-
-### Invalid Parsing
-- Check `debug_ocr.txt` to see raw OCR output
-- Member rows marked as invalid are still included in output with `is_valid=False`
-- Adjust parsing logic in `parse.py` if needed
+- `outputs/members_YYYY-MM-DD_HH-MM-SS.csv`: Structured data for Excel/Google Sheets.
+- `outputs/members_YYYY-MM-DD_HH-MM-SS.html`: A beautiful, shareable HTML table.
+- `outputs/parsed_members.txt`: A debug log showing raw OCR readings.
+- `outputs/*.png`: Cropped debug images for verification.
 
 ## Project Structure
 
 ```
-fate-war-scraper/
+FateWarScraper/
 ├── src/fatewarscraper/
 │   ├── __init__.py         # Package metadata
 │   ├── __main__.py         # Entry point
 │   ├── cli.py              # Main orchestration
-│   ├── config.py           # Configuration classes
 │   ├── capture.py          # Window capture
 │   ├── preprocess.py       # Image preprocessing
 │   ├── ocr.py              # OCR extraction
+│   ├── navigation.py       # UI interaction & navigation
 │   ├── parse.py            # Data parsing
 │   └── export.py           # CSV/HTML export
 ├── outputs/                # Generated files (gitignored)
 ├── pyproject.toml          # Project metadata
 └── README.md
-```
-
-## Development
-
-### Code Style
-- Type hints everywhere
-- Dataclasses for structured data
-- Small, focused functions
-- Descriptive names and docstrings
-
-### Testing Manually
-```bash
-# Run with debug enabled (default)
-python -m fatewarscraper
-
-# Check outputs
-outputs/debug_full.png        # Full capture
-outputs/debug_crop.png        # Cropped region
-outputs/debug_processed.png   # After preprocessing
-outputs/debug_ocr.txt         # Raw OCR text
-outputs/alliance_members.csv  # Final CSV
-outputs/alliance_members.html # Final HTML
 ```
 
 ## Legal Notice

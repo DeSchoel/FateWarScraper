@@ -162,7 +162,12 @@ def scroll_window(hwnd: int, scroll_amount: int = -1) -> None:
         screen_y = window_y + list_center_y
 
         # Bring window to foreground
-        win32gui.SetForegroundWindow(hwnd)
+        try:
+            win32gui.SetForegroundWindow(hwnd)
+        except Exception:
+            # Sometimes SetForegroundWindow fails if we don't own the process
+            # or if it's already in the foreground. Often ignorable.
+            pass
         time.sleep(0.1)
 
         # Move mouse to center of list

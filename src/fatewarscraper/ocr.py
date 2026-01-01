@@ -158,6 +158,11 @@ def extract_lines(img: Image.Image) -> list[str]:
     return lines
 
 
+def image_to_text(img: Image.Image) -> str:
+    """Legacy alias for extract_text."""
+    return extract_text(img)
+
+
 def configure_tesseract(tesseract_path: str = r"C:\Program Files\Tesseract-OCR\tesseract.exe") -> None:
     """Dummy function for backward compatibility.
 

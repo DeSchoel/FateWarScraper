@@ -16,15 +16,25 @@ class MemberRecord:
         rank: Member rank/position in alliance
         name: Member name
         power: Member power
+        kills: Member kills
+        weekly_contribution: Member weekly contribution
+        construction: Member construction
+        tribe_assistance: Member tribe assistance
+        gold_donation: Member gold donation
         read_rank: Rank read from OCR (may differ from actual rank)
         power_rank: Actual rank based on power sorting
         rank_mismatch: True if read_rank != power_rank
         raw_line: Original OCR line
         is_valid: Whether parsing was successful
     """
-    rank: Optional[int] = None  # This will be power_rank
+    rank: Optional[int] = None  # This will be power_rank or similar
     name: str = ""
     power: Optional[int] = None
+    kills: Optional[int] = None
+    weekly_contribution: Optional[int] = None
+    construction: Optional[int] = None
+    tribe_assistance: Optional[int] = None
+    gold_donation: Optional[int] = None
     read_rank: Optional[int] = None  # What OCR read
     power_rank: Optional[int] = None  # Calculated from power
     rank_mismatch: bool = False
@@ -51,28 +61,128 @@ def clean_number_string(text: str) -> str:
 
 def extract_number(text: str) -> Optional[int]:
     """Extract a number from text string."""
-    cleaned = clean_number_string(text)
+    # Special handling for common OCR errors in large numbers
+    
+    # Remove dots and commas if they look like separators
+    temp = text
+    # Replace dots/commas that are followed by 3 digits
+    temp = re.sub(r'[\.,](\d{3})(?!\d)', r'\1', temp)
+    temp = re.sub(r'[\.,](\d{3})', r'\1', temp)
+
+    # 1. Handle spaces that might split a number
+    # If we have something like "13,227, 2 194" -> "13227 2 194"
+    parts = temp.split()
+    if len(parts) > 1:
+        # If there are multiple parts, and one part is a single digit '2' or '7' 
+        # that is isolated, it's often a misread comma.
+        # However, we don't want to blindly remove digits.
+        
+        # Heuristic for the "extra digit" issue:
+        # If the total number of digits is 9 (hundreds of millions) but the first 
+        # digit is 1 and it's followed by a suspicious gap, it might be 1x,xxx,xxx.
+        
+        # Let's look at the parts. 
+        # "13227", "2", "194"
+        new_parts = []
+        for p in parts:
+            p_clean = clean_number_string(p)
+            if p_clean:
+                # If a part is a single digit and we already have many digits, 
+                # and it's not the last part, it's suspicious.
+                if len(p_clean) == 1 and len(new_parts) > 0 and len("".join(new_parts)) >= 3:
+                    # Potential misread comma. Skip it.
+                    continue
+                new_parts.append(p_clean)
+        
+        cleaned = "".join(new_parts)
+    else:
+        cleaned = clean_number_string(temp)
+
     if cleaned:
         try:
-            return int(cleaned)
+            val = int(cleaned)
+            return val
         except ValueError:
             pass
     return None
 
 
+def get_display_width(s: str) -> int:
+    """Calculate the display width of a string, accounting for wide characters."""
+    import unicodedata
+    width = 0
+    for char in s:
+        if unicodedata.east_asian_width(char) in ('W', 'F'):
+            width += 2
+        else:
+            width += 1
+    return width
+
+
+def pad_for_display(s: str, width: int) -> str:
+    """Pad a string to a specific display width."""
+    if s is None:
+        s = ""
+    current_width = get_display_width(s)
+    padding = max(0, width - current_width)
+    return s + " " * padding
+
+
+def generate_text_report(records: list[MemberRecord], include_raw: bool = True) -> str:
+    """Generate a formatted text report from member records."""
+    has_gold = any(rec.gold_donation is not None for rec in records)
+    
+    # Define columns: (Label, Width, Attribute)
+    cols = [
+        ("Rank", 5, "power_rank"),
+        ("Name", 20, "name"),
+        ("Power", 12, "power"),
+        ("Kills", 12, "kills"),
+        ("Weekly", 10, "weekly_contribution"),
+        ("Const.", 10, "construction"),
+        ("Asst.", 10, "tribe_assistance")
+    ]
+    if has_gold:
+        cols.append(("Gold", 10, "gold_donation"))
+    
+    # Header
+    header_parts = [pad_for_display(label, width) for label, width, _ in cols]
+    header = " | ".join(header_parts)
+    if include_raw:
+        header += " | Raw Line"
+    
+    lines = [header]
+    
+    # Separator line based on display width
+    total_width = sum(width for _, width, _ in cols) + (len(cols) - 1) * 3
+    if include_raw:
+        total_width += 13 # " | Raw Line"
+    lines.append("-" * total_width)
+    
+    for rec in records:
+        row_parts = []
+        for label, width, attr in cols:
+            val = getattr(rec, attr)
+            if val is None:
+                val_str = "?" if attr == "power_rank" else "0"
+            elif isinstance(val, int):
+                # Use comma formatting for all numbers except rank
+                val_str = f"{val:,}" if attr != "power_rank" else str(val)
+            else:
+                val_str = str(val)
+            
+            row_parts.append(pad_for_display(val_str, width))
+        
+        row = " | ".join(row_parts)
+        if include_raw:
+            row += f" | {rec.raw_line}"
+        lines.append(row)
+        
+    return "\n".join(lines)
+
+
 def clean_name(text: str) -> str:
     """Clean name text - keep alphanumeric and international characters.
-
-    Supports ALL major writing systems:
-    - English (Latin alphabet)
-    - Korean (Hangul)
-    - Japanese (Hiragana, Katakana, Kanji)
-    - Chinese (Simplified and Traditional)
-    - Russian (Cyrillic)
-    - Arabic
-    - Vietnamese (Latin with diacritics)
-    - Thai
-    - And more...
 
     Args:
         text: Raw name text from OCR
@@ -81,11 +191,23 @@ def clean_name(text: str) -> str:
         Cleaned name
     """
     # Keep: letters, numbers, underscore, hyphen
-    # Remove: punctuation, symbols, emojis
     # \w matches Unicode word characters (letters, digits from any language)
     pattern = r'[^\w\-]'
     cleaned = re.sub(pattern, '', text, flags=re.UNICODE)
-    return cleaned.strip()
+    cleaned = cleaned.strip()
+
+    # Noise filtering:
+    # 1. If name is strictly numeric, it's likely a misread of a nearby number field
+    if cleaned.isdigit():
+        return ""
+        
+    # 2. Reject names that contain substrings from filenames (OCR hallucinations)
+    # This often happens if the OCR catches text from a watermark or similar
+    lower_cleaned = cleaned.lower()
+    if "smallcheese" in lower_cleaned or "regular" == lower_cleaned or "podium" == lower_cleaned:
+        return ""
+        
+    return cleaned
 
 
 def detect_text_rows_with_easyocr(img: Image.Image) -> list[tuple[int, int]]:
@@ -122,7 +244,7 @@ def detect_text_rows_with_easyocr(img: Image.Image) -> list[tuple[int, int]]:
     current_row_bottom = y_positions[0][1]
 
     for top_y, bottom_y in y_positions[1:]:
-        if top_y <= current_row_bottom + 10:
+        if top_y <= current_row_bottom + 5:
             current_row_bottom = max(current_row_bottom, bottom_y)
         else:
             rows.append((int(current_row_top), int(current_row_bottom)))
@@ -134,7 +256,7 @@ def detect_text_rows_with_easyocr(img: Image.Image) -> list[tuple[int, int]]:
     return rows
 
 
-def extract_member_from_row(img: Image.Image, row_top: int, row_bottom: int) -> MemberRecord:
+def extract_member_from_row(img: Image.Image, row_top: int, row_bottom: int, metric_name: str = "power") -> MemberRecord:
     """Extract member data from a detected row using fixed x-coordinates."""
     from fatewarscraper.ocr import extract_text_single_line, extract_text_for_name
     from fatewarscraper.preprocess import preprocess_for_ocr
@@ -151,48 +273,69 @@ def extract_member_from_row(img: Image.Image, row_top: int, row_bottom: int) -> 
 
     # Coordinates are for the original 1280x720 window
     # EasyOCR works better on processed crops
-    rank_crop = img.crop((0, row_top, 80, row_bottom))
-    name_crop = img.crop((150, row_top, 400, row_bottom))
-    power_crop = img.crop((730, row_top, 950, row_bottom))
+    rank_crop = img.crop((0, row_top, 100, row_bottom))
+    name_crop = img.crop((150, row_top, 420, row_bottom))
+    value_crop = img.crop((680, row_top, 1000, row_bottom))
 
     # Apply preprocessing to field crops
     # Rank is very small (1-2 digits), using 4x upscale helps significantly
-    # Power is longer (7-8 digits), 3x is a good balance
+    # Value is longer (7-8 digits), 3x is a good balance
     rank_crop = preprocess_for_ocr(rank_crop, upscale=4)
     name_crop = preprocess_for_ocr(name_crop, upscale=2)
-    power_crop = preprocess_for_ocr(power_crop, upscale=3)
+    value_crop = preprocess_for_ocr(value_crop, upscale=3)
 
     # Use standard English reader for numbers
     rank_text = extract_text_single_line(rank_crop, languages=['en'])
     # Use specialized multi-language logic for names
     name_text = extract_text_for_name(name_crop)
     # Use standard English reader for numbers
-    power_text = extract_text_single_line(power_crop, languages=['en'])
+    value_text = extract_text_single_line(value_crop, languages=['en'])
 
     read_rank = extract_number(rank_text) if rank_text else None
     name = clean_name(name_text)
-    power = extract_number(power_text) if power_text else None
+    value = extract_number(value_text) if value_text else None
 
     # Noise filtering
     # 1. Names should be at least 2 characters (game names usually are)
-    # 2. If it's a single character name, it's likely noise unless power is high
-    is_valid = bool(name) and (read_rank is not None or power is not None)
+    # 2. If it's a single character name, it's likely noise unless value is high
+    is_valid = bool(name) and (read_rank is not None or value is not None)
     
-    if is_valid and len(name) < 2:
-        # Reject single-character names unless they have a very plausible power
-        if power is None or power < 1000:
+    # Strict noise filtering for rank
+    if read_rank is not None:
+        # If OCR read something like "2c" or "L9", it might have been misread.
+        # The user requested to exclude any entries with letters in their rank.
+        if re.search(r'[a-zA-Z]', rank_text):
+            is_valid = False
+        
+        # Also check for too much other noise
+        rank_clean = "".join(c for c in rank_text if c.isdigit() or c.isspace())
+        if len(rank_clean.strip()) < len(rank_text.strip()) - 1:
+            # Too many non-digit characters in rank (e.g. "2!#")
             is_valid = False
 
-    return MemberRecord(
+    if is_valid and len(name) < 2:
+        # Reject single-character names unless they have a very plausible value
+        if value is None or value < 1000:
+            is_valid = False
+
+    # Filter out common UI noise at the bottom of lists
+    if is_valid and value is not None and value < 100:
+        # Very low power/kills/etc are usually noise from footer
+        if read_rank is not None and read_rank > 50:
+             is_valid = False
+
+    # Create record with the specified metric
+    record = MemberRecord(
         read_rank=read_rank,
         name=name,
-        power=power,
-        raw_line=f"Read Rank: {rank_text} | Name: {name_text} | Power: {power_text}",
+        raw_line=f"Read Rank: {rank_text} | Name: {name_text} | {metric_name.capitalize()}: {value_text}",
         is_valid=is_valid
     )
+    setattr(record, metric_name, value)
+    return record
 
 
-def parse_image_by_rows(img: Image.Image, **kwargs) -> list[MemberRecord]:
+def parse_image_by_rows(img: Image.Image, metric_name: str = "power", **kwargs) -> list[MemberRecord]:
     """Parse image using EasyOCR text detection to find rows."""
     rows = detect_text_rows_with_easyocr(img)
 
@@ -205,7 +348,7 @@ def parse_image_by_rows(img: Image.Image, **kwargs) -> list[MemberRecord]:
     records = []
     for i, (row_top, row_bottom) in enumerate(rows):
         try:
-            record = extract_member_from_row(img, row_top, row_bottom)
+            record = extract_member_from_row(img, row_top, row_bottom, metric_name=metric_name)
             if record.is_valid:
                 records.append(record)
         except Exception as e:
@@ -215,7 +358,7 @@ def parse_image_by_rows(img: Image.Image, **kwargs) -> list[MemberRecord]:
     return records
 
 
-def parse_podium_image(img: Image.Image) -> list[MemberRecord]:
+def parse_podium_image(img: Image.Image, metric_name: str = "power") -> list[MemberRecord]:
     """Parse the podium image with top 3 members using FIXED coordinates."""
     from fatewarscraper.ocr import extract_text_single_line, extract_text_for_name
     from fatewarscraper.preprocess import preprocess_for_ocr
@@ -228,29 +371,30 @@ def parse_podium_image(img: Image.Image) -> list[MemberRecord]:
         (3, (663, 12, 939, 41), (755, 72, 939, 99)),
     ]
 
-    for rank, name_coords, power_coords in podium_coords:
+    for rank, name_coords, value_coords in podium_coords:
         try:
             name_crop = img.crop(name_coords)
-            power_crop = img.crop(power_coords)
+            value_crop = img.crop(value_coords)
 
             # Preprocess podium crops
             name_crop = preprocess_for_ocr(name_crop)
-            power_crop = preprocess_for_ocr(power_crop)
+            value_crop = preprocess_for_ocr(value_crop)
 
             name_text = extract_text_for_name(name_crop)
-            power_text = extract_text_single_line(power_crop, languages=['en'])
+            value_text = extract_text_single_line(value_crop, languages=['en'])
 
             name = clean_name(name_text)
-            power = extract_number(power_text) if power_text else None
+            value = extract_number(value_text) if value_text else None
 
             if name:
-                records.append(MemberRecord(
+                record = MemberRecord(
                     read_rank=rank,  # Podium ranks are correct
                     name=name,
-                    power=power,
-                    raw_line=f"Read Rank: {rank} | Name: {name_text} | Power: {power_text}",
+                    raw_line=f"Read Rank: {rank} | Name: {name_text} | {metric_name.capitalize()}: {value_text}",
                     is_valid=True
-                ))
+                )
+                setattr(record, metric_name, value)
+                records.append(record)
         except Exception as e:
             print(f"  Warning: Failed to parse rank {rank} from podium: {e}")
             continue
@@ -284,9 +428,9 @@ def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
     if not records:
         return []
 
-    # Sort by name length descending to prefer longer names when merging similar ones
-    # or keep the one with higher confidence (though we don't have confidence here)
-    sorted_recs = sorted(records, key=lambda x: len(x.name), reverse=True)
+    # Sort by whether it has power (prefer records with power data as anchor)
+    # Then by name length
+    sorted_recs = sorted(records, key=lambda x: (x.power is not None, len(x.name)), reverse=True)
     
     unique_records: list[MemberRecord] = []
 
@@ -297,6 +441,7 @@ def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
         found_duplicate = False
         for i, existing_rec in enumerate(unique_records):
             # Check for name similarity
+            # We use a slightly more lenient threshold for same power
             names_similar = is_similar_name(new_rec.name, existing_rec.name)
             
             # Check for power similarity
@@ -326,17 +471,18 @@ def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
                 should_merge = True
             elif ranks_identical:
                 # Same rank is a VERY strong signal.
-                # Merge if names are somewhat similar OR power is somewhat similar
-                if names_similar or powers_similar:
-                    should_merge = True
-                elif is_similar_name(new_rec.name, existing_rec.name, threshold=0.5):
-                    # Lower threshold for same rank
+                if names_similar or powers_similar or is_similar_name(new_rec.name, existing_rec.name, threshold=0.6):
                     should_merge = True
                 elif len(new_rec.name) < 3 or len(existing_rec.name) < 3:
-                    # Likely a cutoff name at the same rank
                     should_merge = True
             elif names_similar and (powers_similar or (new_rec.power is None or existing_rec.power is None)):
                 # Similar name and (similar power or one missing power)
+                should_merge = True
+            elif powers_similar and is_similar_name(new_rec.name, existing_rec.name, threshold=0.7):
+                # More lenient name matching if power is exactly the same
+                should_merge = True
+            elif is_similar_name(new_rec.name, existing_rec.name, threshold=0.5) and (new_rec.power is None or existing_rec.power is None) and (new_rec.read_rank is None or existing_rec.read_rank is None):
+                # Catch partial names (like ゆ一 vs ゆ一一) when power/rank is missing in one
                 should_merge = True
 
             if should_merge:
@@ -345,22 +491,58 @@ def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
                 if existing_rec.read_rank is None and new_rec.read_rank is not None:
                     unique_records[i].read_rank = new_rec.read_rank
                 
-                # If both have power, prefer the higher one (usually more complete OCR)
-                if new_rec.power is not None:
-                    if unique_records[i].power is None or new_rec.power > unique_records[i].power:
-                        unique_records[i].power = new_rec.power
-                        unique_records[i].raw_line = new_rec.raw_line
+                # Merge all metric fields
+                for field in ['power', 'kills', 'weekly_contribution', 'construction', 'tribe_assistance', 'gold_donation']:
+                    new_val = getattr(new_rec, field)
+                    existing_val = getattr(existing_rec, field)
+                    if new_val is not None:
+                        if existing_val is None:
+                            setattr(unique_records[i], field, new_val)
+                        elif field == 'power':
+                            # Heuristic to handle 10x OCR misreads (hallucinated digits)
+                            # If new value is ~10x larger than existing, and existing rank > 10,
+                            # it's likely that the new value is a misread.
+                            # Conversely, if new value is ~1/10th of existing, and existing rank < 10,
+                            # the existing might be the misread (but usually larger is misread).
+                            
+                            is_new_much_larger = new_val > existing_val * 5
+                            is_existing_much_larger = existing_val > new_val * 5
+                            
+                            # Prefer the one that's more plausible if we have ranks
+                            rank = new_rec.read_rank or existing_rec.read_rank
+                            
+                            if is_new_much_larger:
+                                # Only accept much larger power if rank is very low (top players)
+                                if rank is not None and rank <= 3:
+                                    setattr(unique_records[i], field, new_val)
+                                # otherwise, stick with smaller value
+                            elif is_existing_much_larger:
+                                # If existing is much larger but rank is high, it's likely wrong
+                                if rank is not None and rank > 3:
+                                    setattr(unique_records[i], field, new_val)
+                                # otherwise keep existing (larger)
+                            else:
+                                # Values are comparable, take the larger one (likely more complete capture)
+                                if new_val > existing_val:
+                                    setattr(unique_records[i], field, new_val)
+                        else:
+                            if new_val > existing_val:
+                                setattr(unique_records[i], field, new_val)
                 
-                # Name selection: 
-                # If one name is a substring of another, keep the longer one.
-                # BUT if names are just similar, and we have a power winner, maybe keep that name?
-                # For now, if the new record has significantly higher power, take its name too.
-                if new_rec.power is not None and existing_rec.power is not None:
-                    if new_rec.power > existing_rec.power * 1.05: # 5% more power
-                         unique_records[i].name = new_rec.name
-                         unique_records[i].raw_line = new_rec.raw_line
-                elif names_similar and not name_exact_ignore_case:
-                    # Fallback to length if powers are similar
+                # Name selection:
+                # Priority 1: Keep the name from the scan that provided the POWER metric.
+                # Priority 2: Keep the longer name if values are similar.
+                
+                # If existing has power and new doesn't, keep existing name.
+                # If new has power and existing doesn't, take new name.
+                if new_rec.power is not None and existing_rec.power is None:
+                    unique_records[i].name = new_rec.name
+                    unique_records[i].raw_line = new_rec.raw_line
+                elif existing_rec.power is not None and new_rec.power is None:
+                    # Keep existing name
+                    pass
+                else:
+                    # Both have or both lack power: prefer longer/more complete name
                     if len(new_rec.name) > len(existing_rec.name):
                          unique_records[i].name = new_rec.name
                          unique_records[i].raw_line = new_rec.raw_line
@@ -377,10 +559,11 @@ def assign_power_ranks_and_detect_mismatches(records: list[MemberRecord]) -> lis
     """Assign ranks based on power and detect mismatches with read ranks.
 
     Process:
-    1. Sort by power (highest to lowest)
-    2. Assign power_rank (1, 2, 3, ...)
-    3. Compare power_rank with read_rank
-    4. Mark mismatches
+    1. Filter out records with 0 power (OCR artifacts)
+    2. Sort by power (highest to lowest)
+    3. Assign power_rank (1, 2, 3, ...)
+    4. Compare power_rank with read_rank
+    5. Mark mismatches
 
     Args:
         records: List of member records
@@ -388,9 +571,14 @@ def assign_power_ranks_and_detect_mismatches(records: list[MemberRecord]) -> lis
     Returns:
         Same records with power_rank assigned and rank field set
     """
+    # Filter out records with 0 power or missing power
+    # In this game, every real player in the alliance list has some power.
+    # 0 power entries are almost always OCR artifacts or partial row reads.
+    filtered_records = [r for r in records if r.power and r.power > 0]
+
     # Sort by power (highest first)
     sorted_records = sorted(
-        records,
+        filtered_records,
         key=lambda r: r.power if r.power is not None else 0,
         reverse=True
     )
