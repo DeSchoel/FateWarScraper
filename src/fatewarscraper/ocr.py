@@ -6,12 +6,12 @@ from pathlib import Path
 import numpy as np
 
 
-# Global reader instance (initialized once for performance)
-_reader = None
+# Global readers (initialized on demand)
+_readers = {}
 
 
 def get_reader(languages=None, use_gpu=True) -> easyocr.Reader:
-    """Get or create EasyOCR reader instance.
+    """Get or create EasyOCR reader instance for specific languages.
 
     Args:
         languages: List of language codes (default: ['en'])
@@ -22,65 +22,126 @@ def get_reader(languages=None, use_gpu=True) -> easyocr.Reader:
     """
     if languages is None:
         languages = ['en']
-    global _reader
-    if _reader is None:
+    
+    # Sort to ensure consistent key
+    lang_key = tuple(sorted(languages))
+    
+    global _readers
+    if lang_key not in _readers:
         gpu_status = "GPU (CUDA)" if use_gpu else "CPU"
-        print(f"Initializing EasyOCR with {gpu_status} (this may take a moment on first run)...")
-        _reader = easyocr.Reader(languages, gpu=use_gpu)
-    return _reader
+        print(f"Initializing EasyOCR with {gpu_status} and languages {list(languages)}...")
+        _readers[lang_key] = easyocr.Reader(list(languages), gpu=use_gpu)
+    
+    return _readers[lang_key]
 
 
-def extract_text(img: Image.Image) -> str:
+def extract_text(img: Image.Image, languages=None) -> str:
     """Extract text from image using EasyOCR.
 
     Args:
         img: PIL Image to perform OCR on
+        languages: Optional list of languages
 
     Returns:
         Extracted text as string
-
-    Raises:
-        RuntimeError: If OCR fails
     """
     try:
-        reader = get_reader()
-
-        # Convert PIL Image to numpy array
+        reader = get_reader(languages)
         img_array = np.array(img)
-
-        # Run OCR
         results = reader.readtext(img_array)
-
-        # Extract text from results
-        # results is list of ([bbox], text, confidence)
+        results.sort(key=lambda x: (x[0][0][1], x[0][0][0]))
         text_parts = [text for (bbox, text, conf) in results]
-
         return ' '.join(text_parts).strip()
-
     except Exception as e:
         raise RuntimeError(f"OCR failed: {e}") from e
 
 
-def extract_text_single_line(img: Image.Image) -> str:
+def extract_text_single_line(img: Image.Image, languages=None) -> str:
     """Extract text from single-line image using EasyOCR.
-
-    Optimized for single lines (like rank, name, power fields).
 
     Args:
         img: PIL Image containing single line of text
+        languages: Optional list of languages
 
     Returns:
         Extracted text as string
     """
-    reader = get_reader()
+    reader = get_reader(languages)
     img_array = np.array(img)
 
-    # For single line, we just want the text
-    results = reader.readtext(img_array, detail=0)  # detail=0 returns just text
+    # Get results with details to allow sorting by X coordinate
+    results = reader.readtext(img_array, detail=1)
 
-    if results:
-        return ' '.join(results).strip()
-    return ""
+    if not results:
+        return ""
+
+    # Sort strictly by left-most X coordinate
+    results.sort(key=lambda x: x[0][0][0])
+
+    text_parts = [text for (bbox, text, conf) in results]
+    
+    # Filter out very low confidence noise
+    if len(text_parts) > 1:
+        text_parts = [text for (bbox, text, conf) in results if conf > 0.1]
+
+    return ' '.join(text_parts).strip()
+
+
+def extract_text_for_name(img: Image.Image) -> str:
+    """Specialized extraction for names that might be in multiple languages.
+    
+    Tries multiple reader combinations to handle EasyOCR's strict compatibility limits.
+    Returns the result with the highest confidence or most characters.
+    """
+    candidates = []
+    
+    # Language groups to try
+    # EasyOCR has compatibility limits:
+    # - ch_sim is only compatible with en
+    # - ja is only compatible with en
+    # - ko is only compatible with en
+    # - vi is compatible with en
+    # - ru is compatible with en
+    lang_sets = [
+        ['en', 'vi'],
+        ['en', 'ko'],
+        ['en', 'ja'],
+        ['en', 'ch_sim'],
+        ['en', 'ru']
+    ]
+
+    for langs in lang_sets:
+        try:
+            reader = get_reader(langs)
+            img_array = np.array(img)
+            # Get detailed results to check confidence and character types
+            results = reader.readtext(img_array, detail=1)
+            
+            if not results:
+                continue
+                
+            # Sort by X
+            results.sort(key=lambda x: x[0][0][0])
+            
+            text = ' '.join([res[1] for res in results if res[2] > 0.1]).strip()
+            conf = sum([res[2] for res in results]) / len(results) if results else 0
+            
+            if text:
+                # Give a boost to non-Latin results
+                # Simple heuristic: if any character is outside Latin-1, it's likely a better match
+                # if we're looking for international names.
+                has_non_latin = any(ord(c) > 255 for c in text)
+                score = len(text) * (1.5 if has_non_latin else 1.0) * conf
+                candidates.append((text, score, has_non_latin))
+        except Exception:
+            continue
+
+    if not candidates:
+        return ""
+
+    # Sort by score descending
+    candidates.sort(key=lambda x: x[1], reverse=True)
+    return candidates[0][0]
 
 
 def extract_lines(img: Image.Image) -> list[str]:

@@ -1,6 +1,7 @@
 """Parse OCR text into structured alliance member data using EasyOCR text detection."""
 
 import re
+import difflib
 from dataclasses import dataclass
 from operator import truediv
 from typing import Optional
@@ -33,19 +34,27 @@ class MemberRecord:
 
 def clean_number_string(text: str) -> str:
     """Remove common OCR noise and formatting from numbers."""
-    cleaned = text.replace(',', '').replace('.', '').replace(' ', '')
-    cleaned = cleaned.replace('O', '0').replace('o', '0')
+    # First apply common character mappings
+    cleaned = text.replace('O', '0').replace('o', '0')
     cleaned = cleaned.replace('I', '1').replace('l', '1')
+    cleaned = cleaned.replace('S', '5').replace('s', '5')
+    cleaned = cleaned.replace('G', '6')
+    cleaned = cleaned.replace('B', '8')
+    cleaned = cleaned.replace('Q', '0')
+    cleaned = cleaned.replace('C', '0')
+    cleaned = cleaned.replace('(', '0').replace(')', '0')
+    
+    # Strip everything that is not a digit
+    cleaned = "".join(c for c in cleaned if c.isdigit())
     return cleaned
 
 
 def extract_number(text: str) -> Optional[int]:
     """Extract a number from text string."""
     cleaned = clean_number_string(text)
-    match = re.search(r'\d+', cleaned)
-    if match:
+    if cleaned:
         try:
-            return int(match.group())
+            return int(cleaned)
         except ValueError:
             pass
     return None
@@ -84,10 +93,8 @@ def detect_text_rows_with_easyocr(img: Image.Image) -> list[tuple[int, int]]:
     from fatewarscraper.ocr import get_reader
     import numpy as np
 
-    reader = get_reader(
-        ["ja", "en"],
-        True
-    )
+    # Use a compatible set of languages for detection
+    reader = get_reader()
 
     img_array = np.array(img)
 
@@ -129,26 +136,52 @@ def detect_text_rows_with_easyocr(img: Image.Image) -> list[tuple[int, int]]:
 
 def extract_member_from_row(img: Image.Image, row_top: int, row_bottom: int) -> MemberRecord:
     """Extract member data from a detected row using fixed x-coordinates."""
-    from fatewarscraper.ocr import extract_text_single_line
+    from fatewarscraper.ocr import extract_text_single_line, extract_text_for_name
+    from fatewarscraper.preprocess import preprocess_for_ocr
 
     row_h = row_bottom - row_top
-    padding = max(6, int(row_h * 0.25))  # 25% of row height, min 6px
+    # Add more padding for very short rows (likely at the edges of crops)
+    if row_h < 20:
+        padding = 10
+    else:
+        padding = max(4, int(row_h * 0.15))
+    
     row_top = max(0, row_top - padding)
     row_bottom = min(img.height, row_bottom + padding)
 
-    rank_crop = img.crop((0, row_top, 66, row_bottom))
-    name_crop = img.crop((159, row_top, 363, row_bottom))
-    power_crop = img.crop((763, row_top, 941, row_bottom))
+    # Coordinates are for the original 1280x720 window
+    # EasyOCR works better on processed crops
+    rank_crop = img.crop((0, row_top, 80, row_bottom))
+    name_crop = img.crop((150, row_top, 400, row_bottom))
+    power_crop = img.crop((730, row_top, 950, row_bottom))
 
-    rank_text = extract_text_single_line(rank_crop)
-    name_text = extract_text_single_line(name_crop)
-    power_text = extract_text_single_line(power_crop)
+    # Apply preprocessing to field crops
+    # Rank is very small (1-2 digits), using 4x upscale helps significantly
+    # Power is longer (7-8 digits), 3x is a good balance
+    rank_crop = preprocess_for_ocr(rank_crop, upscale=4)
+    name_crop = preprocess_for_ocr(name_crop, upscale=2)
+    power_crop = preprocess_for_ocr(power_crop, upscale=3)
+
+    # Use standard English reader for numbers
+    rank_text = extract_text_single_line(rank_crop, languages=['en'])
+    # Use specialized multi-language logic for names
+    name_text = extract_text_for_name(name_crop)
+    # Use standard English reader for numbers
+    power_text = extract_text_single_line(power_crop, languages=['en'])
 
     read_rank = extract_number(rank_text) if rank_text else None
     name = clean_name(name_text)
     power = extract_number(power_text) if power_text else None
 
+    # Noise filtering
+    # 1. Names should be at least 2 characters (game names usually are)
+    # 2. If it's a single character name, it's likely noise unless power is high
     is_valid = bool(name) and (read_rank is not None or power is not None)
+    
+    if is_valid and len(name) < 2:
+        # Reject single-character names unless they have a very plausible power
+        if power is None or power < 1000:
+            is_valid = False
 
     return MemberRecord(
         read_rank=read_rank,
@@ -184,7 +217,8 @@ def parse_image_by_rows(img: Image.Image, **kwargs) -> list[MemberRecord]:
 
 def parse_podium_image(img: Image.Image) -> list[MemberRecord]:
     """Parse the podium image with top 3 members using FIXED coordinates."""
-    from fatewarscraper.ocr import extract_text_single_line
+    from fatewarscraper.ocr import extract_text_single_line, extract_text_for_name
+    from fatewarscraper.preprocess import preprocess_for_ocr
 
     records = []
 
@@ -199,8 +233,12 @@ def parse_podium_image(img: Image.Image) -> list[MemberRecord]:
             name_crop = img.crop(name_coords)
             power_crop = img.crop(power_coords)
 
-            name_text = extract_text_single_line(name_crop)
-            power_text = extract_text_single_line(power_crop)
+            # Preprocess podium crops
+            name_crop = preprocess_for_ocr(name_crop)
+            power_crop = preprocess_for_ocr(power_crop)
+
+            name_text = extract_text_for_name(name_crop)
+            power_text = extract_text_single_line(power_crop, languages=['en'])
 
             name = clean_name(name_text)
             power = extract_number(power_text) if power_text else None
@@ -220,15 +258,117 @@ def parse_podium_image(img: Image.Image) -> list[MemberRecord]:
     return records
 
 
-def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
-    """Remove duplicate member records based on name."""
-    seen_names = set()
-    unique_records = []
+def is_similar_name(name1: str, name2: str, threshold: float = 0.85) -> bool:
+    """Check if two names are similar using SequenceMatcher."""
+    if not name1 or not name2:
+        return False
+    # Case-insensitive comparison
+    name1 = name1.lower()
+    name2 = name2.lower()
+    if name1 == name2:
+        return True
+    
+    similarity = difflib.SequenceMatcher(None, name1, name2).ratio()
+    return similarity >= threshold
 
-    for record in records:
-        if record.name and record.name not in seen_names:
-            unique_records.append(record)
-            seen_names.add(record.name)
+
+def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
+    """Remove duplicate member records based on fuzzy name, power, and rank matching.
+    
+    Rules for merging:
+    1. Same name (case-insensitive) AND same power -> merge
+    2. Similar name AND same power -> merge
+    3. Same name AND similar power (within 1%) -> merge
+    4. Same read_rank AND (similar name OR similar power) -> merge
+    """
+    if not records:
+        return []
+
+    # Sort by name length descending to prefer longer names when merging similar ones
+    # or keep the one with higher confidence (though we don't have confidence here)
+    sorted_recs = sorted(records, key=lambda x: len(x.name), reverse=True)
+    
+    unique_records: list[MemberRecord] = []
+
+    for new_rec in sorted_recs:
+        if not new_rec.name or not new_rec.is_valid:
+            continue
+            
+        found_duplicate = False
+        for i, existing_rec in enumerate(unique_records):
+            # Check for name similarity
+            names_similar = is_similar_name(new_rec.name, existing_rec.name)
+            
+            # Check for power similarity
+            powers_similar = False
+            if new_rec.power is not None and existing_rec.power is not None:
+                if new_rec.power == existing_rec.power:
+                    powers_similar = True
+                else:
+                    # Within 1% power difference
+                    diff = abs(new_rec.power - existing_rec.power)
+                    if diff / max(new_rec.power, existing_rec.power) < 0.01:
+                        powers_similar = True
+            
+            # Check for rank identity
+            ranks_identical = (new_rec.read_rank is not None and 
+                              existing_rec.read_rank is not None and 
+                              new_rec.read_rank == existing_rec.read_rank)
+
+            # Merging logic
+            name_exact_ignore_case = new_rec.name.lower() == existing_rec.name.lower()
+            
+            # Base conditions for merging
+            should_merge = False
+            if name_exact_ignore_case:
+                should_merge = True
+            elif names_similar and powers_similar:
+                should_merge = True
+            elif ranks_identical:
+                # Same rank is a VERY strong signal.
+                # Merge if names are somewhat similar OR power is somewhat similar
+                if names_similar or powers_similar:
+                    should_merge = True
+                elif is_similar_name(new_rec.name, existing_rec.name, threshold=0.5):
+                    # Lower threshold for same rank
+                    should_merge = True
+                elif len(new_rec.name) < 3 or len(existing_rec.name) < 3:
+                    # Likely a cutoff name at the same rank
+                    should_merge = True
+            elif names_similar and (powers_similar or (new_rec.power is None or existing_rec.power is None)):
+                # Similar name and (similar power or one missing power)
+                should_merge = True
+
+            if should_merge:
+                found_duplicate = True
+                # Merge: prefer the record with more data
+                if existing_rec.read_rank is None and new_rec.read_rank is not None:
+                    unique_records[i].read_rank = new_rec.read_rank
+                
+                # If both have power, prefer the higher one (usually more complete OCR)
+                if new_rec.power is not None:
+                    if unique_records[i].power is None or new_rec.power > unique_records[i].power:
+                        unique_records[i].power = new_rec.power
+                        unique_records[i].raw_line = new_rec.raw_line
+                
+                # Name selection: 
+                # If one name is a substring of another, keep the longer one.
+                # BUT if names are just similar, and we have a power winner, maybe keep that name?
+                # For now, if the new record has significantly higher power, take its name too.
+                if new_rec.power is not None and existing_rec.power is not None:
+                    if new_rec.power > existing_rec.power * 1.05: # 5% more power
+                         unique_records[i].name = new_rec.name
+                         unique_records[i].raw_line = new_rec.raw_line
+                elif names_similar and not name_exact_ignore_case:
+                    # Fallback to length if powers are similar
+                    if len(new_rec.name) > len(existing_rec.name):
+                         unique_records[i].name = new_rec.name
+                         unique_records[i].raw_line = new_rec.raw_line
+                
+                break
+        
+        if not found_duplicate:
+            unique_records.append(new_rec)
 
     return unique_records
 

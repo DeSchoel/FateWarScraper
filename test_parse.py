@@ -30,7 +30,7 @@ def main():
 
     # Find all regular cropped images
     crop_files = sorted([f for f in output_dir.glob("crop_*.png")
-                        if "podium" not in f.name and "regular" not in f.name])
+                        if "podium" not in f.name])
 
     if crop_files:
         print(f"\nProcessing {len(crop_files)} regular member list images...")
@@ -59,20 +59,34 @@ def main():
 
     # Sort by POWER and assign power-based ranks
     print(f"\nSorting by POWER and detecting rank mismatches...")
-    sorted_records = sort_records(unique_records)
+    
+    # Separate records based on whether they have a read rank
+    ranked_records = [r for r in unique_records if r.read_rank is not None]
+    unranked_records = [r for r in unique_records if r.read_rank is None]
+    
+    # Sort ranked records by power and assign ranks
+    sorted_ranked_records = sort_records(ranked_records)
+    
+    # Sort unranked records by power for the "TO CHECK" list
+    sorted_unranked_records = sorted(
+        unranked_records,
+        key=lambda r: r.power if r.power is not None else 0,
+        reverse=True
+    )
 
-    mismatches = sum(1 for r in sorted_records if r.rank_mismatch)
-    print(f"✓ Found {mismatches} rank mismatches")
+    mismatches = sum(1 for r in sorted_ranked_records if r.rank_mismatch)
+    print(f"✓ Found {mismatches} rank mismatches among {len(sorted_ranked_records)} ranked members")
+    print(f"⚠ {len(sorted_unranked_records)} members missing read rank (moved to TO CHECK)")
 
     # Display results
     print("\n" + "=" * 70)
-    print("Member List (Sorted by POWER):")
+    print("Ranked Member List (Sorted by POWER):")
     print("=" * 70)
     print(f"{'Rank':<6} {'Name':<20} {'Power':<15} {'Read':<6} {'Status':<10}")
     print("-" * 70)
 
-    display_count = min(50, len(sorted_records))
-    for record in sorted_records[:display_count]:
+    display_count = min(50, len(sorted_ranked_records))
+    for record in sorted_ranked_records[:display_count]:
         rank_str = str(record.power_rank) if record.power_rank else "?"
         power_str = f"{record.power:,}" if record.power else "?"
         read_str = str(record.read_rank) if record.read_rank else "?"
@@ -80,36 +94,45 @@ def main():
         # Status indicator
         if record.rank_mismatch:
             status = "⚠ MISMATCH"
-        elif record.read_rank is None:
-            status = "No OCR"
         else:
             status = "✓ Match"
 
         print(f"{rank_str:<6} {record.name:<20} {power_str:<15} {read_str:<6} {status:<10}")
 
-    if len(sorted_records) > display_count:
-        print(f"... and {len(sorted_records) - display_count} more")
-
+    if len(sorted_ranked_records) > display_count:
+        print(f"... and {len(sorted_ranked_records) - display_count} more")
+    
     # Save to file
     output_file = output_dir / "parsed_members.txt"
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write("Power Rank | Name | Power | Read Rank | Mismatch | Raw Line\n")
         f.write("=" * 120 + "\n")
-        for record in sorted_records:
+        for record in sorted_ranked_records:
             rank_str = str(record.power_rank) if record.power_rank else "?"
             power_str = str(record.power) if record.power else "?"
             read_str = str(record.read_rank) if record.read_rank else "?"
             mismatch_str = "YES" if record.rank_mismatch else "NO"
             f.write(f"{rank_str:<11} | {record.name:<20} | {power_str:<15} | {read_str:<9} | {mismatch_str:<8} | {record.raw_line}\n")
 
+        if sorted_unranked_records:
+            f.write("\n\n" + "=" * 50 + "\n")
+            f.write("TO CHECK (No rank found during OCR)\n")
+            f.write("=" * 50 + "\n")
+            f.write(f"{'Name':<20} | {'Power':<15} | {'Raw Line'}\n")
+            f.write("-" * 50 + "\n")
+            for record in sorted_unranked_records:
+                power_str = str(record.power) if record.power else "?"
+                f.write(f"{record.name:<20} | {power_str:<15} | {record.raw_line}\n")
+
     print(f"\n✓ Full results saved to {output_file}")
 
     print("\n" + "=" * 70)
     print("Summary:")
     print("=" * 70)
-    print(f"  Total members: {len(sorted_records)}")
-    print(f"  Rank mismatches: {mismatches}")
-    print(f"  Members missing read rank: {sum(1 for r in sorted_records if r.read_rank is None)}")
+    print(f"  Total unique members: {len(unique_records)}")
+    print(f"  Successfully ranked:  {len(sorted_ranked_records)}")
+    print(f"  Rank mismatches:      {mismatches}")
+    print(f"  Members to check:     {len(sorted_unranked_records)}")
 
     print("\n" + "=" * 70)
     print("Ranking System:")

@@ -20,33 +20,30 @@ def crop_image(img: Image.Image, left: int, top: int, right: int, bottom: int) -
     return img.crop((left, top, right, bottom))
 
 
-def preprocess_for_ocr(img: Image.Image) -> Image.Image:
+def preprocess_for_ocr(img: Image.Image, upscale: int = 2) -> Image.Image:
     """Preprocess image for better OCR accuracy.
 
-    Pipeline:
-    1. Convert to grayscale
-    2. Enhance contrast
-    3. Apply threshold to create black text on white background
-
-    Args:
-        img: Source image
-
-    Returns:
-        Preprocessed image optimized for OCR
+    Refined Pipeline:
+    1. Grayscale
+    2. Rescale (upscale x) to make characters larger for OCR
+    3. Sharpness & Contrast enhancement
+    4. (No destructive thresholding for EasyOCR)
     """
     # Convert to grayscale
     if img.mode != 'L':
         img = img.convert('L')
 
+    # Upscale - larger text is easier for OCR to segment correctly
+    w, h = img.size
+    img = img.resize((w * upscale, h * upscale), Image.Resampling.LANCZOS)
+
     # Enhance contrast
     enhancer = ImageEnhance.Contrast(img)
-    img = enhancer.enhance(2.0)
+    img = enhancer.enhance(1.5)
 
-    # Apply threshold - convert to pure black and white
-    img_array = np.array(img)
-    threshold = 128
-    binary_array = np.where(img_array > threshold, 255, 0).astype(np.uint8)
-    img = Image.fromarray(binary_array)
+    # Enhance sharpness
+    sharpener = ImageEnhance.Sharpness(img)
+    img = sharpener.enhance(2.0)
 
     return img
 
@@ -93,5 +90,5 @@ def crop_member_list_scrolled(img: Image.Image) -> Image.Image:
         Cropped member list image
     """
     # Crop the member list region
-    # Bottom at 649 (3% more than original 630) to show more content
-    return crop_image(img, left=235, top=170, right=1180, bottom=649)
+    # Bottom at 660 (slightly more than 649) to ensure the last row is fully captured
+    return crop_image(img, left=235, top=170, right=1180, bottom=660)
