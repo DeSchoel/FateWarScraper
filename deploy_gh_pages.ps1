@@ -14,7 +14,7 @@ Write-Host "Preparing deployment to GitHub Pages..." -ForegroundColor Cyan
 
 # Remove old temp dir if exists
 if (Test-Path $PagesDir) {
-    Remove-Item -Path $PagesDir -Recycle -Force -Confirm:$false -ErrorAction SilentlyContinue
+    Remove-Item -Path $PagesDir -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
 }
 
 # Clone the current repo into a temp folder
@@ -33,12 +33,15 @@ if ($allBranches -match "remotes/origin/gh-pages" -or $allBranches -match "gh-pa
 # Remove all files in the branch
 git rm -rf .
 
-# Copy new files from outputs (only index.html and members.json)
+# Copy new files from outputs
 copy "$OutputDir\index.html" "."
 copy "$OutputDir\members.json" "."
 
+# Create .nojekyll to bypass Jekyll processing
+New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
+
 # Add and commit
-git add index.html members.json
+git add index.html members.json .nojekyll
 git commit -m "Deploy latest alliance data: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 
 # Push back to original repo's origin
@@ -48,7 +51,7 @@ git push origin gh-pages --force
 popd
 
 # Cleanup
-Remove-Item -Path $PagesDir -Recycle -Force -Confirm:$false
+Remove-Item -Path $PagesDir -Force -Recurse -Confirm:$false
 
 # Try to determine the GitHub Pages URL
 $remoteUrl = git remote get-url origin
