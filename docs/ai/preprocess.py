@@ -1,7 +1,6 @@
 """Image preprocessing for OCR."""
 
-from PIL import Image, ImageEnhance
-import numpy as np
+from PIL import Image
 
 
 def crop_image(img: Image.Image, left: int, top: int, right: int, bottom: int) -> Image.Image:
@@ -18,37 +17,6 @@ def crop_image(img: Image.Image, left: int, top: int, right: int, bottom: int) -
         Cropped PIL Image
     """
     return img.crop((left, top, right, bottom))
-
-
-def preprocess_for_ocr(img: Image.Image) -> Image.Image:
-    """Preprocess image for better OCR accuracy.
-
-    Pipeline:
-    1. Convert to grayscale
-    2. Enhance contrast
-    3. Apply threshold to create black text on white background
-
-    Args:
-        img: Source image
-
-    Returns:
-        Preprocessed image optimized for OCR
-    """
-    # Convert to grayscale
-    if img.mode != 'L':
-        img = img.convert('L')
-
-    # Enhance contrast
-    enhancer = ImageEnhance.Contrast(img)
-    img = enhancer.enhance(2.0)
-
-    # Apply threshold - convert to pure black and white
-    img_array = np.array(img)
-    threshold = 128
-    binary_array = np.where(img_array > threshold, 255, 0).astype(np.uint8)
-    img = Image.fromarray(binary_array)
-
-    return img
 
 
 def crop_member_list_first(img: Image.Image) -> tuple[Image.Image, Image.Image]:

@@ -1,8 +1,15 @@
-.venv/
-outputs/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
 .idea/
-.vscode/
-.DS_Store
-Thumbs.db
+
+# Project outputs
+outputs/

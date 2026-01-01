@@ -1,7 +1,25 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "fatewarscraper"
 version = "0.1.0"
+description = "Extract alliance member data from Fate War game UI"
+requires-python = ">=3.12"
+dependencies = [
+    "pillow>=10.0.0",
+    "easyocr>=1.7.0",
+    "numpy>=1.24.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "pywin32>=306; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
