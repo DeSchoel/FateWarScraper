@@ -1,3 +1,4 @@
+Mock history created at outputs\history.json
 ======================================================================
 Phase 4: Multi-Metric Member Tracking
 ======================================================================
@@ -360,6 +361,6 @@ Rank  | Name                 | Power        | Kills        | Weekly     | Const.
 49    | drikol               | 6,436,338    | 3,346        | 68,600     | 48,030     | 448
 50    | chamame              | 6,406,455    | 2,997        | 35,400     | 0          | 613
 ... and 32 more
-✓ CSV report saved:  outputs\members_2026-01-02_00-09-05.csv
-✓ HTML report saved: outputs\members_2026-01-02_00-09-05.html
+✓ CSV report saved:  outputs\members_2026-01-02_00-40-15.csv
+✓ HTML report saved: outputs\members_2026-01-02_00-40-15.html
 ✓ Debug log saved:   outputs\parsed_members.txt

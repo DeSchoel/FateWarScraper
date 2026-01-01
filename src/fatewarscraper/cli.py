@@ -11,7 +11,7 @@ from .parse import (
     deduplicate_records, 
     sort_records
 )
-from .export import write_member_csv, write_member_html, write_member_json
+from .export import write_member_csv, write_member_html, write_member_json, update_history_json
 
 
 def run(out_dir: Path = Path("outputs"), window_title: str = "Fate War", include_gold: bool = False) -> None:
@@ -98,6 +98,7 @@ def run(out_dir: Path = Path("outputs"), window_title: str = "Fate War", include
     csv_path = write_member_csv(sorted_records, out_dir)
     html_path = write_member_html(sorted_records, out_dir)
     json_path = write_member_json(sorted_records, out_dir)
+    history_path = update_history_json(sorted_records, out_dir)
     
     # Also create 'static' versions for hosting (always latest)
     write_member_html(sorted_records, out_dir, filename="index.html")

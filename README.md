@@ -5,6 +5,7 @@ Extract comprehensive alliance member data from the Fate War game UI using scree
 ## Features
 
 - **Multi-Category Tracking**: Automatically scrapes Power, Kills, Weekly Contribution, Construction, Tribe Assistance, and Gold Donation.
+- **Historical Progress Tracking**: Stores scan history and displays progress graphs for each member on the web dashboard.
 - **Automated Navigation**: Uses OCR to find and click category buttons within the game window.
 - **Auto-Scrolling**: Automatically scrolls through the entire member list for each category.
 - **International Language Support**: Specialized OCR for English, Korean, Japanese, Chinese (Simplified), Russian, and Vietnamese.
@@ -68,28 +69,56 @@ The scraper will:
 - `outputs/parsed_members.txt`: A debug log showing raw OCR readings.
 - `outputs/*.png`: Cropped debug images for verification.
 
-## Web Hosting (Free on GitHub Pages)
+## Web Hosting (Kostenlos auf GitHub Pages)
 
-You can easily host the latest alliance rankings for free using GitHub Pages:
+Du kannst die neuesten Allianz-Rankings ganz einfach kostenlos über GitHub Pages hosten:
 
-### Setup (First Time Only)
+### Einrichtung (Nur beim ersten Mal)
 
-1. Ensure your project is pushed to a GitHub repository.
-2. Run the deployment script once: `./deploy_gh_pages.ps1`
-3. In your repository settings on GitHub, go to **Settings** -> **Pages**.
-4. Under **Build and deployment**, set the source to **Deploy from a branch**.
-5. Choose the `gh-pages` branch and the `/ (root)` folder.
-6. Click **Save**.
+1. Sicherstellen, dass dein Projekt in ein GitHub-Repository gepusht wurde.
+2. Führe das Deployment-Skript einmal aus: `.\deploy_gh_pages.ps1`
+3. Gehe in deinem Repository auf GitHub zu **Settings** -> **Pages**.
+4. Stelle unter **Build and deployment** die Quelle auf **Deploy from a branch** ein.
+5. Wähle den `gh-pages` Branch und den `/ (root)` Ordner.
+6. Klicke auf **Save**.
 
-### Deploying Updates
+### Updates veröffentlichen
 
-After running a scan, run the provided deployment script to push the latest data to your website:
+Führe nach einem Scan das bereitgestellte Deployment-Skript aus, um die neuesten Daten auf deine Website zu pushen:
 
 ```powershell
-./deploy_gh_pages.ps1
+.\deploy_gh_pages.ps1
 ```
 
-Your site will be available at `https://<your-username>.github.io/<your-repo-name>/`.
+Deine Seite wird unter `https://<dein-benutzername>.github.io/<dein-repo-name>/` verfügbar sein.
+
+## Scans planen (2x pro Woche)
+
+Um den Fortschritt genau zu verfolgen, wird empfohlen, zweimal pro Woche einen Scan durchzuführen (z. B. Mittwoch und Sonntag).
+
+### Windows Aufgabenplanung (Empfohlen)
+
+1. Öffne die **Aufgabenplanung** unter Windows.
+2. Klicke auf **Einfache Aufgabe erstellen**.
+3. Lege einen Trigger fest (z. B. Wöchentlich, wobei Mittwoch und Sonntag ausgewählt werden).
+4. Wähle als **Aktion** die Option **Programm starten**.
+5. Programm/Skript: `powershell.exe`
+6. Argumente hinzufügen: `-ExecutionPolicy Bypass -File "C:\pfad\zu\FateWarScraper\run_and_deploy.ps1"`
+
+### run_and_deploy.ps1 (Helfer-Skript)
+
+Erstelle eine Datei namens `run_and_deploy.ps1` in deinem Projektverzeichnis, um sowohl den Scan als auch das Website-Update zu automatisieren:
+
+```powershell
+# Virtuelle Umgebung aktivieren
+.\venv\Scripts\Activate.ps1
+
+# Scraper ausführen
+python -m fatewarscraper --gold
+
+# Deployment auf GitHub Pages
+.\deploy_gh_pages.ps1
+```
 
 ## Project Structure
 

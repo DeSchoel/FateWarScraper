@@ -38,12 +38,42 @@ def write_member_json(records: list[MemberRecord], out_dir: Path, filename: str 
     
     data = [rec.__dict__ for rec in records]
     
-    # Clean up non-serializable fields if any (dataclasses usually fine)
-    # We want a clean list of dicts
-    
     with path.open("w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
             
+    return path
+
+
+def update_history_json(records: list[MemberRecord], out_dir: Path) -> Path:
+    """Update history.json with current scan results."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "history.json"
+    
+    timestamp = datetime.now().isoformat()
+    snapshot = {
+        "timestamp": timestamp,
+        "members": [rec.__dict__ for rec in records]
+    }
+    
+    history = []
+    if path.exists():
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                history = json.load(f)
+                if not isinstance(history, list):
+                    history = []
+        except Exception:
+            history = []
+            
+    history.append(snapshot)
+    
+    # Keep last 50 scans to avoid massive files (roughly 6 months at 2/week)
+    if len(history) > 50:
+        history = history[-50:]
+        
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(history, f, indent=2, ensure_ascii=False)
+        
     return path
 
 
@@ -66,7 +96,9 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
         row = f"""
         <tr>
             <td>{rec.rank or ''}</td>
-            <td><strong>{escape_html(rec.name)}</strong></td>
+            <td class="member-name" data-name="{escape_html(rec.name)}" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong>{escape_html(rec.name)}</strong>
+            </td>
             <td>{rec.power or 0:,}</td>
             <td>{rec.kills or 0:,}</td>
             <td>{rec.weekly_contribution or 0:,}</td>
@@ -83,8 +115,12 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fate War Alliance Tracking</title>
-    <!-- jQuery and DataTables CSS/JS for better interactivity -->
+    <!-- jQuery and DataTables CSS/JS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; color: #1c1e21; }}
         .container {{ max-width: 1200px; margin: 0 auto; }}
@@ -97,9 +133,13 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
         table.dataTable tbody td {{ padding: 12px; border-bottom: 1px solid #eee; }}
         .footer {{ margin-top: 20px; text-align: center; font-size: 12px; color: #90949c; }}
         
-        /* Power color coding */
-        .power-high {{ color: #d32f2f; font-weight: bold; }}
-        .power-mid {{ color: #1976d2; }}
+        /* Modal Styles */
+        .modal {{ display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }}
+        .modal-content {{ background-color: white; margin: 5% auto; padding: 20px; border-radius: 8px; width: 80%; max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }}
+        .modal-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 20px; }}
+        .close {{ font-size: 28px; font-weight: bold; cursor: pointer; color: #606770; }}
+        .close:hover {{ color: #1c1e21; }}
+        #chartContainer {{ position: relative; height: 400px; width: 100%; }}
     </style>
 </head>
 <body>
@@ -126,19 +166,117 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <!-- Modal for Graph -->
+    <div id="graphModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalMemberName">Member Progress</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="chartContainer">
+                <canvas id="progressChart"></canvas>
+            </div>
+        </div>
+    </div>
+
     <script>
+        let historyData = [];
+        let myChart = null;
+
         $(document).ready(function() {{
+            // Initialize DataTable
             $('#membersTable').DataTable({{
                 "pageLength": 50,
                 "order": [[ 0, "asc" ]],
                 "responsive": true,
-                "language": {{
-                    "search": "Search Member:"
+                "language": {{ "search": "Search Member:" }}
+            }});
+
+            // Load history.json
+            fetch('history.json')
+                .then(response => response.json())
+                .then(data => {{
+                    historyData = data;
+                }})
+                .catch(err => console.error('Could not load history:', err));
+
+            // Handle name clicks
+            $('#membersTable').on('click', '.member-name', function() {{
+                const name = $(this).data('name');
+                showGraph(name);
+            }});
+
+            // Modal Close
+            $('.close').click(function() {{
+                $('#graphModal').hide();
+            }});
+            $(window).click(function(event) {{
+                if (event.target == document.getElementById('graphModal')) {{
+                    $('#graphModal').hide();
                 }}
             }});
         }});
+
+        function showGraph(memberName) {{
+            $('#modalMemberName').text(memberName + "'s Power Progress");
+            $('#graphModal').show();
+
+            const labels = [];
+            const powerData = [];
+
+            historyData.forEach(snapshot => {{
+                const member = snapshot.members.find(m => m.name === memberName);
+                if (member && member.power) {{
+                    const date = new Date(snapshot.timestamp).toLocaleDateString();
+                    labels.push(date);
+                    powerData.push(member.power);
+                }}
+            }});
+
+            if (myChart) {{
+                myChart.destroy();
+            }}
+
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            myChart = new Chart(ctx, {{
+                type: 'line',
+                data: {{
+                    labels: labels,
+                    datasets: [{{
+                        label: 'Power',
+                        data: powerData,
+                        borderColor: '#1877f2',
+                        backgroundColor: 'rgba(24, 119, 242, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3
+                    }}]
+                }},
+                options: {{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {{
+                        y: {{
+                            beginAtZero: false,
+                            ticks: {{
+                                callback: function(value) {{
+                                    return value.toLocaleString();
+                                }}
+                            }}
+                        }}
+                    }},
+                    plugins: {{
+                        tooltip: {{
+                            callbacks: {{
+                                label: function(context) {{
+                                    return 'Power: ' + context.parsed.y.toLocaleString();
+                                }}
+                            }}
+                        }}
+                    }}
+                }}
+            }});
+        }}
     </script>
 </body>
 </html>

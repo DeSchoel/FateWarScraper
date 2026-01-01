@@ -36,12 +36,13 @@ git rm -rf .
 # Copy new files from outputs
 copy "$OutputDir\index.html" "."
 copy "$OutputDir\members.json" "."
+copy "$OutputDir\history.json" "."
 
 # Create .nojekyll to bypass Jekyll processing
 New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
 
 # Add and commit
-git add index.html members.json .nojekyll
+git add index.html members.json history.json .nojekyll
 git commit -m "Deploy latest alliance data: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 
 # Push back to original repo's origin
