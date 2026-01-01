@@ -93,11 +93,13 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
     
     rows = []
     for rec in records:
+        # Wrap name in a span with a data attribute for easier JS selection
+        name_html = f'<span class="member-click" data-name="{escape_html(rec.name)}">{escape_html(rec.name)}</span>'
         row = f"""
         <tr>
             <td>{rec.rank or ''}</td>
-            <td class="member-name" data-name="{escape_html(rec.name)}" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
-                <strong>{escape_html(rec.name)}</strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong>{name_html}</strong>
             </td>
             <td>{rec.power or 0:,}</td>
             <td>{rec.kills or 0:,}</td>
@@ -200,10 +202,12 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                 }})
                 .catch(err => console.error('Could not load history:', err));
 
-            // Handle name clicks
-            $('#membersTable').on('click', '.member-name', function() {{
-                const name = $(this).data('name');
-                showGraph(name);
+            // Handle name clicks (delegated for DataTables compatibility)
+            $('#membersTable').on('click', 'td.member-name', function() {{
+                const name = $(this).find('.member-click').data('name');
+                if (name) {{
+                    showGraph(name);
+                }}
             }});
 
             // Modal Close
@@ -232,6 +236,11 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                     powerData.push(member.power);
                 }}
             }});
+
+            if (powerData.length === 0) {{
+                alert('No progress data found for ' + memberName + '. Please wait for more scans to be completed.');
+                return;
+            }}
 
             if (myChart) {{
                 myChart.destroy();
