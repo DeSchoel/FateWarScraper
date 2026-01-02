@@ -39,6 +39,11 @@ def run(out_dir: Path = Path("outputs"), window_title: str = "Fate War", include
     for display_name, metric_name in categories:
         print(f"\n>>> Processing Category: {display_name}")
         
+        # Cleanup old crops for this metric to avoid confusion
+        for p in out_dir.glob(f"crop_{metric_name}_*.png"):
+            try: p.unlink()
+            except: pass
+        
         # 1. Navigate to category
         success = select_category(window_title, display_name)
         if not success:
@@ -68,6 +73,11 @@ def run(out_dir: Path = Path("outputs"), window_title: str = "Fate War", include
                     # Parse
                     category_records.extend(parse_podium_image(podium, metric_name=metric_name))
                     category_records.extend(parse_image_by_rows(regular, metric_name=metric_name))
+                elif i == 1:
+                    # Skip the first scrolled image (001) as it often overlaps significantly
+                    # with the initial regular crop (000) and podium.
+                    print(f"Skipping (redundant podium overlap)")
+                    continue
                 else:
                     # Subsequent screenshots are just lists
                     cropped = crop_member_list_scrolled(full_img)
