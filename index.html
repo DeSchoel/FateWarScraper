@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fate War Alliance Tracking</title>
-    <!-- jQuery and DataTables CSS/JS for better interactivity -->
+    <!-- jQuery and DataTables CSS/JS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; color: #1c1e21; }
         .container { max-width: 1200px; margin: 0 auto; }
@@ -16,11 +20,39 @@
         table.dataTable { border-collapse: collapse !important; width: 100% !important; }
         table.dataTable thead th { background-color: #f0f2f5; color: #4b4f56; border-bottom: 2px solid #ddd !important; padding: 12px; }
         table.dataTable tbody td { padding: 12px; border-bottom: 1px solid #eee; }
+        
+        /* Clickable Name Styles */
+        .member-link { 
+            color: #1877f2; 
+            text-decoration: underline; 
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .member-link:hover {
+            color: #166fe5;
+            text-decoration: none;
+        }
+
+        .clickable-summary {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .clickable-summary:hover {
+            background: #e4e6eb;
+            color: #1877f2;
+        }
+        
         .footer { margin-top: 20px; text-align: center; font-size: 12px; color: #90949c; }
         
-        /* Power color coding */
-        .power-high { color: #d32f2f; font-weight: bold; }
-        .power-mid { color: #1976d2; }
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: white; margin: 5% auto; padding: 20px; border-radius: 8px; width: 80%; max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 20px; }
+        .close { font-size: 28px; font-weight: bold; cursor: pointer; color: #606770; }
+        .close:hover { color: #1c1e21; }
+        #chartContainer { position: relative; height: 400px; width: 100%; }
     </style>
 </head>
 <body>
@@ -29,8 +61,13 @@
             <h1>Fate War Alliance Tracking</h1>
         </header>
         <div class="summary">
-            <div><strong>Total Members:</strong> 82</div>
-            <div><strong>Last Updated:</strong> 2026-01-02 00:09:05</div>
+            <div id="totalMembersContainer" class="clickable-summary">
+                <strong>Total Members:</strong> 1
+            </div>
+            <div><strong>Last Updated:</strong> 2026-01-02 01:36:29</div>
+            <div id="alliancePowerContainer" class="clickable-summary">
+                <strong>Total Alliance Power:</strong> 1,000,000
+            </div>
         </div>
         <div class="table-container">
             <table id="membersTable" class="display">
@@ -41,901 +78,12 @@
                     
         <tr>
             <td>1</td>
-            <td><strong>Razsiel</strong></td>
-            <td>44,159,316</td>
-            <td>5,073</td>
-            <td>86,700</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="TestUser" onclick="return false;">TestUser</a></strong>
+            </td>
+            <td>1,000,000</td>
             <td>0</td>
-            <td>1,687</td>
             <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>2</td>
-            <td><strong>kimse81</strong></td>
-            <td>24,399,349</td>
-            <td>0</td>
-            <td>67,800</td>
-            <td>24,602</td>
-            <td>1,052</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>3</td>
-            <td><strong>Raffyy</strong></td>
-            <td>23,219,611</td>
-            <td>0</td>
-            <td>82,300</td>
-            <td>0</td>
-            <td>1,501</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>4</td>
-            <td><strong>AntyDeath</strong></td>
-            <td>20,949,408</td>
-            <td>1,392,524</td>
-            <td>76,300</td>
-            <td>89,891</td>
-            <td>1,220</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>5</td>
-            <td><strong>bigcheese</strong></td>
-            <td>20,739,075</td>
-            <td>399,235</td>
-            <td>83,100</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>6</td>
-            <td><strong>Taidana</strong></td>
-            <td>17,847,540</td>
-            <td>0</td>
-            <td>77,000</td>
-            <td>87,369</td>
-            <td>968</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>7</td>
-            <td><strong>XSTORMX</strong></td>
-            <td>16,796,407</td>
-            <td>18,407</td>
-            <td>75,900</td>
-            <td>2,813</td>
-            <td>1,728</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>8</td>
-            <td><strong>KMGLAY</strong></td>
-            <td>13,896,723</td>
-            <td>0</td>
-            <td>69,700</td>
-            <td>4,565</td>
-            <td>1,528</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>9</td>
-            <td><strong>xAeolus</strong></td>
-            <td>13,692,675</td>
-            <td>17,302</td>
-            <td>75,200</td>
-            <td>59,032</td>
-            <td>1,179</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>10</td>
-            <td><strong>NanP</strong></td>
-            <td>13,227,194</td>
-            <td>0</td>
-            <td>83,800</td>
-            <td>132,015</td>
-            <td>1,353</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>11</td>
-            <td><strong>Batangbata</strong></td>
-            <td>13,196,035</td>
-            <td>698,716</td>
-            <td>76,400</td>
-            <td>126,181</td>
-            <td>978</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>12</td>
-            <td><strong>Marinel</strong></td>
-            <td>11,562,629</td>
-            <td>11,568</td>
-            <td>84,800</td>
-            <td>3,938</td>
-            <td>1,130</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>13</td>
-            <td><strong>Tecchi</strong></td>
-            <td>11,540,317</td>
-            <td>182,952</td>
-            <td>72,100</td>
-            <td>39,742</td>
-            <td>1,006</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>14</td>
-            <td><strong>xMorphx</strong></td>
-            <td>11,281,934</td>
-            <td>7,412</td>
-            <td>78,700</td>
-            <td>30,127</td>
-            <td>1,517</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>15</td>
-            <td><strong>Baronbee</strong></td>
-            <td>10,535,669</td>
-            <td>0</td>
-            <td>75,900</td>
-            <td>58,441</td>
-            <td>1,714</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>16</td>
-            <td><strong>TeddyT</strong></td>
-            <td>10,169,337</td>
-            <td>379,808</td>
-            <td>64,900</td>
-            <td>49,572</td>
-            <td>661</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>17</td>
-            <td><strong>VonGodeuro</strong></td>
-            <td>10,062,053</td>
-            <td>209,374</td>
-            <td>77,000</td>
-            <td>0</td>
-            <td>833</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>18</td>
-            <td><strong>Douzeper</strong></td>
-            <td>10,009,995</td>
-            <td>108,468</td>
-            <td>61,100</td>
-            <td>11,707</td>
-            <td>625</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>19</td>
-            <td><strong>AutisticDragon</strong></td>
-            <td>9,692,524</td>
-            <td>328,782</td>
-            <td>82,700</td>
-            <td>0</td>
-            <td>1,035</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>20</td>
-            <td><strong>CHADZ</strong></td>
-            <td>9,658,338</td>
-            <td>6,760</td>
-            <td>80,100</td>
-            <td>19,896</td>
-            <td>1,384</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>21</td>
-            <td><strong>在下梅遊鉛</strong></td>
-            <td>9,465,980</td>
-            <td>20,951</td>
-            <td>66,700</td>
-            <td>0</td>
-            <td>838</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>22</td>
-            <td><strong>redripe</strong></td>
-            <td>9,149,795</td>
-            <td>0</td>
-            <td>43,100</td>
-            <td>0</td>
-            <td>535</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>23</td>
-            <td><strong>xesseku</strong></td>
-            <td>9,070,612</td>
-            <td>10,249</td>
-            <td>79,700</td>
-            <td>155,520</td>
-            <td>843</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>24</td>
-            <td><strong>bloodyxmary</strong></td>
-            <td>9,069,089</td>
-            <td>55,973</td>
-            <td>82,100</td>
-            <td>20,763</td>
-            <td>637</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>25</td>
-            <td><strong>Ornthrond</strong></td>
-            <td>9,012,184</td>
-            <td>31,861</td>
-            <td>85,600</td>
-            <td>0</td>
-            <td>1,491</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>26</td>
-            <td><strong>Novac</strong></td>
-            <td>8,839,059</td>
-            <td>3,521</td>
-            <td>97,500</td>
-            <td>11,158</td>
-            <td>2,061</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>27</td>
-            <td><strong>BestGodoo7x</strong></td>
-            <td>8,750,014</td>
-            <td>38,601</td>
-            <td>74,200</td>
-            <td>11,410</td>
-            <td>1,003</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>28</td>
-            <td><strong>mamon</strong></td>
-            <td>8,710,524</td>
-            <td>36,627</td>
-            <td>73,900</td>
-            <td>0</td>
-            <td>651</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>29</td>
-            <td><strong>Riggles</strong></td>
-            <td>8,454,750</td>
-            <td>0</td>
-            <td>10,600</td>
-            <td>0</td>
-            <td>104</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>30</td>
-            <td><strong>DragonKiller</strong></td>
-            <td>8,437,030</td>
-            <td>176,447</td>
-            <td>80,200</td>
-            <td>4,523</td>
-            <td>877</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>31</td>
-            <td><strong>SeRaFeTTiN</strong></td>
-            <td>8,427,320</td>
-            <td>168,406</td>
-            <td>71,400</td>
-            <td>3,306</td>
-            <td>505</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>32</td>
-            <td><strong>Zph</strong></td>
-            <td>8,409,767</td>
-            <td>553,767</td>
-            <td>5,400</td>
-            <td>4,501</td>
-            <td>281</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>33</td>
-            <td><strong>AuditorMuda</strong></td>
-            <td>8,318,158</td>
-            <td>0</td>
-            <td>75,200</td>
-            <td>158,196</td>
-            <td>1,545</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>34</td>
-            <td><strong>no3Ldev</strong></td>
-            <td>7,966,188</td>
-            <td>1,238,920</td>
-            <td>78,200</td>
-            <td>22,039</td>
-            <td>1,113</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>35</td>
-            <td><strong>すももん</strong></td>
-            <td>7,870,435</td>
-            <td>0</td>
-            <td>78,800</td>
-            <td>0</td>
-            <td>1,340</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>36</td>
-            <td><strong>Helikaeon</strong></td>
-            <td>7,783,026</td>
-            <td>0</td>
-            <td>63,300</td>
-            <td>48,566</td>
-            <td>679</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>37</td>
-            <td><strong>Shreff</strong></td>
-            <td>7,758,066</td>
-            <td>0</td>
-            <td>67,100</td>
-            <td>0</td>
-            <td>777</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>38</td>
-            <td><strong>Kalbaram</strong></td>
-            <td>7,696,759</td>
-            <td>0</td>
-            <td>80,600</td>
-            <td>16,866</td>
-            <td>2,090</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>39</td>
-            <td><strong>Khaleesil3</strong></td>
-            <td>7,657,819</td>
-            <td>0</td>
-            <td>73,500</td>
-            <td>41,192</td>
-            <td>1,130</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>40</td>
-            <td><strong>AlfaStraik</strong></td>
-            <td>7,406,296</td>
-            <td>8,606</td>
-            <td>76,400</td>
-            <td>0</td>
-            <td>803</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>41</td>
-            <td><strong>beast</strong></td>
-            <td>7,097,470</td>
-            <td>0</td>
-            <td>1,000</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>42</td>
-            <td><strong>ゆ一一</strong></td>
-            <td>6,830,912</td>
-            <td>7,182</td>
-            <td>30,200</td>
-            <td>850</td>
-            <td>445</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>43</td>
-            <td><strong>HoTDog</strong></td>
-            <td>6,772,616</td>
-            <td>24,866</td>
-            <td>56,200</td>
-            <td>79,429</td>
-            <td>728</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>44</td>
-            <td><strong>ThoroMG</strong></td>
-            <td>6,761,223</td>
-            <td>0</td>
-            <td>55,900</td>
-            <td>2,627</td>
-            <td>920</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>45</td>
-            <td><strong>Abanob</strong></td>
-            <td>6,720,256</td>
-            <td>18,743</td>
-            <td>7,700</td>
-            <td>0</td>
-            <td>122</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>46</td>
-            <td><strong>TheGuardainz</strong></td>
-            <td>6,654,726</td>
-            <td>0</td>
-            <td>50,900</td>
-            <td>25,534</td>
-            <td>381</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>47</td>
-            <td><strong>Denton1o4</strong></td>
-            <td>6,597,792</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>48</td>
-            <td><strong>Zoraool</strong></td>
-            <td>6,545,957</td>
-            <td>0</td>
-            <td>83,800</td>
-            <td>139,199</td>
-            <td>905</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>49</td>
-            <td><strong>drikol</strong></td>
-            <td>6,436,338</td>
-            <td>3,346</td>
-            <td>68,600</td>
-            <td>48,030</td>
-            <td>448</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>50</td>
-            <td><strong>chamame</strong></td>
-            <td>6,406,455</td>
-            <td>2,997</td>
-            <td>35,400</td>
-            <td>0</td>
-            <td>613</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>51</td>
-            <td><strong>ZINK</strong></td>
-            <td>6,387,567</td>
-            <td>2,492</td>
-            <td>74,800</td>
-            <td>0</td>
-            <td>1,087</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>52</td>
-            <td><strong>lizardcub</strong></td>
-            <td>6,351,030</td>
-            <td>0</td>
-            <td>41,000</td>
-            <td>34,278</td>
-            <td>271</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>53</td>
-            <td><strong>klA</strong></td>
-            <td>6,180,629</td>
-            <td>0</td>
-            <td>15,700</td>
-            <td>0</td>
-            <td>464</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>54</td>
-            <td><strong>FreakyJD</strong></td>
-            <td>6,123,949</td>
-            <td>0</td>
-            <td>80,500</td>
-            <td>15,974</td>
-            <td>1,194</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>55</td>
-            <td><strong>BigZik</strong></td>
-            <td>6,055,583</td>
-            <td>662</td>
-            <td>70,900</td>
-            <td>18,286</td>
-            <td>781</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>56</td>
-            <td><strong>PWQJEJFL</strong></td>
-            <td>6,010,710</td>
-            <td>7,440</td>
-            <td>79,900</td>
-            <td>5,386</td>
-            <td>740</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>57</td>
-            <td><strong>Anatole</strong></td>
-            <td>5,904,412</td>
-            <td>0</td>
-            <td>60,400</td>
-            <td>42,629</td>
-            <td>395</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>58</td>
-            <td><strong>Layy</strong></td>
-            <td>5,903,378</td>
-            <td>0</td>
-            <td>47,300</td>
-            <td>0</td>
-            <td>348</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>59</td>
-            <td><strong>Phantompain</strong></td>
-            <td>5,824,590</td>
-            <td>5,547</td>
-            <td>63,600</td>
-            <td>0</td>
-            <td>129</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>60</td>
-            <td><strong>Cy4nnn</strong></td>
-            <td>5,807,060</td>
-            <td>0</td>
-            <td>84,000</td>
-            <td>0</td>
-            <td>544</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>61</td>
-            <td><strong>Kudgar</strong></td>
-            <td>5,780,935</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>62</td>
-            <td><strong>Azorero</strong></td>
-            <td>5,767,573</td>
-            <td>34,660</td>
-            <td>64,400</td>
-            <td>5,588</td>
-            <td>402</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>63</td>
-            <td><strong>RisingCrown</strong></td>
-            <td>5,758,509</td>
-            <td>30,744</td>
-            <td>57,900</td>
-            <td>37,820</td>
-            <td>391</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>64</td>
-            <td><strong>RamoxD</strong></td>
-            <td>5,673,705</td>
-            <td>0</td>
-            <td>70,000</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>65</td>
-            <td><strong>yakut</strong></td>
-            <td>5,524,870</td>
-            <td>1,236</td>
-            <td>21,000</td>
-            <td>5,299</td>
-            <td>240</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>66</td>
-            <td><strong>Windows8</strong></td>
-            <td>5,469,803</td>
-            <td>0</td>
-            <td>41,900</td>
-            <td>0</td>
-            <td>658</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>67</td>
-            <td><strong>HEMANN</strong></td>
-            <td>5,448,606</td>
-            <td>1,868</td>
-            <td>78,600</td>
-            <td>0</td>
-            <td>442</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>68</td>
-            <td><strong>칭키스칸</strong></td>
-            <td>5,359,953</td>
-            <td>0</td>
-            <td>70,600</td>
-            <td>0</td>
-            <td>242</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>69</td>
-            <td><strong>gabbu</strong></td>
-            <td>5,313,145</td>
-            <td>0</td>
-            <td>81,000</td>
-            <td>1,711</td>
-            <td>1,092</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>70</td>
-            <td><strong>weshcoll</strong></td>
-            <td>5,152,900</td>
-            <td>0</td>
-            <td>24,400</td>
-            <td>0</td>
-            <td>278</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>71</td>
-            <td><strong>MCGTHEGEMINI</strong></td>
-            <td>4,665,136</td>
-            <td>0</td>
-            <td>30,200</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>72</td>
-            <td><strong>ErdiAksoy37</strong></td>
-            <td>4,589,190</td>
-            <td>0</td>
-            <td>49,400</td>
-            <td>0</td>
-            <td>136</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>73</td>
-            <td><strong>YaVuZ</strong></td>
-            <td>4,272,362</td>
-            <td>146,000</td>
-            <td>8,700</td>
-            <td>3,312</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>74</td>
-            <td><strong>Tarub</strong></td>
-            <td>4,260,492</td>
-            <td>0</td>
-            <td>23,600</td>
-            <td>0</td>
-            <td>181</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>75</td>
-            <td><strong>Lemarck</strong></td>
-            <td>4,118,685</td>
-            <td>0</td>
-            <td>29,300</td>
-            <td>0</td>
-            <td>177</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>76</td>
-            <td><strong>krales</strong></td>
-            <td>4,103,340</td>
-            <td>67,870</td>
-            <td>200</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>77</td>
-            <td><strong>Rebelyus</strong></td>
-            <td>4,102,576</td>
-            <td>4,091</td>
-            <td>31,100</td>
-            <td>0</td>
-            <td>208</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>78</td>
-            <td><strong>ERINX</strong></td>
-            <td>4,032,062</td>
-            <td>0</td>
-            <td>52,500</td>
-            <td>18,003</td>
-            <td>264</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>79</td>
-            <td><strong>GoVet</strong></td>
-            <td>3,747,575</td>
-            <td>8,142</td>
-            <td>1,800</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>80</td>
-            <td><strong>Moliaro</strong></td>
-            <td>3,689,253</td>
-            <td>0</td>
-            <td>6,500</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>81</td>
-            <td><strong>Memobrw</strong></td>
-            <td>3,176,109</td>
-            <td>25,582</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        
-        <tr>
-            <td>82</td>
-            <td><strong>Rocco23</strong></td>
-            <td>2,393,331</td>
-            <td>0</td>
-            <td>200</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
@@ -949,19 +97,209 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <!-- Modal for Graph -->
+    <div id="graphModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalMemberName">Member Progress</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="chartContainer">
+                <canvas id="progressChart"></canvas>
+            </div>
+        </div>
+    </div>
+
     <script>
+        let historyData = [];
+        let myChart = null;
+
         $(document).ready(function() {
-            $('#membersTable').DataTable({
+            // Initialize DataTable
+            const table = $('#membersTable').DataTable({
                 "pageLength": 50,
                 "order": [[ 0, "asc" ]],
                 "responsive": true,
-                "language": {
-                    "search": "Search Member:"
+                "language": { "search": "Search Member:" }
+            });
+
+            // Load history.json with better error reporting
+            console.log("Fetching history.json...");
+            fetch('history.json', { cache: "no-store" })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    historyData = data;
+                    console.log("History loaded successfully:", historyData.length, "snapshots");
+                })
+                .catch(err => {
+                    console.error('Could not load history:', err);
+                    // Add a small indicator that history is missing
+                    $('.summary').append('<div style="color: red; font-size: 10px; margin-left: auto;">History data unavailable</div>');
+                });
+
+            // Handle name clicks (delegated for DataTables compatibility)
+            // Using a more specific selector and binding to the document or table body
+            $(document).on('click', '.member-link', function(e) {
+                e.preventDefault();
+                const name = $(this).attr('data-name');
+                console.log("Clicked member:", name);
+                if (name) {
+                    showGraph(name);
+                }
+                return false;
+            });
+
+            // Handle alliance tracking clicks (delegated for consistency)
+            $(document).on('click', '#alliancePowerContainer, #totalMembersContainer', function() {
+                console.log("Clicked alliance tracking");
+                showAllianceGraph();
+            });
+
+            // Modal Close
+            $('.close').click(function() {
+                $('#graphModal').hide();
+            });
+            $(window).click(function(event) {
+                if (event.target == document.getElementById('graphModal')) {
+                    $('#graphModal').hide();
                 }
             });
         });
+
+        function showGraph(memberName) {
+            $('#modalMemberName').text(memberName + "'s Power Progress");
+            $('#graphModal').show();
+
+            const labels = [];
+            const powerData = [];
+
+            historyData.forEach(snapshot => {
+                const member = snapshot.members.find(m => m.name === memberName);
+                if (member && member.power) {
+                    const date = new Date(snapshot.timestamp).toLocaleDateString();
+                    labels.push(date);
+                    powerData.push(member.power);
+                }
+            });
+
+            if (powerData.length === 0) {
+                alert('No progress data found for ' + memberName + '. Please wait for more scans to be completed.');
+                return;
+            }
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Power',
+                        data: powerData,
+                        borderColor: '#1877f2',
+                        backgroundColor: 'rgba(24, 119, 242, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Power: ' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function showAllianceGraph() {
+            $('#modalMemberName').text("Alliance Total Power Progress");
+            $('#graphModal').show();
+
+            const labels = [];
+            const powerData = [];
+
+            historyData.forEach(snapshot => {
+                const totalPower = snapshot.members.reduce((sum, m) => sum + (m.power || 0), 0);
+                const date = new Date(snapshot.timestamp).toLocaleDateString();
+                labels.push(date);
+                powerData.push(totalPower);
+            });
+
+            if (powerData.length === 0) {
+                alert('No history data found. Please wait for more scans to be completed.');
+                return;
+            }
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Total Alliance Power',
+                        data: powerData,
+                        borderColor: '#42b72a',
+                        backgroundColor: 'rgba(66, 183, 42, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Total Power: ' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
