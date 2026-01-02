@@ -93,12 +93,14 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
     
     rows = []
     for rec in records:
-        # Wrap name in a span with a data attribute for easier JS selection
-        name_html = f'<span class="member-click" data-name="{escape_html(rec.name)}">{escape_html(rec.name)}</span>'
+        # Escape name for both HTML display and data attribute
+        escaped_name = escape_html(rec.name)
+        # Use an <a> tag to make it clearly clickable and improve accessibility
+        name_html = f'<a href="#" class="member-link" data-name="{escaped_name}" onclick="return false;">{escaped_name}</a>'
         row = f"""
         <tr>
             <td>{rec.rank or ''}</td>
-            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+            <td class="member-name-cell">
                 <strong>{name_html}</strong>
             </td>
             <td>{rec.power or 0:,}</td>
@@ -133,6 +135,19 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
         table.dataTable {{ border-collapse: collapse !important; width: 100% !important; }}
         table.dataTable thead th {{ background-color: #f0f2f5; color: #4b4f56; border-bottom: 2px solid #ddd !important; padding: 12px; }}
         table.dataTable tbody td {{ padding: 12px; border-bottom: 1px solid #eee; }}
+        
+        /* Clickable Name Styles */
+        .member-link {{ 
+            color: #1877f2; 
+            text-decoration: underline; 
+            cursor: pointer;
+            font-weight: bold;
+        }}
+        .member-link:hover {{
+            color: #166fe5;
+            text-decoration: none;
+        }}
+        
         .footer {{ margin-top: 20px; text-align: center; font-size: 12px; color: #90949c; }}
         
         /* Modal Styles */
@@ -187,7 +202,7 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
 
         $(document).ready(function() {{
             // Initialize DataTable
-            $('#membersTable').DataTable({{
+            const table = $('#membersTable').DataTable({{
                 "pageLength": 50,
                 "order": [[ 0, "asc" ]],
                 "responsive": true,
@@ -199,15 +214,20 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                 .then(response => response.json())
                 .then(data => {{
                     historyData = data;
+                    console.log("History loaded:", historyData.length, "snapshots");
                 }})
                 .catch(err => console.error('Could not load history:', err));
 
             // Handle name clicks (delegated for DataTables compatibility)
-            $('#membersTable').on('click', 'td.member-name', function() {{
-                const name = $(this).find('.member-click').data('name');
+            // Using a more specific selector and binding to the document or table body
+            $(document).on('click', '.member-link', function(e) {{
+                e.preventDefault();
+                const name = $(this).attr('data-name');
+                console.log("Clicked member:", name);
                 if (name) {{
                     showGraph(name);
                 }}
+                return false;
             }});
 
             // Modal Close
