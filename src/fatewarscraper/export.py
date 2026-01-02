@@ -225,14 +225,24 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                 "language": {{ "search": "Search Member:" }}
             }});
 
-            // Load history.json
-            fetch('history.json')
-                .then(response => response.json())
+            // Load history.json with better error reporting
+            console.log("Fetching history.json...");
+            fetch('history.json', {{ cache: "no-store" }})
+                .then(response => {{
+                    if (!response.ok) {{
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }}
+                    return response.json();
+                }})
                 .then(data => {{
                     historyData = data;
-                    console.log("History loaded:", historyData.length, "snapshots");
+                    console.log("History loaded successfully:", historyData.length, "snapshots");
                 }})
-                .catch(err => console.error('Could not load history:', err));
+                .catch(err => {{
+                    console.error('Could not load history:', err);
+                    // Add a small indicator that history is missing
+                    $('.summary').append('<div style="color: red; font-size: 10px; margin-left: auto;">History data unavailable</div>');
+                }});
 
             // Handle name clicks (delegated for DataTables compatibility)
             // Using a more specific selector and binding to the document or table body
@@ -246,8 +256,8 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                 return false;
             }});
 
-            // Handle alliance tracking clicks
-            $('#alliancePowerContainer, #totalMembersContainer').click(function() {{
+            // Handle alliance tracking clicks (delegated for consistency)
+            $(document).on('click', '#alliancePowerContainer, #totalMembersContainer', function() {{
                 console.log("Clicked alliance tracking");
                 showAllianceGraph();
             }});
