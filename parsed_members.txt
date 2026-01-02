@@ -3,7 +3,7 @@
 1     | Razsiel              | 47,766,916   | 5,073        | 89,700     | 0          | 1,820      | Read Rank: 1 | Name: Razsiel | Power: 47,766,916
 2     | Raffyy               | 24,456,751   | 0            | 85,000     | 0          | 1,707      | Read Rank: 2 | Name: Raffyy | Power: 24,456,751
 3     | kimse81              | 24,399,349   | 0            | 67,800     | 24,602     | 1,052      | Read Rank: 3 | Name: kimse81 | Power: 24,399,349
-4     | AntyDeath            | 21,678,321   | 91,432,543   | 84,300     | 89,891     | 1,356      | Read Rank: 4 | Name: AntyDeath | Power: 21,678,321
+4     | AntyDeath            | 21,678,321   | 1,432,543   | 84,300     | 89,891     | 1,356      | Read Rank: 4 | Name: AntyDeath | Power: 21,678,321
 5     | bigcheese            | 21,596,730   | 399,235      | 93,000     | 0          | 291        | Read Rank: 5 | Name: bigcheese | Power: 21,596,730
 6     | Taidana              | 19,163,305   | 0            | 79,000     | 87,369     | 1,166      | Read Rank: 6 | Name: Taidana | Power: 19,163,305
 7     | XSTORMX              | 17,028,241   | 18,407       | 78,500     | 2,813      | 1,950      | Read Rank: 7 | Name: XSTORMX | Power: 17,028,241
