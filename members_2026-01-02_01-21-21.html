@@ -20,30 +20,6 @@
         table.dataTable { border-collapse: collapse !important; width: 100% !important; }
         table.dataTable thead th { background-color: #f0f2f5; color: #4b4f56; border-bottom: 2px solid #ddd !important; padding: 12px; }
         table.dataTable tbody td { padding: 12px; border-bottom: 1px solid #eee; }
-        
-        /* Clickable Name Styles */
-        .member-link { 
-            color: #1877f2; 
-            text-decoration: underline; 
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .member-link:hover {
-            color: #166fe5;
-            text-decoration: none;
-        }
-
-        .clickable-summary {
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-        .clickable-summary:hover {
-            background: #e4e6eb;
-            color: #1877f2;
-        }
-        
         .footer { margin-top: 20px; text-align: center; font-size: 12px; color: #90949c; }
         
         /* Modal Styles */
@@ -61,13 +37,8 @@
             <h1>Fate War Alliance Tracking</h1>
         </header>
         <div class="summary">
-            <div id="totalMembersContainer" class="clickable-summary">
-                <strong>Total Members:</strong> 82
-            </div>
-            <div><strong>Last Updated:</strong> 2026-01-02 01:52:11</div>
-            <div id="alliancePowerContainer" class="clickable-summary">
-                <strong>Total Alliance Power:</strong> 723,390,557
-            </div>
+            <div><strong>Total Members:</strong> 82</div>
+            <div><strong>Last Updated:</strong> 2026-01-02 01:21:21</div>
         </div>
         <div class="table-container">
             <table id="membersTable" class="display">
@@ -78,8 +49,8 @@
                     
         <tr>
             <td>1</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Razsiel" onclick="return false;">Razsiel</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Razsiel">Razsiel</span></strong>
             </td>
             <td>44,514,116</td>
             <td>5,073</td>
@@ -91,8 +62,8 @@
         
         <tr>
             <td>2</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="kimse81" onclick="return false;">kimse81</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="kimse81">kimse81</span></strong>
             </td>
             <td>24,399,349</td>
             <td>0</td>
@@ -104,8 +75,8 @@
         
         <tr>
             <td>3</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Raffyy" onclick="return false;">Raffyy</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Raffyy">Raffyy</span></strong>
             </td>
             <td>23,816,651</td>
             <td>0</td>
@@ -117,8 +88,8 @@
         
         <tr>
             <td>4</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="bigcheese" onclick="return false;">bigcheese</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="bigcheese">bigcheese</span></strong>
             </td>
             <td>21,207,800</td>
             <td>399,235</td>
@@ -130,8 +101,8 @@
         
         <tr>
             <td>5</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="AntyDeath" onclick="return false;">AntyDeath</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="AntyDeath">AntyDeath</span></strong>
             </td>
             <td>21,114,977</td>
             <td>1,392,524</td>
@@ -143,8 +114,8 @@
         
         <tr>
             <td>6</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Taidana" onclick="return false;">Taidana</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Taidana">Taidana</span></strong>
             </td>
             <td>18,319,465</td>
             <td>0</td>
@@ -156,8 +127,8 @@
         
         <tr>
             <td>7</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="XSTORMX" onclick="return false;">XSTORMX</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="XSTORMX">XSTORMX</span></strong>
             </td>
             <td>16,810,207</td>
             <td>18,407</td>
@@ -169,8 +140,8 @@
         
         <tr>
             <td>8</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="xAeolus" onclick="return false;">xAeolus</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="xAeolus">xAeolus</span></strong>
             </td>
             <td>14,035,645</td>
             <td>17,302</td>
@@ -182,8 +153,8 @@
         
         <tr>
             <td>9</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="KMGLAY" onclick="return false;">KMGLAY</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="KMGLAY">KMGLAY</span></strong>
             </td>
             <td>13,978,843</td>
             <td>0</td>
@@ -195,8 +166,8 @@
         
         <tr>
             <td>10</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="NanP" onclick="return false;">NanP</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="NanP">NanP</span></strong>
             </td>
             <td>13,227,317</td>
             <td>0</td>
@@ -208,8 +179,8 @@
         
         <tr>
             <td>11</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Batangbata" onclick="return false;">Batangbata</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Batangbata">Batangbata</span></strong>
             </td>
             <td>13,196,035</td>
             <td>698,716</td>
@@ -221,8 +192,8 @@
         
         <tr>
             <td>12</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Tecchi" onclick="return false;">Tecchi</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Tecchi">Tecchi</span></strong>
             </td>
             <td>11,927,343</td>
             <td>182,952</td>
@@ -234,8 +205,8 @@
         
         <tr>
             <td>13</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Marinel" onclick="return false;">Marinel</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Marinel">Marinel</span></strong>
             </td>
             <td>11,613,929</td>
             <td>11,568</td>
@@ -247,8 +218,8 @@
         
         <tr>
             <td>14</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="xMorphx" onclick="return false;">xMorphx</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="xMorphx">xMorphx</span></strong>
             </td>
             <td>11,344,902</td>
             <td>7,412</td>
@@ -260,8 +231,8 @@
         
         <tr>
             <td>15</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Baronbee" onclick="return false;">Baronbee</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Baronbee">Baronbee</span></strong>
             </td>
             <td>10,647,951</td>
             <td>0</td>
@@ -273,8 +244,8 @@
         
         <tr>
             <td>16</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Douzeper" onclick="return false;">Douzeper</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Douzeper">Douzeper</span></strong>
             </td>
             <td>10,225,485</td>
             <td>108,468</td>
@@ -286,8 +257,8 @@
         
         <tr>
             <td>17</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="VonGodeuro" onclick="return false;">VonGodeuro</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="VonGodeuro">VonGodeuro</span></strong>
             </td>
             <td>10,201,358</td>
             <td>209,374</td>
@@ -299,8 +270,8 @@
         
         <tr>
             <td>18</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="TeddyT" onclick="return false;">TeddyT</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="TeddyT">TeddyT</span></strong>
             </td>
             <td>10,169,337</td>
             <td>379,808</td>
@@ -312,8 +283,8 @@
         
         <tr>
             <td>19</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="AutisticDragon" onclick="return false;">AutisticDragon</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="AutisticDragon">AutisticDragon</span></strong>
             </td>
             <td>9,692,524</td>
             <td>328,782</td>
@@ -325,8 +296,8 @@
         
         <tr>
             <td>20</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Riggles" onclick="return false;">Riggles</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Riggles">Riggles</span></strong>
             </td>
             <td>9,661,120</td>
             <td>0</td>
@@ -338,8 +309,8 @@
         
         <tr>
             <td>21</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="CHADZ" onclick="return false;">CHADZ</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="CHADZ">CHADZ</span></strong>
             </td>
             <td>9,658,338</td>
             <td>6,760</td>
@@ -351,8 +322,8 @@
         
         <tr>
             <td>22</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="在下梅遊鉛" onclick="return false;">在下梅遊鉛</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="在下梅遊鉛">在下梅遊鉛</span></strong>
             </td>
             <td>9,530,610</td>
             <td>20,951</td>
@@ -364,8 +335,8 @@
         
         <tr>
             <td>23</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="redripe" onclick="return false;">redripe</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="redripe">redripe</span></strong>
             </td>
             <td>9,196,736</td>
             <td>0</td>
@@ -377,8 +348,8 @@
         
         <tr>
             <td>24</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="xesseku" onclick="return false;">xesseku</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="xesseku">xesseku</span></strong>
             </td>
             <td>9,129,422</td>
             <td>10,249</td>
@@ -390,8 +361,8 @@
         
         <tr>
             <td>25</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="bloodyxmary" onclick="return false;">bloodyxmary</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="bloodyxmary">bloodyxmary</span></strong>
             </td>
             <td>9,082,429</td>
             <td>55,973</td>
@@ -403,8 +374,8 @@
         
         <tr>
             <td>26</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Ornthrond" onclick="return false;">Ornthrond</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Ornthrond">Ornthrond</span></strong>
             </td>
             <td>9,012,184</td>
             <td>31,861</td>
@@ -416,8 +387,8 @@
         
         <tr>
             <td>27</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Novac" onclick="return false;">Novac</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Novac">Novac</span></strong>
             </td>
             <td>8,878,531</td>
             <td>3,521</td>
@@ -429,8 +400,8 @@
         
         <tr>
             <td>28</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="DragonKiller" onclick="return false;">DragonKiller</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="DragonKiller">DragonKiller</span></strong>
             </td>
             <td>8,786,737</td>
             <td>176,447</td>
@@ -442,8 +413,8 @@
         
         <tr>
             <td>29</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="mamon" onclick="return false;">mamon</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="mamon">mamon</span></strong>
             </td>
             <td>8,781,094</td>
             <td>36,627</td>
@@ -455,8 +426,8 @@
         
         <tr>
             <td>30</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="BestGodOOZx" onclick="return false;">BestGodOOZx</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="BestGodOOZx">BestGodOOZx</span></strong>
             </td>
             <td>8,769,814</td>
             <td>38,601</td>
@@ -468,8 +439,8 @@
         
         <tr>
             <td>31</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="AuditorMuda" onclick="return false;">AuditorMuda</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="AuditorMuda">AuditorMuda</span></strong>
             </td>
             <td>8,472,630</td>
             <td>0</td>
@@ -481,8 +452,8 @@
         
         <tr>
             <td>32</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="SeRaFeTTiN" onclick="return false;">SeRaFeTTiN</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="SeRaFeTTiN">SeRaFeTTiN</span></strong>
             </td>
             <td>8,427,320</td>
             <td>168,406</td>
@@ -494,8 +465,8 @@
         
         <tr>
             <td>33</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Zph" onclick="return false;">Zph</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Zph">Zph</span></strong>
             </td>
             <td>8,409,767</td>
             <td>553,767</td>
@@ -507,8 +478,8 @@
         
         <tr>
             <td>34</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="no3Ldev" onclick="return false;">no3Ldev</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="no3Ldev">no3Ldev</span></strong>
             </td>
             <td>8,042,991</td>
             <td>1,238,920</td>
@@ -520,8 +491,8 @@
         
         <tr>
             <td>35</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="すももん" onclick="return false;">すももん</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="すももん">すももん</span></strong>
             </td>
             <td>7,946,000</td>
             <td>0</td>
@@ -533,8 +504,8 @@
         
         <tr>
             <td>36</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Shreff" onclick="return false;">Shreff</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Shreff">Shreff</span></strong>
             </td>
             <td>7,905,641</td>
             <td>0</td>
@@ -546,8 +517,8 @@
         
         <tr>
             <td>37</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Helikaeon" onclick="return false;">Helikaeon</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Helikaeon">Helikaeon</span></strong>
             </td>
             <td>7,783,026</td>
             <td>0</td>
@@ -559,8 +530,8 @@
         
         <tr>
             <td>38</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Kalbaram" onclick="return false;">Kalbaram</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Kalbaram">Kalbaram</span></strong>
             </td>
             <td>7,703,919</td>
             <td>0</td>
@@ -572,8 +543,8 @@
         
         <tr>
             <td>39</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Khaleesil3" onclick="return false;">Khaleesil3</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Khaleesil3">Khaleesil3</span></strong>
             </td>
             <td>7,662,156</td>
             <td>0</td>
@@ -585,8 +556,8 @@
         
         <tr>
             <td>40</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="AlfaStraik" onclick="return false;">AlfaStraik</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="AlfaStraik">AlfaStraik</span></strong>
             </td>
             <td>7,406,296</td>
             <td>8,606</td>
@@ -598,8 +569,8 @@
         
         <tr>
             <td>41</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="beast" onclick="return false;">beast</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="beast">beast</span></strong>
             </td>
             <td>7,113,595</td>
             <td>0</td>
@@ -611,8 +582,8 @@
         
         <tr>
             <td>42</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="TheGuardainz" onclick="return false;">TheGuardainz</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="TheGuardainz">TheGuardainz</span></strong>
             </td>
             <td>6,846,736</td>
             <td>0</td>
@@ -624,8 +595,8 @@
         
         <tr>
             <td>43</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="ゆ一一" onclick="return false;">ゆ一一</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="ゆ一一">ゆ一一</span></strong>
             </td>
             <td>6,846,137</td>
             <td>7,182</td>
@@ -637,8 +608,8 @@
         
         <tr>
             <td>44</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="HoTDog" onclick="return false;">HoTDog</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="HoTDog">HoTDog</span></strong>
             </td>
             <td>6,772,856</td>
             <td>24,866</td>
@@ -650,8 +621,8 @@
         
         <tr>
             <td>45</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="ThorOMG" onclick="return false;">ThorOMG</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="ThorOMG">ThorOMG</span></strong>
             </td>
             <td>6,761,223</td>
             <td>0</td>
@@ -663,8 +634,8 @@
         
         <tr>
             <td>46</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Abanob" onclick="return false;">Abanob</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Abanob">Abanob</span></strong>
             </td>
             <td>6,720,256</td>
             <td>18,743</td>
@@ -676,8 +647,8 @@
         
         <tr>
             <td>47</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Zora0O1" onclick="return false;">Zora0O1</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Zora0O1">Zora0O1</span></strong>
             </td>
             <td>6,703,757</td>
             <td>0</td>
@@ -689,8 +660,8 @@
         
         <tr>
             <td>48</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Dentonl04" onclick="return false;">Dentonl04</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Dentonl04">Dentonl04</span></strong>
             </td>
             <td>6,623,883</td>
             <td>0</td>
@@ -702,8 +673,8 @@
         
         <tr>
             <td>49</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="drikol" onclick="return false;">drikol</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="drikol">drikol</span></strong>
             </td>
             <td>6,436,338</td>
             <td>3,346</td>
@@ -715,8 +686,8 @@
         
         <tr>
             <td>50</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="chamame" onclick="return false;">chamame</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="chamame">chamame</span></strong>
             </td>
             <td>6,406,455</td>
             <td>2,997</td>
@@ -728,8 +699,8 @@
         
         <tr>
             <td>51</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="ZINK" onclick="return false;">ZINK</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="ZINK">ZINK</span></strong>
             </td>
             <td>6,387,567</td>
             <td>2,492</td>
@@ -741,8 +712,8 @@
         
         <tr>
             <td>52</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="lizardcub" onclick="return false;">lizardcub</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="lizardcub">lizardcub</span></strong>
             </td>
             <td>6,351,030</td>
             <td>0</td>
@@ -754,8 +725,8 @@
         
         <tr>
             <td>53</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="BigZik" onclick="return false;">BigZik</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="BigZik">BigZik</span></strong>
             </td>
             <td>6,264,838</td>
             <td>662</td>
@@ -767,8 +738,8 @@
         
         <tr>
             <td>54</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="klA" onclick="return false;">klA</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="klA">klA</span></strong>
             </td>
             <td>6,180,629</td>
             <td>0</td>
@@ -780,8 +751,8 @@
         
         <tr>
             <td>55</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="FreakyJD" onclick="return false;">FreakyJD</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="FreakyJD">FreakyJD</span></strong>
             </td>
             <td>6,123,949</td>
             <td>0</td>
@@ -793,8 +764,8 @@
         
         <tr>
             <td>56</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="RisingCrown" onclick="return false;">RisingCrown</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="RisingCrown">RisingCrown</span></strong>
             </td>
             <td>6,033,299</td>
             <td>30,744</td>
@@ -806,8 +777,8 @@
         
         <tr>
             <td>57</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="PWQJEJFL" onclick="return false;">PWQJEJFL</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="PWQJEJFL">PWQJEJFL</span></strong>
             </td>
             <td>6,029,836</td>
             <td>7,440</td>
@@ -819,8 +790,8 @@
         
         <tr>
             <td>58</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Layy" onclick="return false;">Layy</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Layy">Layy</span></strong>
             </td>
             <td>5,903,378</td>
             <td>0</td>
@@ -832,8 +803,8 @@
         
         <tr>
             <td>59</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Phantompain" onclick="return false;">Phantompain</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Phantompain">Phantompain</span></strong>
             </td>
             <td>5,824,590</td>
             <td>5,547</td>
@@ -845,8 +816,8 @@
         
         <tr>
             <td>60</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Cy4nnn" onclick="return false;">Cy4nnn</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Cy4nnn">Cy4nnn</span></strong>
             </td>
             <td>5,817,425</td>
             <td>0</td>
@@ -858,8 +829,8 @@
         
         <tr>
             <td>61</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Kudgar" onclick="return false;">Kudgar</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Kudgar">Kudgar</span></strong>
             </td>
             <td>5,780,935</td>
             <td>0</td>
@@ -871,8 +842,8 @@
         
         <tr>
             <td>62</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Azorero" onclick="return false;">Azorero</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Azorero">Azorero</span></strong>
             </td>
             <td>5,767,573</td>
             <td>34,660</td>
@@ -884,8 +855,8 @@
         
         <tr>
             <td>63</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="RamoxD" onclick="return false;">RamoxD</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="RamoxD">RamoxD</span></strong>
             </td>
             <td>5,683,980</td>
             <td>0</td>
@@ -897,8 +868,8 @@
         
         <tr>
             <td>64</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Windows8" onclick="return false;">Windows8</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Windows8">Windows8</span></strong>
             </td>
             <td>5,593,353</td>
             <td>0</td>
@@ -910,8 +881,8 @@
         
         <tr>
             <td>65</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="yakut" onclick="return false;">yakut</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="yakut">yakut</span></strong>
             </td>
             <td>5,542,645</td>
             <td>1,236</td>
@@ -923,8 +894,8 @@
         
         <tr>
             <td>66</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="hefesto" onclick="return false;">hefesto</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="hefesto">hefesto</span></strong>
             </td>
             <td>5,532,164</td>
             <td>0</td>
@@ -936,8 +907,8 @@
         
         <tr>
             <td>67</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="칭키스칸" onclick="return false;">칭키스칸</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="칭키스칸">칭키스칸</span></strong>
             </td>
             <td>5,494,198</td>
             <td>0</td>
@@ -949,8 +920,8 @@
         
         <tr>
             <td>68</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="HEMANN" onclick="return false;">HEMANN</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="HEMANN">HEMANN</span></strong>
             </td>
             <td>5,478,561</td>
             <td>1,868</td>
@@ -962,8 +933,8 @@
         
         <tr>
             <td>69</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="gabbu" onclick="return false;">gabbu</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="gabbu">gabbu</span></strong>
             </td>
             <td>5,315,305</td>
             <td>11,978</td>
@@ -975,8 +946,8 @@
         
         <tr>
             <td>70</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="ROTT" onclick="return false;">ROTT</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="ROTT">ROTT</span></strong>
             </td>
             <td>5,200,629</td>
             <td>10,247</td>
@@ -988,8 +959,8 @@
         
         <tr>
             <td>71</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="weshcoll" onclick="return false;">weshcoll</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="weshcoll">weshcoll</span></strong>
             </td>
             <td>5,155,331</td>
             <td>0</td>
@@ -1001,8 +972,8 @@
         
         <tr>
             <td>72</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="ErdiAksoy37" onclick="return false;">ErdiAksoy37</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="ErdiAksoy37">ErdiAksoy37</span></strong>
             </td>
             <td>4,752,630</td>
             <td>0</td>
@@ -1014,8 +985,8 @@
         
         <tr>
             <td>73</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="MCGTHEGEMINI" onclick="return false;">MCGTHEGEMINI</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="MCGTHEGEMINI">MCGTHEGEMINI</span></strong>
             </td>
             <td>4,665,136</td>
             <td>0</td>
@@ -1027,8 +998,8 @@
         
         <tr>
             <td>74</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Tarub" onclick="return false;">Tarub</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Tarub">Tarub</span></strong>
             </td>
             <td>4,448,382</td>
             <td>0</td>
@@ -1040,8 +1011,8 @@
         
         <tr>
             <td>75</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Lemarck" onclick="return false;">Lemarck</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Lemarck">Lemarck</span></strong>
             </td>
             <td>4,337,950</td>
             <td>0</td>
@@ -1053,8 +1024,8 @@
         
         <tr>
             <td>76</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="YaVuZ" onclick="return false;">YaVuZ</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="YaVuZ">YaVuZ</span></strong>
             </td>
             <td>4,283,237</td>
             <td>146,000</td>
@@ -1066,8 +1037,8 @@
         
         <tr>
             <td>77</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="krales" onclick="return false;">krales</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="krales">krales</span></strong>
             </td>
             <td>4,103,340</td>
             <td>67,870</td>
@@ -1079,8 +1050,8 @@
         
         <tr>
             <td>78</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Rebelyus" onclick="return false;">Rebelyus</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Rebelyus">Rebelyus</span></strong>
             </td>
             <td>4,102,576</td>
             <td>4,091</td>
@@ -1092,8 +1063,8 @@
         
         <tr>
             <td>79</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="ERINX" onclick="return false;">ERINX</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="ERINX">ERINX</span></strong>
             </td>
             <td>4,032,062</td>
             <td>0</td>
@@ -1105,8 +1076,8 @@
         
         <tr>
             <td>80</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Moliaro" onclick="return false;">Moliaro</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Moliaro">Moliaro</span></strong>
             </td>
             <td>3,698,153</td>
             <td>0</td>
@@ -1118,8 +1089,8 @@
         
         <tr>
             <td>81</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Memobrw" onclick="return false;">Memobrw</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Memobrw">Memobrw</span></strong>
             </td>
             <td>3,176,244</td>
             <td>25,582</td>
@@ -1131,8 +1102,8 @@
         
         <tr>
             <td>82</td>
-            <td class="member-name-cell">
-                <strong><a href="#" class="member-link" data-name="Rocco23" onclick="return false;">Rocco23</a></strong>
+            <td class="member-name" style="cursor: pointer; color: #1877f2; text-decoration: underline;">
+                <strong><span class="member-click" data-name="Rocco23">Rocco23</span></strong>
             </td>
             <td>2,408,401</td>
             <td>0</td>
@@ -1169,48 +1140,27 @@
 
         $(document).ready(function() {
             // Initialize DataTable
-            const table = $('#membersTable').DataTable({
+            $('#membersTable').DataTable({
                 "pageLength": 50,
                 "order": [[ 0, "asc" ]],
                 "responsive": true,
                 "language": { "search": "Search Member:" }
             });
 
-            // Load history.json with better error reporting
-            console.log("Fetching history.json...");
-            fetch('history.json', { cache: "no-store" })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.json();
-                })
+            // Load history.json
+            fetch('history.json')
+                .then(response => response.json())
                 .then(data => {
                     historyData = data;
-                    console.log("History loaded successfully:", historyData.length, "snapshots");
                 })
-                .catch(err => {
-                    console.error('Could not load history:', err);
-                    // Add a small indicator that history is missing
-                    $('.summary').append('<div style="color: red; font-size: 10px; margin-left: auto;">History data unavailable</div>');
-                });
+                .catch(err => console.error('Could not load history:', err));
 
             // Handle name clicks (delegated for DataTables compatibility)
-            // Using a more specific selector and binding to the document or table body
-            $(document).on('click', '.member-link', function(e) {
-                e.preventDefault();
-                const name = $(this).attr('data-name');
-                console.log("Clicked member:", name);
+            $('#membersTable').on('click', 'td.member-name', function() {
+                const name = $(this).find('.member-click').data('name');
                 if (name) {
                     showGraph(name);
                 }
-                return false;
-            });
-
-            // Handle alliance tracking clicks (delegated for consistency)
-            $(document).on('click', '#alliancePowerContainer, #totalMembersContainer', function() {
-                console.log("Clicked alliance tracking");
-                showAllianceGraph();
             });
 
             // Modal Close
@@ -1282,70 +1232,6 @@
                             callbacks: {
                                 label: function(context) {
                                     return 'Power: ' + context.parsed.y.toLocaleString();
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function showAllianceGraph() {
-            $('#modalMemberName').text("Alliance Total Power Progress");
-            $('#graphModal').show();
-
-            const labels = [];
-            const powerData = [];
-
-            historyData.forEach(snapshot => {
-                const totalPower = snapshot.members.reduce((sum, m) => sum + (m.power || 0), 0);
-                const date = new Date(snapshot.timestamp).toLocaleDateString();
-                labels.push(date);
-                powerData.push(totalPower);
-            });
-
-            if (powerData.length === 0) {
-                alert('No history data found. Please wait for more scans to be completed.');
-                return;
-            }
-
-            if (myChart) {
-                myChart.destroy();
-            }
-
-            const ctx = document.getElementById('progressChart').getContext('2d');
-            myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Total Alliance Power',
-                        data: powerData,
-                        borderColor: '#42b72a',
-                        backgroundColor: 'rgba(66, 183, 42, 0.1)',
-                        borderWidth: 2,
-                        fill: true,
-                        tension: 0.3
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            ticks: {
-                                callback: function(value) {
-                                    return value.toLocaleString();
-                                }
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return 'Total Power: ' + context.parsed.y.toLocaleString();
                                 }
                             }
                         }
