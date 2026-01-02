@@ -63,8 +63,28 @@ def extract_number(text: str) -> Optional[int]:
     """Extract a number from text string."""
     # Special handling for common OCR errors in large numbers
     
+    # 0. Handle potential podium artifact or rank prefix that isn't separated by space
+    # Example: "91,392,524" where '9' is an artifact and actual value is "1,392,524"
+    # This often happens in the podium or at the start of a list.
+    # If a number starts with a digit that is separated from the rest by a comma/dot,
+    # and the rest of the number is long (6+ digits), it's likely a misread.
+    temp = text.strip()
+    
+    # Heuristic for podium kill artifact: "9 1,392,524" -> "1,392,524"
+    # Matches a single digit followed by at least 6 more digits (with possible separators)
+    # We use a pattern that matches digit + separator + rest or digit + rest if it's clear
+    # Note: We only strip the leading digit if it's a '9' (misread rank 1 podium artifact)
+    # or if there is a space/separator.
+    podium_match = re.match(r'^9[\.,]?(\d{1,3}[\.,]\d{3}[\.,]\d{3})$', temp)
+    if podium_match:
+        temp = podium_match.group(1)
+    
+    # Also handle case where it's just a long string of digits: "91392524" -> "1392524"
+    # But only if it's 8 digits and starts with 9 (common misread for the winner's medal)
+    if len(temp) == 8 and temp.startswith('9'):
+        temp = temp[1:]
+    
     # Remove dots and commas if they look like separators
-    temp = text
     # Replace dots/commas that are followed by 3 digits
     temp = re.sub(r'[\.,](\d{3})(?!\d)', r'\1', temp)
     temp = re.sub(r'[\.,](\d{3})', r'\1', temp)
