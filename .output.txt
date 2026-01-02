@@ -1,366 +1,1087 @@
-Mock history created at outputs\history.json
-======================================================================
-Phase 4: Multi-Metric Member Tracking
-======================================================================
-Processing 150 member list images...
-  crop_construction_000.png (Metric: construction)... Initializing EasyOCR with GPU (CUDA) and languages ['en']...
-  Detected 2 rows via EasyOCR (first at y=26, last at y=146)
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'vi']...
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ko']...
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ja']...
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ch_sim']...
-Initializing EasyOCR with GPU (CUDA) and languages ['en', 'ru']...
-2 members
-  crop_construction_001.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=17, last at y=473)
-5 members
-  crop_construction_002.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=17, last at y=490)
-6 members
-  crop_construction_003.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=38, last at y=427)
-5 members
-  crop_construction_004.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
-5 members
-  crop_construction_005.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
-6 members
-  crop_construction_006.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
-6 members
-  crop_construction_007.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-5 members
-  crop_construction_008.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=51, last at y=440)
-5 members
-  crop_construction_009.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
-5 members
-  crop_construction_010.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=6, last at y=482)
-6 members
-  crop_construction_011.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
-5 members
-  crop_construction_012.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
-5 members
-  crop_construction_013.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
-5 members
-  crop_construction_014.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=2, last at y=480)
-6 members
-  crop_construction_015.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
-6 members
-  crop_construction_016.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=42, last at y=432)
-5 members
-  crop_construction_017.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
-4 members
-  crop_construction_018.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
-3 members
-  crop_construction_019.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
-2 members
-  crop_construction_020.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
-2 members
-  crop_construction_021.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=53, last at y=446)
-2 members
-  crop_construction_022.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
-2 members
-  crop_construction_023.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
-1 members
-  crop_construction_024.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-3 members
-  crop_construction_025.png (Metric: construction)...   Detected 5 rows via EasyOCR (first at y=54, last at y=442)
-2 members
-  crop_construction_026.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
-3 members
-  crop_construction_027.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
-3 members
-  crop_construction_028.png (Metric: construction)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
-2 members
-  crop_construction_podium.png (Metric: construction)... 3 members
-  crop_kills_000.png (Metric: kills)...   Detected 2 rows via EasyOCR (first at y=24, last at y=146)
-2 members
-  crop_kills_001.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=17, last at y=470)
-5 members
-  crop_kills_002.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=12, last at y=490)
-6 members
-  crop_kills_003.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=38, last at y=427)
-5 members
-  crop_kills_004.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
-5 members
-  crop_kills_005.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=469)
-6 members
-  crop_kills_006.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=12, last at y=489)
-6 members
-  crop_kills_007.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-5 members
-  crop_kills_008.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=51, last at y=440)
-5 members
-  crop_kills_009.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
-5 members
-  crop_kills_010.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=6, last at y=482)
-6 members
-  crop_kills_011.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=25, last at y=496)
-5 members
-  crop_kills_012.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
-5 members
-  crop_kills_013.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
-5 members
-  crop_kills_014.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=2, last at y=480)
-6 members
-  crop_kills_015.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
-6 members
-  crop_kills_016.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=44, last at y=430)
-5 members
-  crop_kills_017.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
-5 members
-  crop_kills_018.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
-6 members
-  crop_kills_019.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
-6 members
-  crop_kills_020.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=38, last at y=428)
-5 members
-  crop_kills_021.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=57, last at y=449)
-5 members
-  crop_kills_022.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
-6 members
-  crop_kills_023.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
-6 members
-  crop_kills_024.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-5 members
-  crop_kills_025.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=54, last at y=442)
-5 members
-  crop_kills_026.png (Metric: kills)...   Detected 5 rows via EasyOCR (first at y=73, last at y=462)
-5 members
-  crop_kills_027.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
-6 members
-  crop_kills_028.png (Metric: kills)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
-5 members
-  crop_kills_podium.png (Metric: kills)... 3 members
-  crop_power_000.png (Metric: power)...   Detected 2 rows via EasyOCR (first at y=25, last at y=146)
-2 members
-  crop_power_001.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
-5 members
-  crop_power_002.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=16, last at y=490)
-6 members
-  crop_power_003.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=38, last at y=427)
-5 members
-  crop_power_004.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
-5 members
-  crop_power_005.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
-6 members
-  crop_power_006.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
-6 members
-  crop_power_007.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-5 members
-  crop_power_008.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=51, last at y=440)
-5 members
-  crop_power_009.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
-5 members
-  crop_power_010.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=6, last at y=485)
-6 members
-  crop_power_011.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
-5 members
-  crop_power_012.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
-5 members
-  crop_power_013.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
-5 members
-  crop_power_014.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=2, last at y=478)
-6 members
-  crop_power_015.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
-6 members
-  crop_power_016.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=44, last at y=432)
-5 members
-  crop_power_017.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
-5 members
-  crop_power_018.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
-6 members
-  crop_power_019.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
-6 members
-  crop_power_020.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
-5 members
-  crop_power_021.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=57, last at y=446)
-5 members
-  crop_power_022.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
-6 members
-  crop_power_023.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=12, last at y=490)
-6 members
-  crop_power_024.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-5 members
-  crop_power_025.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=54, last at y=442)
-5 members
-  crop_power_026.png (Metric: power)...   Detected 5 rows via EasyOCR (first at y=73, last at y=465)
-5 members
-  crop_power_027.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
-6 members
-  crop_power_028.png (Metric: power)...   Detected 6 rows via EasyOCR (first at y=0, last at y=470)
-6 members
-  crop_power_podium.png (Metric: power)... 3 members
-  crop_tribe_assistance_000.png (Metric: tribe_assistance)...   Detected 2 rows via EasyOCR (first at y=26, last at y=144)
-2 members
-  crop_tribe_assistance_001.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=18, last at y=470)
-5 members
-  crop_tribe_assistance_002.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=16, last at y=490)
-6 members
-  crop_tribe_assistance_003.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=36, last at y=427)
-5 members
-  crop_tribe_assistance_004.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=58, last at y=446)
-5 members
-  crop_tribe_assistance_005.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
-6 members
-  crop_tribe_assistance_006.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
-6 members
-  crop_tribe_assistance_007.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=29, last at y=420)
-5 members
-  crop_tribe_assistance_008.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=49, last at y=440)
-5 members
-  crop_tribe_assistance_009.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
-5 members
-  crop_tribe_assistance_010.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=6, last at y=485)
-6 members
-  crop_tribe_assistance_011.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
-5 members
-  crop_tribe_assistance_012.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
-5 members
-  crop_tribe_assistance_013.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=67, last at y=458)
-5 members
-  crop_tribe_assistance_014.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=478)
-6 members
-  crop_tribe_assistance_015.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
-6 members
-  crop_tribe_assistance_016.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=43, last at y=430)
-5 members
-  crop_tribe_assistance_017.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
-5 members
-  crop_tribe_assistance_018.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
-6 members
-  crop_tribe_assistance_019.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=15, last at y=495)
-6 members
-  crop_tribe_assistance_020.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
-5 members
-  crop_tribe_assistance_021.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=60, last at y=449)
-5 members
-  crop_tribe_assistance_022.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
-6 members
-  crop_tribe_assistance_023.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=11, last at y=488)
-6 members
-  crop_tribe_assistance_024.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=32, last at y=425)
-5 members
-  crop_tribe_assistance_025.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=54, last at y=444)
-2 members
-  crop_tribe_assistance_026.png (Metric: tribe_assistance)...   Detected 5 rows via EasyOCR (first at y=73, last at y=462)
-0 members
-  crop_tribe_assistance_027.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
-0 members
-  crop_tribe_assistance_028.png (Metric: tribe_assistance)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
-2 members
-  crop_tribe_assistance_podium.png (Metric: tribe_assistance)... 3 members
-  crop_weekly_contribution_000.png (Metric: weekly_contribution)...   Detected 2 rows via EasyOCR (first at y=26, last at y=146)
-2 members
-  crop_weekly_contribution_001.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=18, last at y=476)
-5 members
-  crop_weekly_contribution_002.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=17, last at y=490)
-6 members
-  crop_weekly_contribution_003.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=33, last at y=427)
-5 members
-  crop_weekly_contribution_004.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=55, last at y=446)
-5 members
-  crop_weekly_contribution_005.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=469)
-6 members
-  crop_weekly_contribution_006.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=11, last at y=488)
-6 members
-  crop_weekly_contribution_007.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-5 members
-  crop_weekly_contribution_008.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=51, last at y=441)
-5 members
-  crop_weekly_contribution_009.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
-5 members
-  crop_weekly_contribution_010.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=6, last at y=485)
-6 members
-  crop_weekly_contribution_011.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=25, last at y=490)
-5 members
-  crop_weekly_contribution_012.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=48, last at y=436)
-5 members
-  crop_weekly_contribution_013.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=67, last at y=456)
-5 members
-  crop_weekly_contribution_014.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=2, last at y=478)
-6 members
-  crop_weekly_contribution_015.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=22, last at y=490)
-6 members
-  crop_weekly_contribution_016.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=44, last at y=430)
-5 members
-  crop_weekly_contribution_017.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=64, last at y=452)
-5 members
-  crop_weekly_contribution_018.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=474)
-6 members
-  crop_weekly_contribution_019.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=15, last at y=490)
-6 members
-  crop_weekly_contribution_020.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=38, last at y=426)
-5 members
-  crop_weekly_contribution_021.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=57, last at y=447)
-5 members
-  crop_weekly_contribution_022.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=468)
-6 members
-  crop_weekly_contribution_023.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=12, last at y=488)
-6 members
-  crop_weekly_contribution_024.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=32, last at y=420)
-5 members
-  crop_weekly_contribution_025.png (Metric: weekly_contribution)...   Detected 5 rows via EasyOCR (first at y=52, last at y=442)
-5 members
-  crop_weekly_contribution_026.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=462)
-6 members
-  crop_weekly_contribution_027.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=8, last at y=484)
-6 members
-  crop_weekly_contribution_028.png (Metric: weekly_contribution)...   Detected 6 rows via EasyOCR (first at y=0, last at y=473)
-6 members
-  crop_weekly_contribution_podium.png (Metric: weekly_contribution)... 3 members
-✓ Extracted 730 total records
-Merging records and deduplicating...
-✓ 91 unique members identified
-Sorting by POWER and calculating ranks...
-Rank  | Name                 | Power        | Kills        | Weekly     | Const.     | Asst.
--------------------------------------------------------------------------------------------------
-1     | Razsiel              | 44,159,316   | 5,073        | 86,700     | 0          | 1,687
-2     | kimse81              | 24,399,349   | 0            | 67,800     | 24,602     | 1,052
-3     | Raffyy               | 23,219,611   | 0            | 82,300     | 0          | 1,501
-4     | AntyDeath            | 20,949,408   | 1,392,524    | 76,300     | 89,891     | 1,220
-5     | bigcheese            | 20,739,075   | 399,235      | 83,100     | 0          | 0
-6     | Taidana              | 17,847,540   | 0            | 77,000     | 87,369     | 968
-7     | XSTORMX              | 16,796,407   | 18,407       | 75,900     | 2,813      | 1,728
-8     | KMGLAY               | 13,896,723   | 0            | 69,700     | 4,565      | 1,528
-9     | xAeolus              | 13,692,675   | 17,302       | 75,200     | 59,032     | 1,179
-10    | NanP                 | 13,227,194   | 0            | 83,800     | 132,015    | 1,353
-11    | Batangbata           | 13,196,035   | 698,716      | 76,400     | 126,181    | 978
-12    | Marinel              | 11,562,629   | 11,568       | 84,800     | 3,938      | 1,130
-13    | Tecchi               | 11,540,317   | 182,952      | 72,100     | 39,742     | 1,006
-14    | xMorphx              | 11,281,934   | 7,412        | 78,700     | 30,127     | 1,517
-15    | Baronbee             | 10,535,669   | 0            | 75,900     | 58,441     | 1,714
-16    | TeddyT               | 10,169,337   | 379,808      | 64,900     | 49,572     | 661
-17    | VonGodeuro           | 10,062,053   | 209,374      | 77,000     | 0          | 833
-18    | Douzeper             | 10,009,995   | 108,468      | 61,100     | 11,707     | 625
-19    | AutisticDragon       | 9,692,524    | 328,782      | 82,700     | 0          | 1,035
-20    | CHADZ                | 9,658,338    | 6,760        | 80,100     | 19,896     | 1,384
-21    | 在下梅遊鉛           | 9,465,980    | 20,951       | 66,700     | 0          | 838
-22    | redripe              | 9,149,795    | 0            | 43,100     | 0          | 535
-23    | xesseku              | 9,070,612    | 10,249       | 79,700     | 155,520    | 843
-24    | bloodyxmary          | 9,069,089    | 55,973       | 82,100     | 20,763     | 637
-25    | Ornthrond            | 9,012,184    | 31,861       | 85,600     | 0          | 1,491
-26    | Novac                | 8,839,059    | 3,521        | 97,500     | 11,158     | 2,061
-27    | BestGodoo7x          | 8,750,014    | 38,601       | 74,200     | 11,410     | 1,003
-28    | mamon                | 8,710,524    | 36,627       | 73,900     | 0          | 651
-29    | Riggles              | 8,454,750    | 0            | 10,600     | 0          | 104
-30    | DragonKiller         | 8,437,030    | 176,447      | 80,200     | 4,523      | 877
-31    | SeRaFeTTiN           | 8,427,320    | 168,406      | 71,400     | 3,306      | 505
-32    | Zph                  | 8,409,767    | 553,767      | 5,400      | 4,501      | 281
-33    | AuditorMuda          | 8,318,158    | 0            | 75,200     | 158,196    | 1,545
-34    | no3Ldev              | 7,966,188    | 1,238,920    | 78,200     | 22,039     | 1,113
-35    | すももん             | 7,870,435    | 0            | 78,800     | 0          | 1,340
-36    | Helikaeon            | 7,783,026    | 0            | 63,300     | 48,566     | 679
-37    | Shreff               | 7,758,066    | 0            | 67,100     | 0          | 777
-38    | Kalbaram             | 7,696,759    | 0            | 80,600     | 16,866     | 2,090
-39    | Khaleesil3           | 7,657,819    | 0            | 73,500     | 41,192     | 1,130
-40    | AlfaStraik           | 7,406,296    | 8,606        | 76,400     | 0          | 803
-41    | beast                | 7,097,470    | 0            | 1,000      | 0          | 0
-42    | ゆ一一               | 6,830,912    | 7,182        | 30,200     | 850        | 445
-43    | HoTDog               | 6,772,616    | 24,866       | 56,200     | 79,429     | 728
-44    | ThoroMG              | 6,761,223    | 0            | 55,900     | 2,627      | 920
-45    | Abanob               | 6,720,256    | 18,743       | 7,700      | 0          | 122
-46    | TheGuardainz         | 6,654,726    | 0            | 50,900     | 25,534     | 381
-47    | Denton1o4            | 6,597,792    | 0            | 0          | 0          | 0
-48    | Zoraool              | 6,545,957    | 0            | 83,800     | 139,199    | 905
-49    | drikol               | 6,436,338    | 3,346        | 68,600     | 48,030     | 448
-50    | chamame              | 6,406,455    | 2,997        | 35,400     | 0          | 613
-... and 32 more
-✓ CSV report saved:  outputs\members_2026-01-02_00-40-15.csv
-✓ HTML report saved: outputs\members_2026-01-02_00-40-15.html
-✓ Debug log saved:   outputs\parsed_members.txt
+Saved working directory and index state WIP on master: c44a417 Fix deployment script to push to remote GitHub and include all output files
+Switched to branch 'gh-pages'
+rank                : 1
+name                : Razsiel
+power               : 44514116
+kills               : 5073
+weekly_contribution : 88700
+construction        :
+tribe_assistance    : 1721
+gold_donation       : 44885
+read_rank           : 1
+power_rank          : 1
+rank_mismatch       : False
+raw_line            : Read Rank: 1 | Name: Razsiel | Power: 44,514,116
+is_valid            : True
+rank                : 2
+name                : kimse81
+power               : 24399349
+kills               :
+weekly_contribution : 67800
+construction        : 24602
+tribe_assistance    : 1052
+gold_donation       : 3535
+read_rank           : 2
+power_rank          : 2
+rank_mismatch       : False
+raw_line            : Read Rank: 2 | Name: kimse81 | Power: 24,399,349
+is_valid            : True
+rank                : 3
+name                : Raffyy
+power               : 23816651
+kills               :
+weekly_contribution : 83900
+construction        : 0
+tribe_assistance    : 1572
+gold_donation       : 1830
+read_rank           : 3
+power_rank          : 3
+rank_mismatch       : False
+raw_line            : Read Rank: 3 | Name: Raffyy | Power: 23,816,651
+is_valid            : True
+rank                : 4
+name                : bigcheese
+power               : 21207800
+kills               : 399235
+weekly_contribution : 92800
+construction        : 0
+tribe_assistance    : 138
+gold_donation       : 2695
+read_rank           : 4
+power_rank          : 4
+rank_mismatch       : False
+raw_line            : Read Rank: 4 | Name: bigcheese | Power: 21,207,800
+is_valid            : True
+rank                : 5
+name                : AntyDeath
+power               : 21114977
+kills               : 1392524
+weekly_contribution : 83700
+construction        : 89891
+tribe_assistance    : 1242
+gold_donation       : 1030
+read_rank           : 5
+power_rank          : 5
+rank_mismatch       : False
+raw_line            : Read Rank: 5 | Name: AntyDeath | Power: 21,114,977
+is_valid            : True
+rank                : 6
+name                : Taidana
+power               : 18319465
+kills               :
+weekly_contribution : 78700
+construction        : 87369
+tribe_assistance    : 1033
+gold_donation       : 1881
+read_rank           : 6
+power_rank          : 6
+rank_mismatch       : False
+raw_line            : Read Rank: 6 | Name: Taidana | Power: 18,319,465
+is_valid            : True
+rank                : 7
+name                : XSTORMX
+power               : 16810207
+kills               : 18407
+weekly_contribution : 76700
+construction        : 2813
+tribe_assistance    : 1789
+gold_donation       : 1535
+read_rank           : 7
+power_rank          : 7
+rank_mismatch       : False
+raw_line            : Read Rank: 7 | Name: XSTORMX | Power: 16,810,207
+is_valid            : True
+rank                : 8
+name                : xAeolus
+power               : 14035645
+kills               : 17302
+weekly_contribution : 77200
+construction        : 59032
+tribe_assistance    : 1256
+gold_donation       : 1165
+read_rank           : 8
+power_rank          : 8
+rank_mismatch       : False
+raw_line            : Read Rank: 8 | Name: xAeolus | Power: 14,035,645
+is_valid            : True
+rank                : 9
+name                : KMGLAY
+power               : 13978843
+kills               :
+weekly_contribution : 75300
+construction        : 4565
+tribe_assistance    : 1577
+gold_donation       : 230
+read_rank           : 9
+power_rank          : 9
+rank_mismatch       : False
+raw_line            : Read Rank: 9 | Name: KMGLAY | Power: 13,978,843
+is_valid            : True
+rank                : 10
+name                : NanP
+power               : 13227317
+kills               :
+weekly_contribution : 88700
+construction        : 132015
+tribe_assistance    : 1375
+gold_donation       : 3355
+read_rank           : 10
+power_rank          : 10
+rank_mismatch       : False
+raw_line            : Read Rank: 10 | Name: NanP | Power: 13,227,317
+is_valid            : True
+rank                : 11
+name                : Batangbata
+power               : 13196035
+kills               : 698716
+weekly_contribution : 76400
+construction        : 126181
+tribe_assistance    : 978
+gold_donation       : 470
+read_rank           : 11
+power_rank          : 11
+rank_mismatch       : False
+raw_line            : Read Rank: 11 | Name: Batangbata | Power: 13,196,035
+is_valid            : True
+rank                : 12
+name                : Tecchi
+power               : 11927343
+kills               : 182952
+weekly_contribution : 78600
+construction        : 40142
+tribe_assistance    : 1052
+gold_donation       : 90
+read_rank           : 12
+power_rank          : 12
+rank_mismatch       : False
+raw_line            : Read Rank: 12 | Name: Tecchi | Power: 11,927,343
+is_valid            : True
+rank                : 13
+name                : Marinel
+power               : 11613929
+kills               : 11568
+weekly_contribution : 85100
+construction        : 3938
+tribe_assistance    : 1143
+gold_donation       : 181
+read_rank           : 13
+power_rank          : 13
+rank_mismatch       : False
+raw_line            : Read Rank: 13 | Name: Marinel | Power: 11,613,929
+is_valid            : True
+rank                : 14
+name                : xMorphx
+power               : 11344902
+kills               : 7412
+weekly_contribution : 78700
+construction        : 30127
+tribe_assistance    : 1564
+gold_donation       : 1520
+read_rank           : 14
+power_rank          : 14
+rank_mismatch       : False
+raw_line            : Read Rank: 14 | Name: xMorphx | Power: 11,344,902
+is_valid            : True
+rank                : 15
+name                : Baronbee
+power               : 10647951
+kills               :
+weekly_contribution : 75900
+construction        : 58441
+tribe_assistance    : 3719
+gold_donation       : 435
+read_rank           : 15
+power_rank          : 15
+rank_mismatch       : False
+raw_line            : Read Rank: 15 | Name: Baronbee | Power: 10,647,951
+is_valid            : True
+rank                : 16
+name                : Douzeper
+power               : 10225485
+kills               : 108468
+weekly_contribution : 62400
+construction        : 13330
+tribe_assistance    : 703
+gold_donation       : 95
+read_rank           : 16
+power_rank          : 16
+rank_mismatch       : False
+raw_line            : Read Rank: 16 | Name: Douzeper | Power: 10,225,485
+is_valid            : True
+rank                : 17
+name                : VonGodeuro
+power               : 10201358
+kills               : 209374
+weekly_contribution : 79000
+construction        :
+tribe_assistance    : 858
+gold_donation       :
+read_rank           : 17
+power_rank          : 17
+rank_mismatch       : False
+raw_line            : Read Rank: 17 | Name: VonGodeuro | Power: 10,201,358
+is_valid            : True
+rank                : 18
+name                : TeddyT
+power               : 10169337
+kills               : 379808
+weekly_contribution : 64900
+construction        : 49572
+tribe_assistance    : 661
+gold_donation       : 305
+read_rank           : 18
+power_rank          : 18
+rank_mismatch       : False
+raw_line            : Read Rank: 18 | Name: TeddyT | Power: 10,169,337
+is_valid            : True
+rank                : 19
+name                : AutisticDragon
+power               : 9692524
+kills               : 328782
+weekly_contribution : 82700
+construction        : 0
+tribe_assistance    : 1035
+gold_donation       : 315
+read_rank           : 19
+power_rank          : 19
+rank_mismatch       : False
+raw_line            : Read Rank: 19 | Name: AutisticDragon | Power: 9,692,524
+is_valid            : True
+rank                : 20
+name                : Riggles
+power               : 9661120
+kills               :
+weekly_contribution : 19100
+construction        :
+tribe_assistance    : 133
+gold_donation       : 2075
+read_rank           : 20
+power_rank          : 20
+rank_mismatch       : False
+raw_line            : Read Rank: 20 | Name: Riggles | Power: 9,661,120
+is_valid            : True
+rank                : 21
+name                : CHADZ
+power               : 9658338
+kills               : 6760
+weekly_contribution : 80100
+construction        : 19896
+tribe_assistance    : 1384
+gold_donation       :
+read_rank           : 21
+power_rank          : 21
+rank_mismatch       : False
+raw_line            : Read Rank: 21 | Name: CHADZ | Power: 9,658,338
+is_valid            : True
+rank                : 22
+name                : åœ¨ä¸‹æ¢…é Šé‰›
+power               : 9530610
+kills               : 20951
+weekly_contribution : 73400
+construction        :
+tribe_assistance    : 857
+gold_donation       :
+read_rank           : 22
+power_rank          : 22
+rank_mismatch       : False
+raw_line            : Read Rank: 22 | Name: åœ¨ä¸‹æ¢…é Šé‰› | Power: 9,530,610
+is_valid            : True
+rank                : 23
+name                : redripe
+power               : 9196736
+kills               :
+weekly_contribution : 43100
+construction        : 0
+tribe_assistance    : 569
+gold_donation       :
+read_rank           : 23
+power_rank          : 23
+rank_mismatch       : False
+raw_line            : Read Rank: 23 | Name: redripe | Power: 9,196,736
+is_valid            : True
+rank                : 24
+name                : xesseku
+power               : 9129422
+kills               : 10249
+weekly_contribution : 79700
+construction        : 155520
+tribe_assistance    : 867
+gold_donation       : 25
+read_rank           : 24
+power_rank          : 24
+rank_mismatch       : False
+raw_line            : Read Rank: 24 | Name: xesseku | Power: 9,129,422
+is_valid            : True
+rank                : 25
+name                : bloodyxmary
+power               : 9082429
+kills               : 55973
+weekly_contribution : 82100
+construction        : 20763
+tribe_assistance    : 637
+gold_donation       : 75
+read_rank           : 25
+power_rank          : 25
+rank_mismatch       : False
+raw_line            : Read Rank: 25 | Name: bloodyxmary | Power: 9,082,429
+is_valid            : True
+rank                : 26
+name                : Ornthrond
+power               : 9012184
+kills               : 31861
+weekly_contribution : 85600
+construction        :
+tribe_assistance    : 1491
+gold_donation       :
+read_rank           : 26
+power_rank          : 26
+rank_mismatch       : False
+raw_line            : Read Rank: 26 | Name: Ornthrond | Power: 9,012,184
+is_valid            : True
+rank                : 27
+name                : Novac
+power               : 8878531
+kills               : 3521
+weekly_contribution : 103100
+construction        : 11158
+tribe_assistance    : 2106
+gold_donation       : 75
+read_rank           : 27
+power_rank          : 27
+rank_mismatch       : False
+raw_line            : Read Rank: 27 | Name: Novac | Power: 8,878,531
+is_valid            : True
+rank                : 28
+name                : DragonKiller
+power               : 8786737
+kills               : 176447
+weekly_contribution : 82000
+construction        : 4523
+tribe_assistance    : 916
+gold_donation       :
+read_rank           : 28
+power_rank          : 28
+rank_mismatch       : False
+raw_line            : Read Rank: 28 | Name: DragonKiller | Power: 8,786,737
+is_valid            : True
+rank                : 29
+name                : mamon
+power               : 8781094
+kills               : 36627
+weekly_contribution : 73900
+construction        :
+tribe_assistance    : 667
+gold_donation       :
+read_rank           : 29
+power_rank          : 29
+rank_mismatch       : False
+raw_line            : Read Rank: 29 | Name: mamon | Power: 8,781,094
+is_valid            : True
+rank                : 30
+name                : BestGodOOZx
+power               : 8769814
+kills               : 38601
+weekly_contribution : 74200
+construction        : 11410
+tribe_assistance    : 1003
+gold_donation       :
+read_rank           : 30
+power_rank          : 30
+rank_mismatch       : False
+raw_line            : Read Rank: 30 | Name: BestGodOOZx | Power: 8,769,814
+is_valid            : True
+rank                : 31
+name                : AuditorMuda
+power               : 8472630
+kills               :
+weekly_contribution : 81500
+construction        : 158196
+tribe_assistance    : 1630
+gold_donation       :
+read_rank           : 31
+power_rank          : 31
+rank_mismatch       : False
+raw_line            : Read Rank: 31 | Name: AuditorMuda | Power: 8,472,630
+is_valid            : True
+rank                : 32
+name                : SeRaFeTTiN
+power               : 8427320
+kills               : 168406
+weekly_contribution : 71400
+construction        : 3306
+tribe_assistance    : 505
+gold_donation       :
+read_rank           : 32
+power_rank          : 32
+rank_mismatch       : False
+raw_line            : Read Rank: 32 | Name: SeRaFeTTiN | Power: 8,427,320
+is_valid            : True
+rank                : 33
+name                : Zph
+power               : 8409767
+kills               : 553767
+weekly_contribution : 5400
+construction        : 4501
+tribe_assistance    : 281
+gold_donation       : 50
+read_rank           : 33
+power_rank          : 33
+rank_mismatch       : False
+raw_line            : Read Rank: 33 | Name: Zph | Power: 8,409,767
+is_valid            : True
+rank                : 34
+name                : no3Ldev
+power               : 8042991
+kills               : 1238920
+weekly_contribution : 79300
+construction        : 22039
+tribe_assistance    : 1144
+gold_donation       : 20
+read_rank           : 34
+power_rank          : 34
+rank_mismatch       : False
+raw_line            : Read Rank: 34 | Name: no3Ldev | Power: 8,042,991
+is_valid            : True
+rank                : 35
+name                : ã ™ã‚‚ã‚‚ã‚“
+power               : 7946000
+kills               :
+weekly_contribution : 79500
+construction        :
+tribe_assistance    : 1354
+gold_donation       :
+read_rank           : 35
+power_rank          : 35
+rank_mismatch       : False
+raw_line            : Read Rank: 35 | Name: ã ™ã‚‚ã‚‚ã‚“ | Power: 7,946,000
+is_valid            : True
+rank                : 36
+name                : Shreff
+power               : 7905641
+kills               :
+weekly_contribution : 73300
+construction        :
+tribe_assistance    : 807
+gold_donation       : 1540
+read_rank           : 36
+power_rank          : 36
+rank_mismatch       : False
+raw_line            : Read Rank: 36 | Name: Shreff | Power: 7,905,641
+is_valid            : True
+rank                : 37
+name                : Helikaeon
+power               : 7783026
+kills               :
+weekly_contribution : 63300
+construction        : 48566
+tribe_assistance    : 679
+gold_donation       : 55
+read_rank           : 37
+power_rank          : 37
+rank_mismatch       : False
+raw_line            : Read Rank: 37 | Name: Helikaeon | Power: 7,783,026
+is_valid            : True
+rank                : 38
+name                : Kalbaram
+power               : 7703919
+kills               :
+weekly_contribution : 83900
+construction        : 16866
+tribe_assistance    : 2149
+gold_donation       : 120
+read_rank           : 38
+power_rank          : 38
+rank_mismatch       : False
+raw_line            : Read Rank: 38 | Name: Kalbaram | Power: 7,703,919
+is_valid            : True
+rank                : 39
+name                : Khaleesil3
+power               : 7662156
+kills               :
+weekly_contribution : 73900
+construction        : 41192
+tribe_assistance    : 1161
+gold_donation       :
+read_rank           : 39
+power_rank          : 39
+rank_mismatch       : False
+raw_line            : Read Rank: 39 | Name: Khaleesil3 | Power: 7,662,156
+is_valid            : True
+rank                : 40
+name                : AlfaStraik
+power               : 7406296
+kills               : 8606
+weekly_contribution : 76400
+construction        : 0
+tribe_assistance    : 803
+gold_donation       :
+read_rank           : 40
+power_rank          : 40
+rank_mismatch       : False
+raw_line            : Read Rank: 40 | Name: AlfaStraik | Power: 7,406,296
+is_valid            : True
+rank                : 41
+name                : beast
+power               : 7113595
+kills               :
+weekly_contribution : 1000
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 41
+power_rank          : 41
+rank_mismatch       : False
+raw_line            : Read Rank: 41 | Name: beast | Power: 7,113,595
+is_valid            : True
+rank                : 42
+name                : TheGuardainz
+power               : 6846736
+kills               :
+weekly_contribution : 59900
+construction        : 25534
+tribe_assistance    : 426
+gold_donation       :
+read_rank           : 42
+power_rank          : 42
+rank_mismatch       : False
+raw_line            : Read Rank: 42 | Name: TheGuardainz | Power: 6,846,736
+is_valid            : True
+rank                : 43
+name                : ã‚†ä¸€ä¸€
+power               : 6846137
+kills               : 7182
+weekly_contribution : 30200
+construction        :
+tribe_assistance    : 445
+gold_donation       :
+read_rank           : 43
+power_rank          : 43
+rank_mismatch       : False
+raw_line            : Read Rank: 43 | Name: ã‚†ä¸€ä¸€ | Power: 6,846,137
+is_valid            : True
+rank                : 44
+name                : HoTDog
+power               : 6772856
+kills               : 24866
+weekly_contribution : 56200
+construction        : 79429
+tribe_assistance    : 734
+gold_donation       : 5
+read_rank           : 44
+power_rank          : 44
+rank_mismatch       : False
+raw_line            : Read Rank: 44 | Name: HoTDog | Power: 6,772,856
+is_valid            : True
+rank                : 45
+name                : ThorOMG
+power               : 6761223
+kills               :
+weekly_contribution : 55900
+construction        : 2627
+tribe_assistance    : 926
+gold_donation       : 55
+read_rank           : 45
+power_rank          : 45
+rank_mismatch       : False
+raw_line            : Read Rank: 45 | Name: ThorOMG | Power: 6, 761,223
+is_valid            : True
+rank                : 46
+name                : Abanob
+power               : 6720256
+kills               : 18743
+weekly_contribution : 7700
+construction        :
+tribe_assistance    : 122
+gold_donation       :
+read_rank           : 46
+power_rank          : 46
+rank_mismatch       : False
+raw_line            : Read Rank: 46 | Name: Abanob | Power: 6,720,256
+is_valid            : True
+rank                : 47
+name                : Zora0O1
+power               : 6703757
+kills               :
+weekly_contribution :
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 47
+power_rank          : 47
+rank_mismatch       : False
+raw_line            : Read Rank: 47 | Name: Zora0O1 | Power: 6.703.757
+is_valid            : True
+rank                : 48
+name                : Dentonl04
+power               : 6623883
+kills               :
+weekly_contribution : 83300
+construction        : 25479
+tribe_assistance    : 797
+gold_donation       : 75
+read_rank           : 48
+power_rank          : 48
+rank_mismatch       : False
+raw_line            : Read Rank: 48 | Name: Dentonl04 | Power: 6,623,883
+is_valid            : True
+rank                : 49
+name                : drikol
+power               : 6436338
+kills               : 3346
+weekly_contribution : 68600
+construction        : 48030
+tribe_assistance    : 448
+gold_donation       :
+read_rank           : 49
+power_rank          : 49
+rank_mismatch       : False
+raw_line            : Read Rank: 49 | Name: drikol | Power: 6,436,338
+is_valid            : True
+rank                : 50
+name                : chamame
+power               : 6406455
+kills               : 2997
+weekly_contribution : 35400
+construction        :
+tribe_assistance    : 613
+gold_donation       :
+read_rank           : 50
+power_rank          : 50
+rank_mismatch       : False
+raw_line            : Read Rank: 50 | Name: chamame | Power: 6,406,455
+is_valid            : True
+rank                : 51
+name                : ZINK
+power               : 6387567
+kills               : 2492
+weekly_contribution : 75500
+construction        :
+tribe_assistance    : 1094
+gold_donation       :
+read_rank           : 51
+power_rank          : 51
+rank_mismatch       : False
+raw_line            : Read Rank: 51 | Name: ZINK | Power: 6,387,567
+is_valid            : True
+rank                : 52
+name                : lizardcub
+power               : 6351030
+kills               :
+weekly_contribution : 41000
+construction        : 34278
+tribe_assistance    : 271
+gold_donation       : 55
+read_rank           : 52
+power_rank          : 52
+rank_mismatch       : False
+raw_line            : Read Rank: 52 | Name: lizardcub | Power: 6,351,030
+is_valid            : True
+rank                : 53
+name                : BigZik
+power               : 6264838
+kills               : 662
+weekly_contribution : 71700
+construction        : 18286
+tribe_assistance    : 805
+gold_donation       :
+read_rank           : 53
+power_rank          : 53
+rank_mismatch       : False
+raw_line            : Read Rank: 53 | Name: BigZik | Power: 6,264,838
+is_valid            : True
+rank                : 54
+name                : klA
+power               : 6180629
+kills               :
+weekly_contribution : 15700
+construction        :
+tribe_assistance    : 464
+gold_donation       : 105
+read_rank           : 54
+power_rank          : 54
+rank_mismatch       : False
+raw_line            : Read Rank: 54 | Name: klA | Power: 6_ 180,629
+is_valid            : True
+rank                : 55
+name                : FreakyJD
+power               : 6123949
+kills               :
+weekly_contribution : 80500
+construction        : 15974
+tribe_assistance    : 1194
+gold_donation       : 55
+read_rank           : 55
+power_rank          : 55
+rank_mismatch       : False
+raw_line            : Read Rank: 55 | Name: FreakyJD | Power: 6,123,949
+is_valid            : True
+rank                : 56
+name                : RisingCrown
+power               : 6033299
+kills               : 30744
+weekly_contribution : 58300
+construction        : 37820
+tribe_assistance    : 446
+gold_donation       : 775
+read_rank           : 56
+power_rank          : 56
+rank_mismatch       : False
+raw_line            : Read Rank: 56 | Name: RisingCrown | Power: 6,033,299
+is_valid            : True
+rank                : 57
+name                : PWQJEJFL
+power               : 6029836
+kills               : 7440
+weekly_contribution : 88300
+construction        : 5386
+tribe_assistance    : 772
+gold_donation       :
+read_rank           : 57
+power_rank          : 57
+rank_mismatch       : False
+raw_line            : Read Rank: 57 | Name: PWQJEJFL | Power: 6,029,836
+is_valid            : True
+rank                : 58
+name                : Layy
+power               : 5903378
+kills               :
+weekly_contribution : 47300
+construction        :
+tribe_assistance    : 348
+gold_donation       :
+read_rank           : 58
+power_rank          : 58
+rank_mismatch       : False
+raw_line            : Read Rank: 58 | Name: Layy | Power: 5,903,378
+is_valid            : True
+rank                : 59
+name                : Phantompain
+power               : 5824590
+kills               : 5547
+weekly_contribution : 63600
+construction        :
+tribe_assistance    : 129
+gold_donation       : 530
+read_rank           : 59
+power_rank          : 59
+rank_mismatch       : False
+raw_line            : Read Rank: 59 | Name: Phantompain | Power: 5,824,590
+is_valid            : True
+rank                : 60
+name                : Cy4nnn
+power               : 5817425
+kills               :
+weekly_contribution : 90900
+construction        :
+tribe_assistance    : 551
+gold_donation       :
+read_rank           : 60
+power_rank          : 60
+rank_mismatch       : False
+raw_line            : Read Rank: 60 | Name: Cy4nnn | Power: 5,817 ,425
+is_valid            : True
+rank                : 61
+name                : Kudgar
+power               : 5780935
+kills               :
+weekly_contribution :
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 61
+power_rank          : 61
+rank_mismatch       : False
+raw_line            : Read Rank: 61 | Name: Kudgar | Power: 5,780,935
+is_valid            : True
+rank                : 62
+name                : Azorero
+power               : 5767573
+kills               : 34660
+weekly_contribution : 64400
+construction        : 5588
+tribe_assistance    : 402
+gold_donation       :
+read_rank           : 62
+power_rank          : 62
+rank_mismatch       : False
+raw_line            : Read Rank: 62 | Name: Azorero | Power: 5,767,573
+is_valid            : True
+rank                : 63
+name                : RamoxD
+power               : 5683980
+kills               :
+weekly_contribution : 70000
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 63
+power_rank          : 63
+rank_mismatch       : False
+raw_line            : Read Rank: 63 | Name: RamoxD | Power: 5,683,980
+is_valid            : True
+rank                : 64
+name                : Windows8
+power               : 5593353
+kills               :
+weekly_contribution : 50500
+construction        :
+tribe_assistance    : 700
+gold_donation       :
+read_rank           : 64
+power_rank          : 64
+rank_mismatch       : False
+raw_line            : Read Rank: 64 | Name: Windows8 | Power: 5,593,353
+is_valid            : True
+rank                : 65
+name                : yakut
+power               : 5542645
+kills               : 1236
+weekly_contribution : 21000
+construction        : 5299
+tribe_assistance    : 240
+gold_donation       :
+read_rank           : 65
+power_rank          : 65
+rank_mismatch       : False
+raw_line            : Read Rank: 65 | Name: yakut | Power: 5,542,645
+is_valid            : True
+rank                : 66
+name                : hefesto
+power               : 5532164
+kills               :
+weekly_contribution :
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 66
+power_rank          : 66
+rank_mismatch       : False
+raw_line            : Read Rank: 66 | Name: hefesto | Power: 5,532,164
+is_valid            : True
+rank                : 67
+name                : ì¹­í‚¤ìŠ¤ì¹¸
+power               : 5494198
+kills               :
+weekly_contribution : 70600
+construction        :
+tribe_assistance    : 242
+gold_donation       :
+read_rank           : 67
+power_rank          : 67
+rank_mismatch       : False
+raw_line            : Read Rank: 67 | Name: ì¹­í‚¤ìŠ¤ì¹¸ | Power: 5,494,198
+is_valid            : True
+rank                : 68
+name                : HEMANN
+power               : 5478561
+kills               : 1868
+weekly_contribution : 78600
+construction        :
+tribe_assistance    : 450
+gold_donation       :
+read_rank           : 68
+power_rank          : 68
+rank_mismatch       : False
+raw_line            : Read Rank: 68 | Name: HEMANN | Power: 5,478,561
+is_valid            : True
+rank                : 69
+name                : gabbu
+power               : 5315305
+kills               : 11978
+weekly_contribution : 83000
+construction        : 1711
+tribe_assistance    : 1103
+gold_donation       :
+read_rank           : 69
+power_rank          : 69
+rank_mismatch       : False
+raw_line            : Read Rank: 69 | Name: gabbu | Power: 5,315,305
+is_valid            : True
+rank                : 70
+name                : ROTT
+power               : 5200629
+kills               : 10247
+weekly_contribution :
+construction        : 500
+tribe_assistance    :
+gold_donation       :
+read_rank           : 70
+power_rank          : 70
+rank_mismatch       : False
+raw_line            : Read Rank: 70 | Name: ROTT | Power: 5,200,629
+is_valid            : True
+rank                : 71
+name                : weshcoll
+power               : 5155331
+kills               :
+weekly_contribution : 24400
+construction        :
+tribe_assistance    : 288
+gold_donation       :
+read_rank           : 71
+power_rank          : 71
+rank_mismatch       : False
+raw_line            : Read Rank: 71 | Name: weshcoll | Power: 5,155,331
+is_valid            : True
+rank                : 72
+name                : ErdiAksoy37
+power               : 4752630
+kills               :
+weekly_contribution : 59100
+construction        :
+tribe_assistance    : 155
+gold_donation       :
+read_rank           : 72
+power_rank          : 72
+rank_mismatch       : False
+raw_line            : Read Rank: 72 | Name: ErdiAksoy37 | Power: 4,752,630
+is_valid            : True
+rank                : 73
+name                : MCGTHEGEMINI
+power               : 4665136
+kills               :
+weekly_contribution : 30200
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 73
+power_rank          : 73
+rank_mismatch       : False
+raw_line            : Read Rank: 73 | Name: MCGTHEGEMINI | Power: 4,665,136
+is_valid            : True
+rank                : 74
+name                : Tarub
+power               : 4448382
+kills               :
+weekly_contribution : 23600
+construction        :
+tribe_assistance    : 203
+gold_donation       :
+read_rank           : 74
+power_rank          : 74
+rank_mismatch       : False
+raw_line            : Read Rank: 74 | Name: Tarub | Power: 4,448,382
+is_valid            : True
+rank                : 75
+name                : Lemarck
+power               : 4337950
+kills               :
+weekly_contribution : 33300
+construction        :
+tribe_assistance    : 211
+gold_donation       :
+read_rank           : 75
+power_rank          : 75
+rank_mismatch       : False
+raw_line            : Read Rank: 75 | Name: Lemarck | Power: 4,337,950
+is_valid            : True
+rank                : 76
+name                : YaVuZ
+power               : 4283237
+kills               : 146000
+weekly_contribution : 8700
+construction        : 3312
+tribe_assistance    :
+gold_donation       :
+read_rank           : 76
+power_rank          : 76
+rank_mismatch       : False
+raw_line            : Read Rank: 76 | Name: YaVuZ | Power: 4,283,237
+is_valid            : True
+rank                : 77
+name                : krales
+power               : 4103340
+kills               : 67870
+weekly_contribution : 200
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 77
+power_rank          : 77
+rank_mismatch       : False
+raw_line            : Read Rank: 77 | Name: krales | Power: 4,103,340
+is_valid            : True
+rank                : 78
+name                : Rebelyus
+power               : 4102576
+kills               : 4091
+weekly_contribution : 31700
+construction        :
+tribe_assistance    : 215
+gold_donation       :
+read_rank           : 78
+power_rank          : 78
+rank_mismatch       : False
+raw_line            : Read Rank: 78 | Name: Rebelyus | Power: 4,102,576
+is_valid            : True
+rank                : 79
+name                : ERINX
+power               : 4032062
+kills               :
+weekly_contribution : 52500
+construction        : 18003
+tribe_assistance    : 264
+gold_donation       : 20
+read_rank           : 79
+power_rank          : 79
+rank_mismatch       : False
+raw_line            : Read Rank: 79 | Name: ERINX | Power: 4,032,062
+is_valid            : True
+rank                : 80
+name                : Moliaro
+power               : 3698153
+kills               :
+weekly_contribution : 6500
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 80
+power_rank          : 80
+rank_mismatch       : False
+raw_line            : Read Rank: 80 | Name: Moliaro | Power: 3,698,153
+is_valid            : True
+rank                : 81
+name                : Memobrw
+power               : 3176244
+kills               : 25582
+weekly_contribution :
+construction        :
+tribe_assistance    :
+gold_donation       :
+read_rank           : 81
+power_rank          : 81
+rank_mismatch       : False
+raw_line            : Read Rank: 81 | Name: Memobrw | Power: 3,176,244
+is_valid            : True
+rank                : 82
+name                : Rocco23
+power               : 2408401
+kills               :
+weekly_contribution : 8900
+construction        :
+tribe_assistance    : 45
+gold_donation       :
+read_rank           : 82
+power_rank          : 82
+rank_mismatch       : False
+raw_line            : Read Rank: 82 | Name: Rocco23 | Power: 2,408,401
+is_valid            : True
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+On branch master
+Your branch is up to date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .output.txt
+        modified:   README.md
+        modified:   src/fatewarscraper/__main__.py
+        modified:   src/fatewarscraper/cli.py
+        modified:   src/fatewarscraper/export.py
+        modified:   src/fatewarscraper/parse.py
+        modified:   test_parse.py
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        run_and_deploy.ps1
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (96bd74313bb48475880b3b0a0b18fcbf8b190380)

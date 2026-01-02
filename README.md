@@ -4,7 +4,7 @@ Extract comprehensive alliance member data from the Fate War game UI using scree
 
 ## Features
 
-- **Multi-Category Tracking**: Automatically scrapes Power, Kills, Weekly Contribution, Construction, Tribe Assistance, and Gold Donation.
+- **Multi-Category Tracking**: Automatically scrapes Power, Kills, Weekly Contribution, Construction, and Tribe Assistance.
 - **Historical Progress Tracking**: Stores scan history and displays progress graphs for each member on the web dashboard.
 - **Automated Navigation**: Uses OCR to find and click category buttons within the game window.
 - **Auto-Scrolling**: Automatically scrolls through the entire member list for each category.
@@ -41,13 +41,9 @@ pip install -e .
 1. Start the Fate War game.
 2. Open the alliance member list ranking screen.
 3. Run the scraper:
-
+    
 ```bash
-# Standard scan (excludes Gold Donation)
 python -m fatewarscraper
-
-# Complete scan (includes Gold Donation)
-python -m fatewarscraper --gold
 ```
 
 The scraper will:
@@ -114,7 +110,7 @@ Erstelle eine Datei namens `run_and_deploy.ps1` in deinem Projektverzeichnis, um
 .\venv\Scripts\Activate.ps1
 
 # Scraper ausführen
-python -m fatewarscraper --gold
+python -m fatewarscraper
 
 # Deployment auf GitHub Pages
 .\deploy_gh_pages.ps1

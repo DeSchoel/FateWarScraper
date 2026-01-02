@@ -16,7 +16,8 @@ def get_metric_from_filename(filename: str) -> str:
     if "weekly" in filename or "contribution" in filename: return "weekly_contribution"
     if "construction" in filename: return "construction"
     if "assistance" in filename: return "tribe_assistance"
-    if "gold" in filename or "donation" in filename: return "gold_donation"
+    # Gold tracking is disabled
+    # if "gold" in filename or "donation" in filename: return "gold_donation"
     return "power"
 
 def main():

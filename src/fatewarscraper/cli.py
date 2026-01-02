@@ -27,8 +27,9 @@ def run(out_dir: Path = Path("outputs"), window_title: str = "Fate War", include
         ("Tribe Assistance", "tribe_assistance"),
     ]
     
-    if include_gold:
-        categories.append(("Gold Donation", "gold_donation"))
+    # Gold tracking is disabled per user request
+    # if include_gold:
+    #     categories.append(("Gold Donation", "gold_donation"))
     
     all_extracted_records = []
     

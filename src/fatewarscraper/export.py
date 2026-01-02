@@ -16,7 +16,7 @@ def write_member_csv(records: list[MemberRecord], out_dir: Path) -> Path:
     
     fields = [
         "rank", "name", "power", "kills", "weekly_contribution", 
-        "construction", "tribe_assistance", "gold_donation", 
+        "construction", "tribe_assistance", 
         "read_rank", "is_valid"
     ]
     
@@ -86,7 +86,7 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
     
     headers = [
         "Rank", "Name", "Power", "Kills", "Weekly Contrib", 
-        "Construction", "Assistance", "Gold Donation"
+        "Construction", "Assistance"
     ]
     
     table_headers = "".join(f"<th>{h}</th>" for h in headers)
@@ -95,20 +95,25 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
     for rec in records:
         # Escape name for both HTML display and data attribute
         escaped_name = escape_html(rec.name)
-        # Use an <a> tag to make it clearly clickable and improve accessibility
-        name_html = f'<a href="#" class="member-link" data-name="{escaped_name}" onclick="return false;">{escaped_name}</a>'
+        
+        # Helper to create a clickable metric link
+        def metric_link(val, metric_key):
+            val_formatted = f"{val or 0:,}"
+            return f'<a href="#" class="member-link" data-name="{escaped_name}" data-metric="{metric_key}" onclick="return false;">{val_formatted}</a>'
+
+        name_html = f'<a href="#" class="member-link" data-name="{escaped_name}" data-metric="power" onclick="return false;">{escaped_name}</a>'
+        
         row = f"""
         <tr>
             <td>{rec.rank or ''}</td>
             <td class="member-name-cell">
                 <strong>{name_html}</strong>
             </td>
-            <td>{rec.power or 0:,}</td>
-            <td>{rec.kills or 0:,}</td>
-            <td>{rec.weekly_contribution or 0:,}</td>
-            <td>{rec.construction or 0:,}</td>
-            <td>{rec.tribe_assistance or 0:,}</td>
-            <td>{rec.gold_donation or 0:,}</td>
+            <td>{metric_link(rec.power, 'power')}</td>
+            <td>{metric_link(rec.kills, 'kills')}</td>
+            <td>{metric_link(rec.weekly_contribution, 'weekly_contribution')}</td>
+            <td>{metric_link(rec.construction, 'construction')}</td>
+            <td>{metric_link(rec.tribe_assistance, 'tribe_assistance')}</td>
         </tr>
         """
         rows.append(row)
@@ -249,9 +254,10 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
             $(document).on('click', '.member-link', function(e) {{
                 e.preventDefault();
                 const name = $(this).attr('data-name');
-                console.log("Clicked member:", name);
+                const metric = $(this).attr('data-metric') || 'power';
+                console.log("Clicked member:", name, "Metric:", metric);
                 if (name) {{
-                    showGraph(name);
+                    showGraph(name, metric);
                 }}
                 return false;
             }});
@@ -273,24 +279,33 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
             }});
         }});
 
-        function showGraph(memberName) {{
-            $('#modalMemberName').text(memberName + "'s Power Progress");
+        function showGraph(memberName, metric) {{
+            const metricLabels = {{
+                'power': 'Power',
+                'kills': 'Kills',
+                'weekly_contribution': 'Weekly Contribution',
+                'construction': 'Construction',
+                'tribe_assistance': 'Assistance'
+                // 'gold_donation': 'Gold Donation'
+            }};
+            const title = memberName + "'s " + (metricLabels[metric] || metric) + " Progress";
+            $('#modalMemberName').text(title);
             $('#graphModal').show();
 
             const labels = [];
-            const powerData = [];
+            const dataValues = [];
 
             historyData.forEach(snapshot => {{
                 const member = snapshot.members.find(m => m.name === memberName);
-                if (member && member.power) {{
+                if (member && (member[metric] !== undefined && member[metric] !== null)) {{
                     const date = new Date(snapshot.timestamp).toLocaleDateString();
                     labels.push(date);
-                    powerData.push(member.power);
+                    dataValues.push(member[metric]);
                 }}
             }});
 
-            if (powerData.length === 0) {{
-                alert('No progress data found for ' + memberName + '. Please wait for more scans to be completed.');
+            if (dataValues.length === 0) {{
+                alert('No progress data found for ' + memberName + ' (' + metric + '). Please wait for more scans to be completed.');
                 return;
             }}
 
@@ -304,8 +319,8 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                 data: {{
                     labels: labels,
                     datasets: [{{
-                        label: 'Power',
-                        data: powerData,
+                        label: metricLabels[metric] || metric,
+                        data: dataValues,
                         borderColor: '#1877f2',
                         backgroundColor: 'rgba(24, 119, 242, 0.1)',
                         borderWidth: 2,
@@ -330,7 +345,7 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                         tooltip: {{
                             callbacks: {{
                                 label: function(context) {{
-                                    return 'Power: ' + context.parsed.y.toLocaleString();
+                                    return (metricLabels[metric] || metric) + ': ' + context.parsed.y.toLocaleString();
                                 }}
                             }}
                         }}

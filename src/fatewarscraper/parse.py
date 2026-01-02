@@ -34,7 +34,7 @@ class MemberRecord:
     weekly_contribution: Optional[int] = None
     construction: Optional[int] = None
     tribe_assistance: Optional[int] = None
-    gold_donation: Optional[int] = None
+    # gold_donation: Optional[int] = None  # Disabled per user request
     read_rank: Optional[int] = None  # What OCR read
     power_rank: Optional[int] = None  # Calculated from power
     rank_mismatch: bool = False
@@ -69,30 +69,36 @@ def extract_number(text: str) -> Optional[int]:
     temp = re.sub(r'[\.,](\d{3})(?!\d)', r'\1', temp)
     temp = re.sub(r'[\.,](\d{3})', r'\1', temp)
 
-    # 1. Handle spaces that might split a number
-    # If we have something like "13,227, 2 194" -> "13227 2 194"
-    parts = temp.split()
+    # 1. Handle spaces or punctuation that might split a number or prepend noise
+    # We want to catch things like "9 1,392,524" or "Rank 5 21,114,977"
+    # where the first part is likely a misread rank or noise.
+    parts = re.split(r'[\s\-:;]+', temp)
     if len(parts) > 1:
-        # If there are multiple parts, and one part is a single digit '2' or '7' 
-        # that is isolated, it's often a misread comma.
-        # However, we don't want to blindly remove digits.
-        
-        # Heuristic for the "extra digit" issue:
-        # If the total number of digits is 9 (hundreds of millions) but the first 
-        # digit is 1 and it's followed by a suspicious gap, it might be 1x,xxx,xxx.
-        
-        # Let's look at the parts. 
-        # "13227", "2", "194"
         new_parts = []
-        for p in parts:
+        for i, p in enumerate(parts):
             p_clean = clean_number_string(p)
-            if p_clean:
-                # If a part is a single digit and we already have many digits, 
-                # and it's not the last part, it's suspicious.
-                if len(p_clean) == 1 and len(new_parts) > 0 and len("".join(new_parts)) >= 3:
-                    # Potential misread comma. Skip it.
+            if not p_clean:
+                continue
+            
+            # Heuristic: if the first part is very short (1-2 digits) 
+            # and the second part is long (4+ digits), the first part is likely noise/rank.
+            if i == 0 and len(p_clean) <= 2:
+                # Check if there is a substantial next part
+                next_part = ""
+                for next_p in parts[i+1:]:
+                    next_part = clean_number_string(next_p)
+                    if next_part: break
+                
+                if len(next_part) >= 4:
+                    # Skip the first short part as it's likely noise/rank
                     continue
-                new_parts.append(p_clean)
+            
+            # Existing heuristic for single digit misread commas inside the number
+            if len(p_clean) == 1 and len(new_parts) > 0 and len("".join(new_parts)) >= 3:
+                # Potential misread comma. Skip it.
+                continue
+                
+            new_parts.append(p_clean)
         
         cleaned = "".join(new_parts)
     else:
@@ -130,7 +136,7 @@ def pad_for_display(s: str, width: int) -> str:
 
 def generate_text_report(records: list[MemberRecord], include_raw: bool = True) -> str:
     """Generate a formatted text report from member records."""
-    has_gold = any(rec.gold_donation is not None for rec in records)
+    # has_gold = any(rec.gold_donation is not None for rec in records)
     
     # Define columns: (Label, Width, Attribute)
     cols = [
@@ -142,8 +148,8 @@ def generate_text_report(records: list[MemberRecord], include_raw: bool = True) 
         ("Const.", 10, "construction"),
         ("Asst.", 10, "tribe_assistance")
     ]
-    if has_gold:
-        cols.append(("Gold", 10, "gold_donation"))
+    # if has_gold:
+    #     cols.append(("Gold", 10, "gold_donation"))
     
     # Header
     header_parts = [pad_for_display(label, width) for label, width, _ in cols]
@@ -446,14 +452,20 @@ def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
             
             # Check for power similarity
             powers_similar = False
+            powers_nearly_identical = False
             if new_rec.power is not None and existing_rec.power is not None:
                 if new_rec.power == existing_rec.power:
                     powers_similar = True
+                    powers_nearly_identical = True
                 else:
-                    # Within 1% power difference
+                    # Within 1% power difference for base similarity
                     diff = abs(new_rec.power - existing_rec.power)
-                    if diff / max(new_rec.power, existing_rec.power) < 0.01:
+                    ratio = diff / max(new_rec.power, existing_rec.power)
+                    if ratio < 0.01:
                         powers_similar = True
+                    # Within 0.1% power difference (very likely the same person)
+                    if ratio < 0.001:
+                        powers_nearly_identical = True
             
             # Check for rank identity
             ranks_identical = (new_rec.read_rank is not None and 
@@ -468,6 +480,9 @@ def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
             if name_exact_ignore_case:
                 should_merge = True
             elif names_similar and powers_similar:
+                should_merge = True
+            elif powers_nearly_identical and is_similar_name(new_rec.name, existing_rec.name, threshold=0.7):
+                # If powers are almost identical, be much more lenient with names
                 should_merge = True
             elif ranks_identical:
                 # Same rank is a VERY strong signal.
@@ -492,7 +507,8 @@ def deduplicate_records(records: list[MemberRecord]) -> list[MemberRecord]:
                     unique_records[i].read_rank = new_rec.read_rank
                 
                 # Merge all metric fields
-                for field in ['power', 'kills', 'weekly_contribution', 'construction', 'tribe_assistance', 'gold_donation']:
+                for field in ['power', 'kills', 'weekly_contribution', 'construction', 'tribe_assistance']:
+                    # gold_donation field is disabled
                     new_val = getattr(new_rec, field)
                     existing_val = getattr(existing_rec, field)
                     if new_val is not None:
