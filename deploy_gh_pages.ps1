@@ -17,8 +17,9 @@ if (Test-Path $PagesDir) {
     Remove-Item -Path $PagesDir -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
 }
 
-# Clone the current repo into a temp folder
-git clone . $PagesDir
+# Clone the current repo's remote into a temp folder
+$RemoteUrl = git remote get-url origin
+git clone $RemoteUrl $PagesDir
 
 pushd $PagesDir
 
@@ -33,16 +34,14 @@ if ($allBranches -match "remotes/origin/gh-pages" -or $allBranches -match "gh-pa
 # Remove all files in the branch
 git rm -rf .
 
-# Copy new files from outputs
-copy "$OutputDir\index.html" "."
-copy "$OutputDir\members.json" "."
-copy "$OutputDir\history.json" "."
+# Copy all files from outputs
+Get-ChildItem -Path "$OutputDir\*" -Exclude "*.png" | Copy-Item -Destination "." -Force
 
 # Create .nojekyll to bypass Jekyll processing
 New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
 
 # Add and commit
-git add index.html members.json history.json .nojekyll
+git add .
 git commit -m "Deploy latest alliance data: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 
 # Push back to original repo's origin
