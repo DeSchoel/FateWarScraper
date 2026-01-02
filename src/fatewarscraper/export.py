@@ -147,6 +147,17 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
             color: #166fe5;
             text-decoration: none;
         }}
+
+        .clickable-summary {{
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }}
+        .clickable-summary:hover {{
+            background: #e4e6eb;
+            color: #1877f2;
+        }}
         
         .footer {{ margin-top: 20px; text-align: center; font-size: 12px; color: #90949c; }}
         
@@ -165,8 +176,13 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
             <h1>Fate War Alliance Tracking</h1>
         </header>
         <div class="summary">
-            <div><strong>Total Members:</strong> {len(records)}</div>
+            <div id="totalMembersContainer" class="clickable-summary">
+                <strong>Total Members:</strong> {len(records)}
+            </div>
             <div><strong>Last Updated:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>
+            <div id="alliancePowerContainer" class="clickable-summary">
+                <strong>Total Alliance Power:</strong> {sum(r.power for r in records if r.power) or 0:,}
+            </div>
         </div>
         <div class="table-container">
             <table id="membersTable" class="display">
@@ -228,6 +244,12 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                     showGraph(name);
                 }}
                 return false;
+            }});
+
+            // Handle alliance tracking clicks
+            $('#alliancePowerContainer, #totalMembersContainer').click(function() {{
+                console.log("Clicked alliance tracking");
+                showAllianceGraph();
             }});
 
             // Modal Close
@@ -299,6 +321,70 @@ def write_member_html(records: list[MemberRecord], out_dir: Path, filename: str 
                             callbacks: {{
                                 label: function(context) {{
                                     return 'Power: ' + context.parsed.y.toLocaleString();
+                                }}
+                            }}
+                        }}
+                    }}
+                }}
+            }});
+        }}
+
+        function showAllianceGraph() {{
+            $('#modalMemberName').text("Alliance Total Power Progress");
+            $('#graphModal').show();
+
+            const labels = [];
+            const powerData = [];
+
+            historyData.forEach(snapshot => {{
+                const totalPower = snapshot.members.reduce((sum, m) => sum + (m.power || 0), 0);
+                const date = new Date(snapshot.timestamp).toLocaleDateString();
+                labels.push(date);
+                powerData.push(totalPower);
+            }});
+
+            if (powerData.length === 0) {{
+                alert('No history data found. Please wait for more scans to be completed.');
+                return;
+            }}
+
+            if (myChart) {{
+                myChart.destroy();
+            }}
+
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            myChart = new Chart(ctx, {{
+                type: 'line',
+                data: {{
+                    labels: labels,
+                    datasets: [{{
+                        label: 'Total Alliance Power',
+                        data: powerData,
+                        borderColor: '#42b72a',
+                        backgroundColor: 'rgba(66, 183, 42, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3
+                    }}]
+                }},
+                options: {{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {{
+                        y: {{
+                            beginAtZero: false,
+                            ticks: {{
+                                callback: function(value) {{
+                                    return value.toLocaleString();
+                                }}
+                            }}
+                        }}
+                    }},
+                    plugins: {{
+                        tooltip: {{
+                            callbacks: {{
+                                label: function(context) {{
+                                    return 'Total Power: ' + context.parsed.y.toLocaleString();
                                 }}
                             }}
                         }}
