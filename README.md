@@ -65,54 +65,54 @@ The scraper will:
 - `outputs/parsed_members.txt`: A debug log showing raw OCR readings.
 - `outputs/*.png`: Cropped debug images for verification.
 
-## Web Hosting (Kostenlos auf GitHub Pages)
+## Web Hosting (Free on GitHub Pages)
 
-Du kannst die neuesten Allianz-Rankings ganz einfach kostenlos über GitHub Pages hosten:
+You can easily host your latest alliance rankings for free using GitHub Pages:
 
-### Einrichtung (Nur beim ersten Mal)
+### Setup (First Time Only)
 
-1. Sicherstellen, dass dein Projekt in ein GitHub-Repository gepusht wurde.
-2. Führe das Deployment-Skript einmal aus: `.\deploy_gh_pages.ps1`
-3. Gehe in deinem Repository auf GitHub zu **Settings** -> **Pages**.
-4. Stelle unter **Build and deployment** die Quelle auf **Deploy from a branch** ein.
-5. Wähle den `gh-pages` Branch und den `/ (root)` Ordner.
-6. Klicke auf **Save**.
+1. Ensure your project is pushed to a GitHub repository.
+2. Run the deployment script once: `.\deploy_gh_pages.ps1`
+3. Go to your repository on GitHub and navigate to **Settings** -> **Pages**.
+4. Under **Build and deployment**, set the source to **Deploy from a branch**.
+5. Select the `gh-pages` branch and the `/ (root)` folder.
+6. Click **Save**.
 
-### Updates veröffentlichen
+### Publishing Updates
 
-Führe nach einem Scan das bereitgestellte Deployment-Skript aus, um die neuesten Daten auf deine Website zu pushen:
+After running a scan, execute the provided deployment script to push the latest data to your website:
 
 ```powershell
 .\deploy_gh_pages.ps1
 ```
 
-Deine Seite wird unter `https://<dein-benutzername>.github.io/<dein-repo-name>/` verfügbar sein.
+Your site will be available at `https://<your-username>.github.io/<your-repo-name>/`.
 
-## Scans planen (2x pro Woche)
+## Scheduling Scans (2x per Week)
 
-Um den Fortschritt genau zu verfolgen, wird empfohlen, zweimal pro Woche einen Scan durchzuführen (z. B. Mittwoch und Sonntag).
+To track progress accurately, it is recommended to run a scan twice a week (e.g., Wednesday and Sunday).
 
-### Windows Aufgabenplanung (Empfohlen)
+### Windows Task Scheduler (Recommended)
 
-1. Öffne die **Aufgabenplanung** unter Windows.
-2. Klicke auf **Einfache Aufgabe erstellen**.
-3. Lege einen Trigger fest (z. B. Wöchentlich, wobei Mittwoch und Sonntag ausgewählt werden).
-4. Wähle als **Aktion** die Option **Programm starten**.
-5. Programm/Skript: `powershell.exe`
-6. Argumente hinzufügen: `-ExecutionPolicy Bypass -File "C:\pfad\zu\FateWarScraper\run_and_deploy.ps1"`
+1. Open **Task Scheduler** on Windows.
+2. Click **Create Basic Task**.
+3. Set a trigger (e.g., Weekly, selecting Wednesday and Sunday).
+4. For the **Action**, select **Start a program**.
+5. Program/script: `powershell.exe`
+6. Add arguments: `-ExecutionPolicy Bypass -File "C:\path\to\FateWarScraper\run_and_deploy.ps1"`
 
-### run_and_deploy.ps1 (Helfer-Skript)
+### run_and_deploy.ps1 (Helper Script)
 
-Erstelle eine Datei namens `run_and_deploy.ps1` in deinem Projektverzeichnis, um sowohl den Scan als auch das Website-Update zu automatisieren:
+Create a file named `run_and_deploy.ps1` in your project directory to automate both the scan and the website update:
 
 ```powershell
-# Virtuelle Umgebung aktivieren
+# Activate virtual environment
 .\venv\Scripts\Activate.ps1
 
-# Scraper ausführen
+# Run scraper
 python -m fatewarscraper
 
-# Deployment auf GitHub Pages
+# Deploy to GitHub Pages
 .\deploy_gh_pages.ps1
 ```
 
