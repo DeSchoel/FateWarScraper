@@ -6535,5 +6535,80 @@
         "is_valid": true
       }
     ]
+  },
+  {
+    "timestamp": "2026-02-06T15:18:14.757453",
+    "members": [
+      {
+        "rank": 1,
+        "name": "GrandPriest67414261",
+        "power": 19502,
+        "kills": null,
+        "weekly_contribution": null,
+        "construction": null,
+        "tribe_assistance": null,
+        "read_rank": null,
+        "power_rank": 1,
+        "rank_mismatch": false,
+        "raw_line": "Read Rank: n | Name: Grand Priest 67,414,261 | Power: ader 19,502",
+        "is_valid": true
+      },
+      {
+        "rank": 2,
+        "name": "PappvPappe",
+        "power": 150,
+        "kills": null,
+        "weekly_contribution": null,
+        "construction": null,
+        "tribe_assistance": null,
+        "read_rank": null,
+        "power_rank": 2,
+        "rank_mismatch": false,
+        "raw_line": "Read Rank: n | Name: PappvPappe | Power: v Instructor",
+        "is_valid": true
+      },
+      {
+        "rank": 3,
+        "name": "TecchiFireb",
+        "power": 15,
+        "kills": 15,
+        "weekly_contribution": 15,
+        "construction": null,
+        "tribe_assistance": 150,
+        "read_rank": null,
+        "power_rank": 3,
+        "rank_mismatch": false,
+        "raw_line": "Read Rank: n | Name: TecchiFireb | Power: g Instruc:-",
+        "is_valid": true
+      },
+      {
+        "rank": 4,
+        "name": "XSTORMx",
+        "power": 15,
+        "kills": 15,
+        "weekly_contribution": null,
+        "construction": null,
+        "tribe_assistance": null,
+        "read_rank": null,
+        "power_rank": 4,
+        "rank_mismatch": false,
+        "raw_line": "Read Rank:  | Name: XSTORMx | Power: ower Ins:",
+        "is_valid": true
+      },
+      {
+        "rank": 5,
+        "name": "bigcheese",
+        "power": 5,
+        "kills": 5,
+        "weekly_contribution": null,
+        "construction": 5,
+        "tribe_assistance": null,
+        "read_rank": null,
+        "power_rank": 5,
+        "rank_mismatch": false,
+        "raw_line": "Read Rank: n | Name: bigcheese | Power: ster",
+        "is_valid": true
+      }
+    ]
   }
 ]
