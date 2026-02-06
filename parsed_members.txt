@@ -1,30 +1,33 @@
 ﻿Rank  | Name                 | Power        | Kills        | Weekly     | Const.     | Asst.      | Raw Line
 --------------------------------------------------------------------------------------------------------------
-1     | PappyPapper          | 57,579,163   | 0            | 0          | 0          | 0          | Read Rank: 4 | Name: PappyPapper | Power: 57,579,163
-2     | Raffyy               | 55,576,127   | 0            | 0          | 0          | 0          | Read Rank: 6 | Name: Raffyy | Power: 55,576,127
-3     | vlvl                 | 54,186,984   | 0            | 0          | 0          | 0          | Read Rank: 7 | Name: vlvl | Power: 54,186,984
-4     | ботаник              | 53,657,901   | 0            | 0          | 0          | 0          | Read Rank: 8 | Name: ботаник | Power: 53,657,901
-5     | Ojisan91             | 53,563,447   | 0            | 0          | 0          | 0          | Read Rank: 9 | Name: Ojisan91 | Power: 53,563,447
-6     | AboFahad             | 52,168,337   | 0            | 0          | 0          | 0          | Read Rank: 10 | Name: AboFahad | Power: 52,168,337
-7     | Аджика               | 49,731,249   | 0            | 0          | 0          | 0          | Read Rank: 11 | Name: Аджика | Power: 49,731,249
-8     | TecchiFireball       | 49,469,143   | 0            | 0          | 0          | 0          | Read Rank: 12 | Name: TecchiFireball | Power: 49,469,143
-9     | Сiмона               | 48,721,697   | 0            | 0          | 0          | 0          | Read Rank: 14 | Name: Сiмона | Power: 48,721,697
-10    | AntyDeath            | 47,611,799   | 0            | 0          | 0          | 0          | Read Rank: 15 | Name: AntyDeath | Power: 47,611,799
-11    | Măcelaru             | 44,499,794   | 0            | 0          | 0          | 0          | Read Rank: 18 | Name: Măcelaru | Power: 44,499,794
-12    | saneqek              | 44,297,848   | 0            | 13,200     | 0          | 0          | Read Rank: 19 | Name: saneqek | Power: 44,297_ ,848
-13    | Kalbaram             | 44,231,601   | 0            | 0          | 0          | 0          | Read Rank: 20 | Name: Kalbaram | Power: 44,231,601
-14    | CHADZ                | 43,904,325   | 0            | 0          | 0          | 0          | Read Rank: 22 | Name: CHADZ | Power: 43,904,325
-15    | Серый777666          | 43,612,506   | 0            | 0          | 0          | 0          | Read Rank: 23 | Name: Серый777666 | Power: 43,612,506
-16    | Solosparkzzz         | 42,790,039   | 0            | 0          | 0          | 0          | Read Rank: 24 | Name: Solosparkzzz | Power: 42,790,039
-17    | TrepanatioXXL        | 42,763,695   | 0            | 0          | 0          | 0          | Read Rank: 25 | Name: TrepanatioXXL | Power: 42,763,695
-18    | xesseku              | 42,731,751   | 0            | 0          | 0          | 0          | Read Rank: 26 | Name: xesseku | Power: 42,731,751
-19    | DRANGER              | 41,671,718   | 0            | 0          | 0          | 0          | Read Rank: 28 | Name: DRANGER | Power: 41,671,718
-20    | Zph                  | 41,200,037   | 0            | 0          | 0          | 0          | Read Rank: 29 | Name: Zph | Power: 41,200,037
-21    | VonGodeuro           | 41,145,225   | 0            | 0          | 0          | 0          | Read Rank: 20 | Name: VonGodeuro | Power: 41 145 225
-22    | Homeland             | 40,449,074   | 0            | 0          | 0          | 0          | Read Rank: 31 | Name: Homeland | Power: 40,449,074
-23    | Batangbata           | 40,397,304   | 0            | 0          | 0          | 0          | Read Rank: 32 | Name: Batangbata | Power: 40,397,304
-24    | Dead_Anarchist       | 4,909,798    | 3,855,924    | 0          | 0          | 0          | Read Rank: 13 | Name: Dead_ Anarchist | Power: 49,097,980
-25    | bigcheese            | 4,719,478    | 0            | 0          | 0          | 0          | Read Rank: 16 | Name: bigcheese | Power: 47,194,78
-26    | Marinel              | 4,539,466    | 0            | 0          | 0          | 0          | Read Rank: 17 | Name: Marinel | Power: 45,394,66
-27    | XSTORMX              | 4,404,349    | 0            | 0          | 0          | 0          | Read Rank: 21 | Name: XSTORMX | Power: 44,043,49
-28    | RosGuard             | 4,195,083    | 0            | 0          | 0          | 0          | Read Rank: 27 | Name: RosGuard | Power: 41,950,83:
+1     | Ceuuron              | 641,426,114,249,502 | 0            | 0          | 0          | 0          | Read Rank: 2 | Name: Ceuuron | Power: 6/,414,261 142,4u9,502
+2     | XMorpnx              | 62,065,244   | 0            | 0          | 12,800     | 464        | Read Rank: 3 | Name: XMorpnx | Power: 62,065,244
+3     | PappyPapper          | 57,579,163   | 0            | 0          | 0          | 0          | Read Rank: 4 | Name: PappyPapper | Power: 57,579,163
+4     | Raffyy               | 55,576,127   | 0            | 0          | 0          | 0          | Read Rank: 6 | Name: Raffyy | Power: 55,576,127
+5     | vlvl                 | 54,186,984   | 0            | 0          | 0          | 0          | Read Rank: 7 | Name: vlvl | Power: 54,186,984
+6     | ботаник              | 53,657,901   | 0            | 0          | 0          | 0          | Read Rank: 8 | Name: ботаник | Power: 53,657,901
+7     | Ojisan91             | 53,563,447   | 0            | 0          | 0          | 0          | Read Rank: 9 | Name: Ojisan91 | Power: 53,563,447
+8     | AboFahad             | 52,168,337   | 0            | 0          | 0          | 0          | Read Rank: 10 | Name: AboFahad | Power: 52,168,337
+9     | Аджика               | 49,731,249   | 0            | 0          | 0          | 0          | Read Rank: 11 | Name: Аджика | Power: 49,731,249
+10    | TecchiFireball       | 49,469,143   | 0            | 0          | 0          | 0          | Read Rank: 12 | Name: TecchiFireball | Power: 49,469,143
+11    | Сiмона               | 48,721,697   | 0            | 0          | 0          | 0          | Read Rank: 14 | Name: Сiмона | Power: 48,721,697
+12    | AntyDeath            | 47,611,799   | 0            | 0          | 0          | 0          | Read Rank: 15 | Name: AntyDeath | Power: 47,611,799
+13    | Măcelaru             | 44,499,794   | 0            | 0          | 0          | 0          | Read Rank: 18 | Name: Măcelaru | Power: 44,499,794
+14    | saneqek              | 44,297,848   | 0            | 13,200     | 13,200     | 1,129      | Read Rank: 19 | Name: saneqek | Power: 44,297_ ,848
+15    | Kalbaram             | 44,231,601   | 0            | 13,300     | 0          | 0          | Read Rank: 20 | Name: Kalbaram | Power: 44,231,601
+16    | CHADZ                | 43,904,325   | 0            | 0          | 0          | 0          | Read Rank: 22 | Name: CHADZ | Power: 43,904,325
+17    | Серый777666          | 43,612,506   | 0            | 0          | 0          | 0          | Read Rank: 23 | Name: Серый777666 | Power: 43,612,506
+18    | Solosparkzzz         | 42,790,039   | 0            | 0          | 0          | 0          | Read Rank: 24 | Name: Solosparkzzz | Power: 42,790,039
+19    | TrepanatioXXL        | 42,763,695   | 0            | 0          | 0          | 0          | Read Rank: 25 | Name: TrepanatioXXL | Power: 42,763,695
+20    | xesseku              | 42,731,751   | 0            | 0          | 0          | 0          | Read Rank: 26 | Name: xesseku | Power: 42,731,751
+21    | DRANGER              | 41,671,718   | 0            | 0          | 0          | 0          | Read Rank: 28 | Name: DRANGER | Power: 41,671,718
+22    | Zph                  | 41,200,037   | 0            | 0          | 0          | 0          | Read Rank: 29 | Name: Zph | Power: 41,200,037
+23    | VonGodeuro           | 41,145,225   | 0            | 0          | 0          | 0          | Read Rank: 20 | Name: VonGodeuro | Power: 41 145 225
+24    | Homeland             | 40,449,074   | 0            | 0          | 0          | 0          | Read Rank: 31 | Name: Homeland | Power: 40,449,074
+25    | Batangbata           | 40,397,304   | 0            | 0          | 0          | 0          | Read Rank: 32 | Name: Batangbata | Power: 40,397,304
+26    | Kazsiel              | 14,249,502   | 0            | 0          | 11,800     | 0          | Read Rank: 1 | Name: Kazsiel | Power: 142,4u9,502
+27    | Dead_Anarchist       | 4,909,798    | 3,855,924    | 0          | 0          | 0          | Read Rank: 13 | Name: Dead_ Anarchist | Power: 49,097,980
+28    | bigcheese            | 4,719,478    | 0            | 0          | 0          | 0          | Read Rank: 16 | Name: bigcheese | Power: 47,194,78
+29    | Marinel              | 4,539,466    | 0            | 0          | 0          | 0          | Read Rank: 17 | Name: Marinel | Power: 45,394,66
+30    | XSTORMX              | 4,404,349    | 0            | 0          | 0          | 0          | Read Rank: 21 | Name: XSTORMX | Power: 44,043,49
+31    | RosGuard             | 4,195,083    | 0            | 0          | 0          | 0          | Read Rank: 27 | Name: RosGuard | Power: 41,950,83:
