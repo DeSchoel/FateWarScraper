@@ -1,0 +1,1538 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fate War Alliance Tracking</title>
+    <!-- jQuery and DataTables CSS/JS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; color: #1c1e21; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { background: #1877f2; color: white; padding: 20px; border-radius: 8px 8px 0 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { margin: 0; font-size: 24px; }
+        .summary { background: white; padding: 15px; border-bottom: 1px solid #ddd; display: flex; gap: 20px; font-size: 14px; color: #606770; }
+        .table-container { background: white; padding: 20px; border-radius: 0 0 8px 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow-x: auto; }
+        table.dataTable { border-collapse: collapse !important; width: 100% !important; }
+        table.dataTable thead th { background-color: #f0f2f5; color: #4b4f56; border-bottom: 2px solid #ddd !important; padding: 12px; }
+        table.dataTable tbody td { padding: 12px; border-bottom: 1px solid #eee; }
+        
+        /* Clickable Name Styles */
+        .member-link { 
+            color: #1877f2; 
+            text-decoration: underline; 
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .member-link:hover {
+            color: #166fe5;
+            text-decoration: none;
+        }
+
+        .clickable-summary {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .clickable-summary:hover {
+            background: #e4e6eb;
+            color: #1877f2;
+        }
+        
+        .footer { margin-top: 20px; text-align: center; font-size: 12px; color: #90949c; }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: white; margin: 5% auto; padding: 20px; border-radius: 8px; width: 80%; max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 20px; }
+        .close { font-size: 28px; font-weight: bold; cursor: pointer; color: #606770; }
+        .close:hover { color: #1c1e21; }
+        #chartContainer { position: relative; height: 400px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fate War Alliance Tracking</h1>
+        </header>
+        <div class="summary">
+            <div id="totalMembersContainer" class="clickable-summary">
+                <strong>Total Members:</strong> 103
+            </div>
+            <div><strong>Last Updated:</strong> 2026-01-29 10:41:16</div>
+            <div id="alliancePowerContainer" class="clickable-summary">
+                <strong>Total Alliance Power:</strong> 3,116,338,036
+            </div>
+        </div>
+        <div class="table-container">
+            <table id="membersTable" class="display">
+                <thead>
+                    <tr><th>Rank</th><th>Name</th><th>Power</th><th>Kills</th><th>Weekly Contrib</th><th>Construction</th><th>Assistance</th></tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td>1</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="CeltirDK" data-metric="power" onclick="return false;">CeltirDK</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="CeltirDK" data-metric="power" onclick="return false;">58,500,322</a></td>
+            <td><a href="#" class="member-link" data-name="CeltirDK" data-metric="kills" onclick="return false;">2,711,521</a></td>
+            <td><a href="#" class="member-link" data-name="CeltirDK" data-metric="weekly_contribution" onclick="return false;">57,400</a></td>
+            <td><a href="#" class="member-link" data-name="CeltirDK" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="CeltirDK" data-metric="tribe_assistance" onclick="return false;">272</a></td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="xMorphx" data-metric="power" onclick="return false;">xMorphx</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="xMorphx" data-metric="power" onclick="return false;">53,014,842</a></td>
+            <td><a href="#" class="member-link" data-name="xMorphx" data-metric="kills" onclick="return false;">328,756</a></td>
+            <td><a href="#" class="member-link" data-name="xMorphx" data-metric="weekly_contribution" onclick="return false;">57,900</a></td>
+            <td><a href="#" class="member-link" data-name="xMorphx" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="xMorphx" data-metric="tribe_assistance" onclick="return false;">446</a></td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Raffyy" data-metric="power" onclick="return false;">Raffyy</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Raffyy" data-metric="power" onclick="return false;">49,418,923</a></td>
+            <td><a href="#" class="member-link" data-name="Raffyy" data-metric="kills" onclick="return false;">104,645</a></td>
+            <td><a href="#" class="member-link" data-name="Raffyy" data-metric="weekly_contribution" onclick="return false;">60,100</a></td>
+            <td><a href="#" class="member-link" data-name="Raffyy" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Raffyy" data-metric="tribe_assistance" onclick="return false;">271</a></td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="xAeolus" data-metric="power" onclick="return false;">xAeolus</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="xAeolus" data-metric="power" onclick="return false;">49,247,766</a></td>
+            <td><a href="#" class="member-link" data-name="xAeolus" data-metric="kills" onclick="return false;">457,919</a></td>
+            <td><a href="#" class="member-link" data-name="xAeolus" data-metric="weekly_contribution" onclick="return false;">48,400</a></td>
+            <td><a href="#" class="member-link" data-name="xAeolus" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="xAeolus" data-metric="tribe_assistance" onclick="return false;">264</a></td>
+        </tr>
+        
+        <tr>
+            <td>5</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Ojisan91" data-metric="power" onclick="return false;">Ojisan91</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Ojisan91" data-metric="power" onclick="return false;">48,976,288</a></td>
+            <td><a href="#" class="member-link" data-name="Ojisan91" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Ojisan91" data-metric="weekly_contribution" onclick="return false;">73,200</a></td>
+            <td><a href="#" class="member-link" data-name="Ojisan91" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Ojisan91" data-metric="tribe_assistance" onclick="return false;">827</a></td>
+        </tr>
+        
+        <tr>
+            <td>6</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="ботаник" data-metric="power" onclick="return false;">ботаник</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="ботаник" data-metric="power" onclick="return false;">46,945,780</a></td>
+            <td><a href="#" class="member-link" data-name="ботаник" data-metric="kills" onclick="return false;">2,970,789</a></td>
+            <td><a href="#" class="member-link" data-name="ботаник" data-metric="weekly_contribution" onclick="return false;">66,900</a></td>
+            <td><a href="#" class="member-link" data-name="ботаник" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="ботаник" data-metric="tribe_assistance" onclick="return false;">341</a></td>
+        </tr>
+        
+        <tr>
+            <td>7</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="bigcheese" data-metric="power" onclick="return false;">bigcheese</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="bigcheese" data-metric="power" onclick="return false;">44,437,579</a></td>
+            <td><a href="#" class="member-link" data-name="bigcheese" data-metric="kills" onclick="return false;">3,378,938</a></td>
+            <td><a href="#" class="member-link" data-name="bigcheese" data-metric="weekly_contribution" onclick="return false;">43,700</a></td>
+            <td><a href="#" class="member-link" data-name="bigcheese" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="bigcheese" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>8</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="TecchiFireball" data-metric="power" onclick="return false;">TecchiFireball</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="TecchiFireball" data-metric="power" onclick="return false;">44,080,399</a></td>
+            <td><a href="#" class="member-link" data-name="TecchiFireball" data-metric="kills" onclick="return false;">5,363,044</a></td>
+            <td><a href="#" class="member-link" data-name="TecchiFireball" data-metric="weekly_contribution" onclick="return false;">69,700</a></td>
+            <td><a href="#" class="member-link" data-name="TecchiFireball" data-metric="construction" onclick="return false;">3,127</a></td>
+            <td><a href="#" class="member-link" data-name="TecchiFireball" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>9</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="AntyDeath" data-metric="power" onclick="return false;">AntyDeath</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="AntyDeath" data-metric="power" onclick="return false;">43,939,748</a></td>
+            <td><a href="#" class="member-link" data-name="AntyDeath" data-metric="kills" onclick="return false;">5,636,172</a></td>
+            <td><a href="#" class="member-link" data-name="AntyDeath" data-metric="weekly_contribution" onclick="return false;">63,000</a></td>
+            <td><a href="#" class="member-link" data-name="AntyDeath" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="AntyDeath" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>10</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="DeadAnarchist" data-metric="power" onclick="return false;">DeadAnarchist</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="DeadAnarchist" data-metric="power" onclick="return false;">43,622,730</a></td>
+            <td><a href="#" class="member-link" data-name="DeadAnarchist" data-metric="kills" onclick="return false;">3,855,924</a></td>
+            <td><a href="#" class="member-link" data-name="DeadAnarchist" data-metric="weekly_contribution" onclick="return false;">64,700</a></td>
+            <td><a href="#" class="member-link" data-name="DeadAnarchist" data-metric="construction" onclick="return false;">7,133</a></td>
+            <td><a href="#" class="member-link" data-name="DeadAnarchist" data-metric="tribe_assistance" onclick="return false;">294</a></td>
+        </tr>
+        
+        <tr>
+            <td>11</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Аджика" data-metric="power" onclick="return false;">Аджика</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Аджика" data-metric="power" onclick="return false;">43,352,513</a></td>
+            <td><a href="#" class="member-link" data-name="Аджика" data-metric="kills" onclick="return false;">21,761,580</a></td>
+            <td><a href="#" class="member-link" data-name="Аджика" data-metric="weekly_contribution" onclick="return false;">67,400</a></td>
+            <td><a href="#" class="member-link" data-name="Аджика" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Аджика" data-metric="tribe_assistance" onclick="return false;">936</a></td>
+        </tr>
+        
+        <tr>
+            <td>12</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Kadmos" data-metric="power" onclick="return false;">Kadmos</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Kadmos" data-metric="power" onclick="return false;">42,875,013</a></td>
+            <td><a href="#" class="member-link" data-name="Kadmos" data-metric="kills" onclick="return false;">5,878,275</a></td>
+            <td><a href="#" class="member-link" data-name="Kadmos" data-metric="weekly_contribution" onclick="return false;">67,500</a></td>
+            <td><a href="#" class="member-link" data-name="Kadmos" data-metric="construction" onclick="return false;">12,877</a></td>
+            <td><a href="#" class="member-link" data-name="Kadmos" data-metric="tribe_assistance" onclick="return false;">339</a></td>
+        </tr>
+        
+        <tr>
+            <td>13</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Dieks" data-metric="power" onclick="return false;">Dieks</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Dieks" data-metric="power" onclick="return false;">41,794,508</a></td>
+            <td><a href="#" class="member-link" data-name="Dieks" data-metric="kills" onclick="return false;">2,620,645</a></td>
+            <td><a href="#" class="member-link" data-name="Dieks" data-metric="weekly_contribution" onclick="return false;">34,500</a></td>
+            <td><a href="#" class="member-link" data-name="Dieks" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Dieks" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>14</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Măcelaru" data-metric="power" onclick="return false;">Măcelaru</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Măcelaru" data-metric="power" onclick="return false;">40,377,053</a></td>
+            <td><a href="#" class="member-link" data-name="Măcelaru" data-metric="kills" onclick="return false;">2,117,895</a></td>
+            <td><a href="#" class="member-link" data-name="Măcelaru" data-metric="weekly_contribution" onclick="return false;">28,500</a></td>
+            <td><a href="#" class="member-link" data-name="Măcelaru" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Măcelaru" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>15</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="PappyPapper" data-metric="power" onclick="return false;">PappyPapper</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="PappyPapper" data-metric="power" onclick="return false;">40,157,890</a></td>
+            <td><a href="#" class="member-link" data-name="PappyPapper" data-metric="kills" onclick="return false;">611,534</a></td>
+            <td><a href="#" class="member-link" data-name="PappyPapper" data-metric="weekly_contribution" onclick="return false;">59,300</a></td>
+            <td><a href="#" class="member-link" data-name="PappyPapper" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="PappyPapper" data-metric="tribe_assistance" onclick="return false;">291</a></td>
+        </tr>
+        
+        <tr>
+            <td>16</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Серый777666" data-metric="power" onclick="return false;">Серый777666</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Серый777666" data-metric="power" onclick="return false;">39,772,841</a></td>
+            <td><a href="#" class="member-link" data-name="Серый777666" data-metric="kills" onclick="return false;">4,301,529</a></td>
+            <td><a href="#" class="member-link" data-name="Серый777666" data-metric="weekly_contribution" onclick="return false;">75,200</a></td>
+            <td><a href="#" class="member-link" data-name="Серый777666" data-metric="construction" onclick="return false;">4,316</a></td>
+            <td><a href="#" class="member-link" data-name="Серый777666" data-metric="tribe_assistance" onclick="return false;">247</a></td>
+        </tr>
+        
+        <tr>
+            <td>17</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="CHADZ" data-metric="power" onclick="return false;">CHADZ</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="CHADZ" data-metric="power" onclick="return false;">39,388,660</a></td>
+            <td><a href="#" class="member-link" data-name="CHADZ" data-metric="kills" onclick="return false;">6,760</a></td>
+            <td><a href="#" class="member-link" data-name="CHADZ" data-metric="weekly_contribution" onclick="return false;">67,100</a></td>
+            <td><a href="#" class="member-link" data-name="CHADZ" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="CHADZ" data-metric="tribe_assistance" onclick="return false;">196</a></td>
+        </tr>
+        
+        <tr>
+            <td>18</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="XSTORMx" data-metric="power" onclick="return false;">XSTORMx</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="XSTORMx" data-metric="power" onclick="return false;">39,364,595</a></td>
+            <td><a href="#" class="member-link" data-name="XSTORMx" data-metric="kills" onclick="return false;">1,424,311</a></td>
+            <td><a href="#" class="member-link" data-name="XSTORMx" data-metric="weekly_contribution" onclick="return false;">69,600</a></td>
+            <td><a href="#" class="member-link" data-name="XSTORMx" data-metric="construction" onclick="return false;">15,343</a></td>
+            <td><a href="#" class="member-link" data-name="XSTORMx" data-metric="tribe_assistance" onclick="return false;">484</a></td>
+        </tr>
+        
+        <tr>
+            <td>19</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Marinel" data-metric="power" onclick="return false;">Marinel</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Marinel" data-metric="power" onclick="return false;">38,689,719</a></td>
+            <td><a href="#" class="member-link" data-name="Marinel" data-metric="kills" onclick="return false;">1,514,212</a></td>
+            <td><a href="#" class="member-link" data-name="Marinel" data-metric="weekly_contribution" onclick="return false;">70,300</a></td>
+            <td><a href="#" class="member-link" data-name="Marinel" data-metric="construction" onclick="return false;">39,185</a></td>
+            <td><a href="#" class="member-link" data-name="Marinel" data-metric="tribe_assistance" onclick="return false;">643</a></td>
+        </tr>
+        
+        <tr>
+            <td>20</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="AboFahad" data-metric="power" onclick="return false;">AboFahad</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="AboFahad" data-metric="power" onclick="return false;">38,645,598</a></td>
+            <td><a href="#" class="member-link" data-name="AboFahad" data-metric="kills" onclick="return false;">33,077</a></td>
+            <td><a href="#" class="member-link" data-name="AboFahad" data-metric="weekly_contribution" onclick="return false;">56,100</a></td>
+            <td><a href="#" class="member-link" data-name="AboFahad" data-metric="construction" onclick="return false;">13,039</a></td>
+            <td><a href="#" class="member-link" data-name="AboFahad" data-metric="tribe_assistance" onclick="return false;">435</a></td>
+        </tr>
+        
+        <tr>
+            <td>21</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="VonGodeuro" data-metric="power" onclick="return false;">VonGodeuro</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="VonGodeuro" data-metric="power" onclick="return false;">38,333,769</a></td>
+            <td><a href="#" class="member-link" data-name="VonGodeuro" data-metric="kills" onclick="return false;">7,786,325</a></td>
+            <td><a href="#" class="member-link" data-name="VonGodeuro" data-metric="weekly_contribution" onclick="return false;">71,100</a></td>
+            <td><a href="#" class="member-link" data-name="VonGodeuro" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="VonGodeuro" data-metric="tribe_assistance" onclick="return false;">221</a></td>
+        </tr>
+        
+        <tr>
+            <td>22</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="RosGuard" data-metric="power" onclick="return false;">RosGuard</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="RosGuard" data-metric="power" onclick="return false;">37,847,691</a></td>
+            <td><a href="#" class="member-link" data-name="RosGuard" data-metric="kills" onclick="return false;">65,145</a></td>
+            <td><a href="#" class="member-link" data-name="RosGuard" data-metric="weekly_contribution" onclick="return false;">72,200</a></td>
+            <td><a href="#" class="member-link" data-name="RosGuard" data-metric="construction" onclick="return false;">19,189</a></td>
+            <td><a href="#" class="member-link" data-name="RosGuard" data-metric="tribe_assistance" onclick="return false;">885</a></td>
+        </tr>
+        
+        <tr>
+            <td>23</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="xesseku" data-metric="power" onclick="return false;">xesseku</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="xesseku" data-metric="power" onclick="return false;">37,661,765</a></td>
+            <td><a href="#" class="member-link" data-name="xesseku" data-metric="kills" onclick="return false;">10,249</a></td>
+            <td><a href="#" class="member-link" data-name="xesseku" data-metric="weekly_contribution" onclick="return false;">67,900</a></td>
+            <td><a href="#" class="member-link" data-name="xesseku" data-metric="construction" onclick="return false;">47,145</a></td>
+            <td><a href="#" class="member-link" data-name="xesseku" data-metric="tribe_assistance" onclick="return false;">274</a></td>
+        </tr>
+        
+        <tr>
+            <td>24</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="TrepanatioXXL" data-metric="power" onclick="return false;">TrepanatioXXL</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="TrepanatioXXL" data-metric="power" onclick="return false;">37,361,709</a></td>
+            <td><a href="#" class="member-link" data-name="TrepanatioXXL" data-metric="kills" onclick="return false;">11,314,014</a></td>
+            <td><a href="#" class="member-link" data-name="TrepanatioXXL" data-metric="weekly_contribution" onclick="return false;">34,100</a></td>
+            <td><a href="#" class="member-link" data-name="TrepanatioXXL" data-metric="construction" onclick="return false;">28,565</a></td>
+            <td><a href="#" class="member-link" data-name="TrepanatioXXL" data-metric="tribe_assistance" onclick="return false;">180</a></td>
+        </tr>
+        
+        <tr>
+            <td>25</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Solosparkzzz" data-metric="power" onclick="return false;">Solosparkzzz</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Solosparkzzz" data-metric="power" onclick="return false;">36,693,390</a></td>
+            <td><a href="#" class="member-link" data-name="Solosparkzzz" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Solosparkzzz" data-metric="weekly_contribution" onclick="return false;">33,600</a></td>
+            <td><a href="#" class="member-link" data-name="Solosparkzzz" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Solosparkzzz" data-metric="tribe_assistance" onclick="return false;">188</a></td>
+        </tr>
+        
+        <tr>
+            <td>26</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Kalbaram" data-metric="power" onclick="return false;">Kalbaram</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Kalbaram" data-metric="power" onclick="return false;">36,470,159</a></td>
+            <td><a href="#" class="member-link" data-name="Kalbaram" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Kalbaram" data-metric="weekly_contribution" onclick="return false;">73,500</a></td>
+            <td><a href="#" class="member-link" data-name="Kalbaram" data-metric="construction" onclick="return false;">35,920</a></td>
+            <td><a href="#" class="member-link" data-name="Kalbaram" data-metric="tribe_assistance" onclick="return false;">879</a></td>
+        </tr>
+        
+        <tr>
+            <td>27</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="DRANGER" data-metric="power" onclick="return false;">DRANGER</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="DRANGER" data-metric="power" onclick="return false;">36,429,538</a></td>
+            <td><a href="#" class="member-link" data-name="DRANGER" data-metric="kills" onclick="return false;">460,311</a></td>
+            <td><a href="#" class="member-link" data-name="DRANGER" data-metric="weekly_contribution" onclick="return false;">72,800</a></td>
+            <td><a href="#" class="member-link" data-name="DRANGER" data-metric="construction" onclick="return false;">18,135</a></td>
+            <td><a href="#" class="member-link" data-name="DRANGER" data-metric="tribe_assistance" onclick="return false;">288</a></td>
+        </tr>
+        
+        <tr>
+            <td>28</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="челяба174" data-metric="power" onclick="return false;">челяба174</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="челяба174" data-metric="power" onclick="return false;">35,983,524</a></td>
+            <td><a href="#" class="member-link" data-name="челяба174" data-metric="kills" onclick="return false;">17,390,025</a></td>
+            <td><a href="#" class="member-link" data-name="челяба174" data-metric="weekly_contribution" onclick="return false;">62,500</a></td>
+            <td><a href="#" class="member-link" data-name="челяба174" data-metric="construction" onclick="return false;">784</a></td>
+            <td><a href="#" class="member-link" data-name="челяба174" data-metric="tribe_assistance" onclick="return false;">225</a></td>
+        </tr>
+        
+        <tr>
+            <td>29</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Tanaka" data-metric="power" onclick="return false;">Tanaka</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Tanaka" data-metric="power" onclick="return false;">35,389,943</a></td>
+            <td><a href="#" class="member-link" data-name="Tanaka" data-metric="kills" onclick="return false;">694,481</a></td>
+            <td><a href="#" class="member-link" data-name="Tanaka" data-metric="weekly_contribution" onclick="return false;">59,500</a></td>
+            <td><a href="#" class="member-link" data-name="Tanaka" data-metric="construction" onclick="return false;">21,846</a></td>
+            <td><a href="#" class="member-link" data-name="Tanaka" data-metric="tribe_assistance" onclick="return false;">400</a></td>
+        </tr>
+        
+        <tr>
+            <td>30</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="РыП" data-metric="power" onclick="return false;">РыП</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="РыП" data-metric="power" onclick="return false;">35,383,728</a></td>
+            <td><a href="#" class="member-link" data-name="РыП" data-metric="kills" onclick="return false;">8,974,201</a></td>
+            <td><a href="#" class="member-link" data-name="РыП" data-metric="weekly_contribution" onclick="return false;">70,500</a></td>
+            <td><a href="#" class="member-link" data-name="РыП" data-metric="construction" onclick="return false;">12,819</a></td>
+            <td><a href="#" class="member-link" data-name="РыП" data-metric="tribe_assistance" onclick="return false;">605</a></td>
+        </tr>
+        
+        <tr>
+            <td>31</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Novac" data-metric="power" onclick="return false;">Novac</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Novac" data-metric="power" onclick="return false;">35,306,319</a></td>
+            <td><a href="#" class="member-link" data-name="Novac" data-metric="kills" onclick="return false;">9,239</a></td>
+            <td><a href="#" class="member-link" data-name="Novac" data-metric="weekly_contribution" onclick="return false;">57,900</a></td>
+            <td><a href="#" class="member-link" data-name="Novac" data-metric="construction" onclick="return false;">15,205</a></td>
+            <td><a href="#" class="member-link" data-name="Novac" data-metric="tribe_assistance" onclick="return false;">566</a></td>
+        </tr>
+        
+        <tr>
+            <td>32</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Batangbata" data-metric="power" onclick="return false;">Batangbata</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Batangbata" data-metric="power" onclick="return false;">35,302,692</a></td>
+            <td><a href="#" class="member-link" data-name="Batangbata" data-metric="kills" onclick="return false;">2,554,363</a></td>
+            <td><a href="#" class="member-link" data-name="Batangbata" data-metric="weekly_contribution" onclick="return false;">71,400</a></td>
+            <td><a href="#" class="member-link" data-name="Batangbata" data-metric="construction" onclick="return false;">58,079</a></td>
+            <td><a href="#" class="member-link" data-name="Batangbata" data-metric="tribe_assistance" onclick="return false;">581</a></td>
+        </tr>
+        
+        <tr>
+            <td>33</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="NanP" data-metric="power" onclick="return false;">NanP</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="NanP" data-metric="power" onclick="return false;">35,231,239</a></td>
+            <td><a href="#" class="member-link" data-name="NanP" data-metric="kills" onclick="return false;">27,904</a></td>
+            <td><a href="#" class="member-link" data-name="NanP" data-metric="weekly_contribution" onclick="return false;">46,300</a></td>
+            <td><a href="#" class="member-link" data-name="NanP" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="NanP" data-metric="tribe_assistance" onclick="return false;">219</a></td>
+        </tr>
+        
+        <tr>
+            <td>34</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Roberttt" data-metric="power" onclick="return false;">Roberttt</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Roberttt" data-metric="power" onclick="return false;">34,809,792</a></td>
+            <td><a href="#" class="member-link" data-name="Roberttt" data-metric="kills" onclick="return false;">2,934,884</a></td>
+            <td><a href="#" class="member-link" data-name="Roberttt" data-metric="weekly_contribution" onclick="return false;">43,300</a></td>
+            <td><a href="#" class="member-link" data-name="Roberttt" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Roberttt" data-metric="tribe_assistance" onclick="return false;">101</a></td>
+        </tr>
+        
+        <tr>
+            <td>35</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="sane4ek" data-metric="power" onclick="return false;">sane4ek</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="sane4ek" data-metric="power" onclick="return false;">34,574,285</a></td>
+            <td><a href="#" class="member-link" data-name="sane4ek" data-metric="kills" onclick="return false;">4,809,101</a></td>
+            <td><a href="#" class="member-link" data-name="sane4ek" data-metric="weekly_contribution" onclick="return false;">64,700</a></td>
+            <td><a href="#" class="member-link" data-name="sane4ek" data-metric="construction" onclick="return false;">62,014</a></td>
+            <td><a href="#" class="member-link" data-name="sane4ek" data-metric="tribe_assistance" onclick="return false;">865</a></td>
+        </tr>
+        
+        <tr>
+            <td>36</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="LaUrA" data-metric="power" onclick="return false;">LaUrA</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="LaUrA" data-metric="power" onclick="return false;">34,452,980</a></td>
+            <td><a href="#" class="member-link" data-name="LaUrA" data-metric="kills" onclick="return false;">4,052,598</a></td>
+            <td><a href="#" class="member-link" data-name="LaUrA" data-metric="weekly_contribution" onclick="return false;">46,400</a></td>
+            <td><a href="#" class="member-link" data-name="LaUrA" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="LaUrA" data-metric="tribe_assistance" onclick="return false;">277</a></td>
+        </tr>
+        
+        <tr>
+            <td>37</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Zph" data-metric="power" onclick="return false;">Zph</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Zph" data-metric="power" onclick="return false;">33,911,137</a></td>
+            <td><a href="#" class="member-link" data-name="Zph" data-metric="kills" onclick="return false;">1,099,576</a></td>
+            <td><a href="#" class="member-link" data-name="Zph" data-metric="weekly_contribution" onclick="return false;">70,400</a></td>
+            <td><a href="#" class="member-link" data-name="Zph" data-metric="construction" onclick="return false;">62,006</a></td>
+            <td><a href="#" class="member-link" data-name="Zph" data-metric="tribe_assistance" onclick="return false;">725</a></td>
+        </tr>
+        
+        <tr>
+            <td>38</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="在下梅遊鉛" data-metric="power" onclick="return false;">在下梅遊鉛</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="在下梅遊鉛" data-metric="power" onclick="return false;">33,848,062</a></td>
+            <td><a href="#" class="member-link" data-name="在下梅遊鉛" data-metric="kills" onclick="return false;">228,817</a></td>
+            <td><a href="#" class="member-link" data-name="在下梅遊鉛" data-metric="weekly_contribution" onclick="return false;">73,400</a></td>
+            <td><a href="#" class="member-link" data-name="在下梅遊鉛" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="在下梅遊鉛" data-metric="tribe_assistance" onclick="return false;">334</a></td>
+        </tr>
+        
+        <tr>
+            <td>39</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Unlex" data-metric="power" onclick="return false;">Unlex</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Unlex" data-metric="power" onclick="return false;">33,632,227</a></td>
+            <td><a href="#" class="member-link" data-name="Unlex" data-metric="kills" onclick="return false;">1,309,861</a></td>
+            <td><a href="#" class="member-link" data-name="Unlex" data-metric="weekly_contribution" onclick="return false;">42,500</a></td>
+            <td><a href="#" class="member-link" data-name="Unlex" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Unlex" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>40</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Homeland" data-metric="power" onclick="return false;">Homeland</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Homeland" data-metric="power" onclick="return false;">33,403,119</a></td>
+            <td><a href="#" class="member-link" data-name="Homeland" data-metric="kills" onclick="return false;">6,954,977</a></td>
+            <td><a href="#" class="member-link" data-name="Homeland" data-metric="weekly_contribution" onclick="return false;">63,800</a></td>
+            <td><a href="#" class="member-link" data-name="Homeland" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Homeland" data-metric="tribe_assistance" onclick="return false;">317</a></td>
+        </tr>
+        
+        <tr>
+            <td>41</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="SilentResolve" data-metric="power" onclick="return false;">SilentResolve</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="SilentResolve" data-metric="power" onclick="return false;">32,972,867</a></td>
+            <td><a href="#" class="member-link" data-name="SilentResolve" data-metric="kills" onclick="return false;">2,910,074</a></td>
+            <td><a href="#" class="member-link" data-name="SilentResolve" data-metric="weekly_contribution" onclick="return false;">68,700</a></td>
+            <td><a href="#" class="member-link" data-name="SilentResolve" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="SilentResolve" data-metric="tribe_assistance" onclick="return false;">230</a></td>
+        </tr>
+        
+        <tr>
+            <td>42</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="MaRkUSЗO" data-metric="power" onclick="return false;">MaRkUSЗO</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="MaRkUSЗO" data-metric="power" onclick="return false;">32,943,503</a></td>
+            <td><a href="#" class="member-link" data-name="MaRkUSЗO" data-metric="kills" onclick="return false;">1,791,665</a></td>
+            <td><a href="#" class="member-link" data-name="MaRkUSЗO" data-metric="weekly_contribution" onclick="return false;">34,200</a></td>
+            <td><a href="#" class="member-link" data-name="MaRkUSЗO" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="MaRkUSЗO" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>43</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="CDS" data-metric="power" onclick="return false;">CDS</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="CDS" data-metric="power" onclick="return false;">32,866,683</a></td>
+            <td><a href="#" class="member-link" data-name="CDS" data-metric="kills" onclick="return false;">3,618,898</a></td>
+            <td><a href="#" class="member-link" data-name="CDS" data-metric="weekly_contribution" onclick="return false;">14,300</a></td>
+            <td><a href="#" class="member-link" data-name="CDS" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="CDS" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>44</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Baronbee" data-metric="power" onclick="return false;">Baronbee</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Baronbee" data-metric="power" onclick="return false;">31,924,139</a></td>
+            <td><a href="#" class="member-link" data-name="Baronbee" data-metric="kills" onclick="return false;">3,013,037</a></td>
+            <td><a href="#" class="member-link" data-name="Baronbee" data-metric="weekly_contribution" onclick="return false;">59,500</a></td>
+            <td><a href="#" class="member-link" data-name="Baronbee" data-metric="construction" onclick="return false;">2,649</a></td>
+            <td><a href="#" class="member-link" data-name="Baronbee" data-metric="tribe_assistance" onclick="return false;">321</a></td>
+        </tr>
+        
+        <tr>
+            <td>45</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Taidana" data-metric="power" onclick="return false;">Taidana</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Taidana" data-metric="power" onclick="return false;">31,478,970</a></td>
+            <td><a href="#" class="member-link" data-name="Taidana" data-metric="kills" onclick="return false;">17,499</a></td>
+            <td><a href="#" class="member-link" data-name="Taidana" data-metric="weekly_contribution" onclick="return false;">40,300</a></td>
+            <td><a href="#" class="member-link" data-name="Taidana" data-metric="construction" onclick="return false;">5,874</a></td>
+            <td><a href="#" class="member-link" data-name="Taidana" data-metric="tribe_assistance" onclick="return false;">112</a></td>
+        </tr>
+        
+        <tr>
+            <td>46</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="ЛуиДюфине" data-metric="power" onclick="return false;">ЛуиДюфине</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="ЛуиДюфине" data-metric="power" onclick="return false;">30,868,131</a></td>
+            <td><a href="#" class="member-link" data-name="ЛуиДюфине" data-metric="kills" onclick="return false;">232,935</a></td>
+            <td><a href="#" class="member-link" data-name="ЛуиДюфине" data-metric="weekly_contribution" onclick="return false;">63,600</a></td>
+            <td><a href="#" class="member-link" data-name="ЛуиДюфине" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="ЛуиДюфине" data-metric="tribe_assistance" onclick="return false;">250</a></td>
+        </tr>
+        
+        <tr>
+            <td>47</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="WWFSD" data-metric="power" onclick="return false;">WWFSD</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="WWFSD" data-metric="power" onclick="return false;">30,613,704</a></td>
+            <td><a href="#" class="member-link" data-name="WWFSD" data-metric="kills" onclick="return false;">98,040</a></td>
+            <td><a href="#" class="member-link" data-name="WWFSD" data-metric="weekly_contribution" onclick="return false;">70,100</a></td>
+            <td><a href="#" class="member-link" data-name="WWFSD" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="WWFSD" data-metric="tribe_assistance" onclick="return false;">219</a></td>
+        </tr>
+        
+        <tr>
+            <td>48</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="BEASTX" data-metric="power" onclick="return false;">BEASTX</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="BEASTX" data-metric="power" onclick="return false;">30,535,115</a></td>
+            <td><a href="#" class="member-link" data-name="BEASTX" data-metric="kills" onclick="return false;">903,046</a></td>
+            <td><a href="#" class="member-link" data-name="BEASTX" data-metric="weekly_contribution" onclick="return false;">57,700</a></td>
+            <td><a href="#" class="member-link" data-name="BEASTX" data-metric="construction" onclick="return false;">5,900</a></td>
+            <td><a href="#" class="member-link" data-name="BEASTX" data-metric="tribe_assistance" onclick="return false;">251</a></td>
+        </tr>
+        
+        <tr>
+            <td>49</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="AuditorMuda" data-metric="power" onclick="return false;">AuditorMuda</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="AuditorMuda" data-metric="power" onclick="return false;">29,907,936</a></td>
+            <td><a href="#" class="member-link" data-name="AuditorMuda" data-metric="kills" onclick="return false;">1,012,668</a></td>
+            <td><a href="#" class="member-link" data-name="AuditorMuda" data-metric="weekly_contribution" onclick="return false;">68,000</a></td>
+            <td><a href="#" class="member-link" data-name="AuditorMuda" data-metric="construction" onclick="return false;">14,844</a></td>
+            <td><a href="#" class="member-link" data-name="AuditorMuda" data-metric="tribe_assistance" onclick="return false;">408</a></td>
+        </tr>
+        
+        <tr>
+            <td>50</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Viktorich" data-metric="power" onclick="return false;">Viktorich</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Viktorich" data-metric="power" onclick="return false;">29,695,987</a></td>
+            <td><a href="#" class="member-link" data-name="Viktorich" data-metric="kills" onclick="return false;">44,517</a></td>
+            <td><a href="#" class="member-link" data-name="Viktorich" data-metric="weekly_contribution" onclick="return false;">55,600</a></td>
+            <td><a href="#" class="member-link" data-name="Viktorich" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Viktorich" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>51</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Kazyma" data-metric="power" onclick="return false;">Kazyma</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Kazyma" data-metric="power" onclick="return false;">29,257,625</a></td>
+            <td><a href="#" class="member-link" data-name="Kazyma" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Kazyma" data-metric="weekly_contribution" onclick="return false;">70,800</a></td>
+            <td><a href="#" class="member-link" data-name="Kazyma" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Kazyma" data-metric="tribe_assistance" onclick="return false;">142</a></td>
+        </tr>
+        
+        <tr>
+            <td>52</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Moliaro" data-metric="power" onclick="return false;">Moliaro</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Moliaro" data-metric="power" onclick="return false;">29,223,849</a></td>
+            <td><a href="#" class="member-link" data-name="Moliaro" data-metric="kills" onclick="return false;">52,154</a></td>
+            <td><a href="#" class="member-link" data-name="Moliaro" data-metric="weekly_contribution" onclick="return false;">99,300</a></td>
+            <td><a href="#" class="member-link" data-name="Moliaro" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Moliaro" data-metric="tribe_assistance" onclick="return false;">303</a></td>
+        </tr>
+        
+        <tr>
+            <td>53</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="PkLpsTH" data-metric="power" onclick="return false;">PkLpsTH</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="PkLpsTH" data-metric="power" onclick="return false;">29,091,728</a></td>
+            <td><a href="#" class="member-link" data-name="PkLpsTH" data-metric="kills" onclick="return false;">10,168</a></td>
+            <td><a href="#" class="member-link" data-name="PkLpsTH" data-metric="weekly_contribution" onclick="return false;">71,700</a></td>
+            <td><a href="#" class="member-link" data-name="PkLpsTH" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="PkLpsTH" data-metric="tribe_assistance" onclick="return false;">389</a></td>
+        </tr>
+        
+        <tr>
+            <td>54</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Вованы4" data-metric="power" onclick="return false;">Вованы4</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Вованы4" data-metric="power" onclick="return false;">28,786,128</a></td>
+            <td><a href="#" class="member-link" data-name="Вованы4" data-metric="kills" onclick="return false;">68,341</a></td>
+            <td><a href="#" class="member-link" data-name="Вованы4" data-metric="weekly_contribution" onclick="return false;">87,900</a></td>
+            <td><a href="#" class="member-link" data-name="Вованы4" data-metric="construction" onclick="return false;">2,334</a></td>
+            <td><a href="#" class="member-link" data-name="Вованы4" data-metric="tribe_assistance" onclick="return false;">240</a></td>
+        </tr>
+        
+        <tr>
+            <td>55</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="ThorOMG" data-metric="power" onclick="return false;">ThorOMG</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="ThorOMG" data-metric="power" onclick="return false;">28,606,643</a></td>
+            <td><a href="#" class="member-link" data-name="ThorOMG" data-metric="kills" onclick="return false;">44,381</a></td>
+            <td><a href="#" class="member-link" data-name="ThorOMG" data-metric="weekly_contribution" onclick="return false;">57,000</a></td>
+            <td><a href="#" class="member-link" data-name="ThorOMG" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="ThorOMG" data-metric="tribe_assistance" onclick="return false;">208</a></td>
+        </tr>
+        
+        <tr>
+            <td>56</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="GoatLord" data-metric="power" onclick="return false;">GoatLord</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="GoatLord" data-metric="power" onclick="return false;">28,258,291</a></td>
+            <td><a href="#" class="member-link" data-name="GoatLord" data-metric="kills" onclick="return false;">92,628</a></td>
+            <td><a href="#" class="member-link" data-name="GoatLord" data-metric="weekly_contribution" onclick="return false;">58,100</a></td>
+            <td><a href="#" class="member-link" data-name="GoatLord" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="GoatLord" data-metric="tribe_assistance" onclick="return false;">259</a></td>
+        </tr>
+        
+        <tr>
+            <td>57</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Nyoibo2026" data-metric="power" onclick="return false;">Nyoibo2026</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Nyoibo2026" data-metric="power" onclick="return false;">27,700,055</a></td>
+            <td><a href="#" class="member-link" data-name="Nyoibo2026" data-metric="kills" onclick="return false;">8,685</a></td>
+            <td><a href="#" class="member-link" data-name="Nyoibo2026" data-metric="weekly_contribution" onclick="return false;">61,200</a></td>
+            <td><a href="#" class="member-link" data-name="Nyoibo2026" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Nyoibo2026" data-metric="tribe_assistance" onclick="return false;">256</a></td>
+        </tr>
+        
+        <tr>
+            <td>58</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="salad" data-metric="power" onclick="return false;">salad</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="salad" data-metric="power" onclick="return false;">27,479,614</a></td>
+            <td><a href="#" class="member-link" data-name="salad" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="salad" data-metric="weekly_contribution" onclick="return false;">62,900</a></td>
+            <td><a href="#" class="member-link" data-name="salad" data-metric="construction" onclick="return false;">1,870</a></td>
+            <td><a href="#" class="member-link" data-name="salad" data-metric="tribe_assistance" onclick="return false;">518</a></td>
+        </tr>
+        
+        <tr>
+            <td>59</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Patroli" data-metric="power" onclick="return false;">Patroli</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Patroli" data-metric="power" onclick="return false;">26,696,388</a></td>
+            <td><a href="#" class="member-link" data-name="Patroli" data-metric="kills" onclick="return false;">208,577</a></td>
+            <td><a href="#" class="member-link" data-name="Patroli" data-metric="weekly_contribution" onclick="return false;">66,600</a></td>
+            <td><a href="#" class="member-link" data-name="Patroli" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Patroli" data-metric="tribe_assistance" onclick="return false;">149</a></td>
+        </tr>
+        
+        <tr>
+            <td>60</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="no3Ldev" data-metric="power" onclick="return false;">no3Ldev</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="no3Ldev" data-metric="power" onclick="return false;">26,457,363</a></td>
+            <td><a href="#" class="member-link" data-name="no3Ldev" data-metric="kills" onclick="return false;">1,108,232</a></td>
+            <td><a href="#" class="member-link" data-name="no3Ldev" data-metric="weekly_contribution" onclick="return false;">69,000</a></td>
+            <td><a href="#" class="member-link" data-name="no3Ldev" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="no3Ldev" data-metric="tribe_assistance" onclick="return false;">481</a></td>
+        </tr>
+        
+        <tr>
+            <td>61</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="KRAGAN" data-metric="power" onclick="return false;">KRAGAN</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="KRAGAN" data-metric="power" onclick="return false;">26,419,211</a></td>
+            <td><a href="#" class="member-link" data-name="KRAGAN" data-metric="kills" onclick="return false;">983,730</a></td>
+            <td><a href="#" class="member-link" data-name="KRAGAN" data-metric="weekly_contribution" onclick="return false;">42,600</a></td>
+            <td><a href="#" class="member-link" data-name="KRAGAN" data-metric="construction" onclick="return false;">9,006</a></td>
+            <td><a href="#" class="member-link" data-name="KRAGAN" data-metric="tribe_assistance" onclick="return false;">212</a></td>
+        </tr>
+        
+        <tr>
+            <td>62</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Gheko" data-metric="power" onclick="return false;">Gheko</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Gheko" data-metric="power" onclick="return false;">26,110,892</a></td>
+            <td><a href="#" class="member-link" data-name="Gheko" data-metric="kills" onclick="return false;">10,875</a></td>
+            <td><a href="#" class="member-link" data-name="Gheko" data-metric="weekly_contribution" onclick="return false;">34,000</a></td>
+            <td><a href="#" class="member-link" data-name="Gheko" data-metric="construction" onclick="return false;">4,686</a></td>
+            <td><a href="#" class="member-link" data-name="Gheko" data-metric="tribe_assistance" onclick="return false;">116</a></td>
+        </tr>
+        
+        <tr>
+            <td>63</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="yody" data-metric="power" onclick="return false;">yody</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="yody" data-metric="power" onclick="return false;">26,055,698</a></td>
+            <td><a href="#" class="member-link" data-name="yody" data-metric="kills" onclick="return false;">2,734,199</a></td>
+            <td><a href="#" class="member-link" data-name="yody" data-metric="weekly_contribution" onclick="return false;">58,200</a></td>
+            <td><a href="#" class="member-link" data-name="yody" data-metric="construction" onclick="return false;">13,859</a></td>
+            <td><a href="#" class="member-link" data-name="yody" data-metric="tribe_assistance" onclick="return false;">259</a></td>
+        </tr>
+        
+        <tr>
+            <td>64</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Orchid" data-metric="power" onclick="return false;">Orchid</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Orchid" data-metric="power" onclick="return false;">25,773,116</a></td>
+            <td><a href="#" class="member-link" data-name="Orchid" data-metric="kills" onclick="return false;">53,799</a></td>
+            <td><a href="#" class="member-link" data-name="Orchid" data-metric="weekly_contribution" onclick="return false;">53,900</a></td>
+            <td><a href="#" class="member-link" data-name="Orchid" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Orchid" data-metric="tribe_assistance" onclick="return false;">376</a></td>
+        </tr>
+        
+        <tr>
+            <td>65</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="AlfaStraik" data-metric="power" onclick="return false;">AlfaStraik</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="AlfaStraik" data-metric="power" onclick="return false;">25,702,518</a></td>
+            <td><a href="#" class="member-link" data-name="AlfaStraik" data-metric="kills" onclick="return false;">247,865</a></td>
+            <td><a href="#" class="member-link" data-name="AlfaStraik" data-metric="weekly_contribution" onclick="return false;">41,500</a></td>
+            <td><a href="#" class="member-link" data-name="AlfaStraik" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="AlfaStraik" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>66</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="niklivA77" data-metric="power" onclick="return false;">niklivA77</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="niklivA77" data-metric="power" onclick="return false;">25,683,440</a></td>
+            <td><a href="#" class="member-link" data-name="niklivA77" data-metric="kills" onclick="return false;">2,779,429</a></td>
+            <td><a href="#" class="member-link" data-name="niklivA77" data-metric="weekly_contribution" onclick="return false;">72,100</a></td>
+            <td><a href="#" class="member-link" data-name="niklivA77" data-metric="construction" onclick="return false;">22,096</a></td>
+            <td><a href="#" class="member-link" data-name="niklivA77" data-metric="tribe_assistance" onclick="return false;">516</a></td>
+        </tr>
+        
+        <tr>
+            <td>67</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="METEHANGI" data-metric="power" onclick="return false;">METEHANGI</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="METEHANGI" data-metric="power" onclick="return false;">25,657,256</a></td>
+            <td><a href="#" class="member-link" data-name="METEHANGI" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="METEHANGI" data-metric="weekly_contribution" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="METEHANGI" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="METEHANGI" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>68</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Meloman3476" data-metric="power" onclick="return false;">Meloman3476</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Meloman3476" data-metric="power" onclick="return false;">25,548,963</a></td>
+            <td><a href="#" class="member-link" data-name="Meloman3476" data-metric="kills" onclick="return false;">8,778</a></td>
+            <td><a href="#" class="member-link" data-name="Meloman3476" data-metric="weekly_contribution" onclick="return false;">38,200</a></td>
+            <td><a href="#" class="member-link" data-name="Meloman3476" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Meloman3476" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>69</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="IndraE" data-metric="power" onclick="return false;">IndraE</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="IndraE" data-metric="power" onclick="return false;">25,469,155</a></td>
+            <td><a href="#" class="member-link" data-name="IndraE" data-metric="kills" onclick="return false;">119,169</a></td>
+            <td><a href="#" class="member-link" data-name="IndraE" data-metric="weekly_contribution" onclick="return false;">70,300</a></td>
+            <td><a href="#" class="member-link" data-name="IndraE" data-metric="construction" onclick="return false;">995</a></td>
+            <td><a href="#" class="member-link" data-name="IndraE" data-metric="tribe_assistance" onclick="return false;">547</a></td>
+        </tr>
+        
+        <tr>
+            <td>70</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="CHEROKEE" data-metric="power" onclick="return false;">CHEROKEE</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="CHEROKEE" data-metric="power" onclick="return false;">25,360,271</a></td>
+            <td><a href="#" class="member-link" data-name="CHEROKEE" data-metric="kills" onclick="return false;">3,133</a></td>
+            <td><a href="#" class="member-link" data-name="CHEROKEE" data-metric="weekly_contribution" onclick="return false;">67,100</a></td>
+            <td><a href="#" class="member-link" data-name="CHEROKEE" data-metric="construction" onclick="return false;">2,037</a></td>
+            <td><a href="#" class="member-link" data-name="CHEROKEE" data-metric="tribe_assistance" onclick="return false;">329</a></td>
+        </tr>
+        
+        <tr>
+            <td>71</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="РЕГИОН25" data-metric="power" onclick="return false;">РЕГИОН25</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="РЕГИОН25" data-metric="power" onclick="return false;">25,111,289</a></td>
+            <td><a href="#" class="member-link" data-name="РЕГИОН25" data-metric="kills" onclick="return false;">854,463</a></td>
+            <td><a href="#" class="member-link" data-name="РЕГИОН25" data-metric="weekly_contribution" onclick="return false;">26,200</a></td>
+            <td><a href="#" class="member-link" data-name="РЕГИОН25" data-metric="construction" onclick="return false;">874</a></td>
+            <td><a href="#" class="member-link" data-name="РЕГИОН25" data-metric="tribe_assistance" onclick="return false;">134</a></td>
+        </tr>
+        
+        <tr>
+            <td>72</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Иннусик" data-metric="power" onclick="return false;">Иннусик</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Иннусик" data-metric="power" onclick="return false;">24,719,583</a></td>
+            <td><a href="#" class="member-link" data-name="Иннусик" data-metric="kills" onclick="return false;">208,254</a></td>
+            <td><a href="#" class="member-link" data-name="Иннусик" data-metric="weekly_contribution" onclick="return false;">24,400</a></td>
+            <td><a href="#" class="member-link" data-name="Иннусик" data-metric="construction" onclick="return false;">1,246</a></td>
+            <td><a href="#" class="member-link" data-name="Иннусик" data-metric="tribe_assistance" onclick="return false;">107</a></td>
+        </tr>
+        
+        <tr>
+            <td>73</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Hogmanaytime" data-metric="power" onclick="return false;">Hogmanaytime</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Hogmanaytime" data-metric="power" onclick="return false;">24,714,284</a></td>
+            <td><a href="#" class="member-link" data-name="Hogmanaytime" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Hogmanaytime" data-metric="weekly_contribution" onclick="return false;">69,800</a></td>
+            <td><a href="#" class="member-link" data-name="Hogmanaytime" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Hogmanaytime" data-metric="tribe_assistance" onclick="return false;">318</a></td>
+        </tr>
+        
+        <tr>
+            <td>74</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="TheGuardainz" data-metric="power" onclick="return false;">TheGuardainz</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="TheGuardainz" data-metric="power" onclick="return false;">24,488,877</a></td>
+            <td><a href="#" class="member-link" data-name="TheGuardainz" data-metric="kills" onclick="return false;">16,629</a></td>
+            <td><a href="#" class="member-link" data-name="TheGuardainz" data-metric="weekly_contribution" onclick="return false;">69,900</a></td>
+            <td><a href="#" class="member-link" data-name="TheGuardainz" data-metric="construction" onclick="return false;">28,345</a></td>
+            <td><a href="#" class="member-link" data-name="TheGuardainz" data-metric="tribe_assistance" onclick="return false;">184</a></td>
+        </tr>
+        
+        <tr>
+            <td>75</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="ovgum" data-metric="power" onclick="return false;">ovgum</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="ovgum" data-metric="power" onclick="return false;">24,429,897</a></td>
+            <td><a href="#" class="member-link" data-name="ovgum" data-metric="kills" onclick="return false;">445,980</a></td>
+            <td><a href="#" class="member-link" data-name="ovgum" data-metric="weekly_contribution" onclick="return false;">20,400</a></td>
+            <td><a href="#" class="member-link" data-name="ovgum" data-metric="construction" onclick="return false;">536</a></td>
+            <td><a href="#" class="member-link" data-name="ovgum" data-metric="tribe_assistance" onclick="return false;">229</a></td>
+        </tr>
+        
+        <tr>
+            <td>76</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Evangelinel" data-metric="power" onclick="return false;">Evangelinel</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Evangelinel" data-metric="power" onclick="return false;">24,421,251</a></td>
+            <td><a href="#" class="member-link" data-name="Evangelinel" data-metric="kills" onclick="return false;">90,782</a></td>
+            <td><a href="#" class="member-link" data-name="Evangelinel" data-metric="weekly_contribution" onclick="return false;">53,700</a></td>
+            <td><a href="#" class="member-link" data-name="Evangelinel" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Evangelinel" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>77</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="JohntheDad" data-metric="power" onclick="return false;">JohntheDad</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="JohntheDad" data-metric="power" onclick="return false;">24,031,447</a></td>
+            <td><a href="#" class="member-link" data-name="JohntheDad" data-metric="kills" onclick="return false;">14,732</a></td>
+            <td><a href="#" class="member-link" data-name="JohntheDad" data-metric="weekly_contribution" onclick="return false;">33,300</a></td>
+            <td><a href="#" class="member-link" data-name="JohntheDad" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="JohntheDad" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>78</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="TeddyT" data-metric="power" onclick="return false;">TeddyT</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="TeddyT" data-metric="power" onclick="return false;">23,599,663</a></td>
+            <td><a href="#" class="member-link" data-name="TeddyT" data-metric="kills" onclick="return false;">731,187</a></td>
+            <td><a href="#" class="member-link" data-name="TeddyT" data-metric="weekly_contribution" onclick="return false;">43,900</a></td>
+            <td><a href="#" class="member-link" data-name="TeddyT" data-metric="construction" onclick="return false;">473</a></td>
+            <td><a href="#" class="member-link" data-name="TeddyT" data-metric="tribe_assistance" onclick="return false;">157</a></td>
+        </tr>
+        
+        <tr>
+            <td>79</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="ХоМ9l4ok" data-metric="power" onclick="return false;">ХоМ9l4ok</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="ХоМ9l4ok" data-metric="power" onclick="return false;">23,053,710</a></td>
+            <td><a href="#" class="member-link" data-name="ХоМ9l4ok" data-metric="kills" onclick="return false;">92,598</a></td>
+            <td><a href="#" class="member-link" data-name="ХоМ9l4ok" data-metric="weekly_contribution" onclick="return false;">55,800</a></td>
+            <td><a href="#" class="member-link" data-name="ХоМ9l4ok" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="ХоМ9l4ok" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>80</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="RozzY" data-metric="power" onclick="return false;">RozzY</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="RozzY" data-metric="power" onclick="return false;">23,046,129</a></td>
+            <td><a href="#" class="member-link" data-name="RozzY" data-metric="kills" onclick="return false;">25,352</a></td>
+            <td><a href="#" class="member-link" data-name="RozzY" data-metric="weekly_contribution" onclick="return false;">24,500</a></td>
+            <td><a href="#" class="member-link" data-name="RozzY" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="RozzY" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>81</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="titomois" data-metric="power" onclick="return false;">titomois</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="titomois" data-metric="power" onclick="return false;">22,818,154</a></td>
+            <td><a href="#" class="member-link" data-name="titomois" data-metric="kills" onclick="return false;">356,298</a></td>
+            <td><a href="#" class="member-link" data-name="titomois" data-metric="weekly_contribution" onclick="return false;">30,700</a></td>
+            <td><a href="#" class="member-link" data-name="titomois" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="titomois" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>82</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="AutisticDragon" data-metric="power" onclick="return false;">AutisticDragon</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="AutisticDragon" data-metric="power" onclick="return false;">22,754,591</a></td>
+            <td><a href="#" class="member-link" data-name="AutisticDragon" data-metric="kills" onclick="return false;">567,414</a></td>
+            <td><a href="#" class="member-link" data-name="AutisticDragon" data-metric="weekly_contribution" onclick="return false;">14,400</a></td>
+            <td><a href="#" class="member-link" data-name="AutisticDragon" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="AutisticDragon" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>83</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="ZINK" data-metric="power" onclick="return false;">ZINK</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="ZINK" data-metric="power" onclick="return false;">22,625,127</a></td>
+            <td><a href="#" class="member-link" data-name="ZINK" data-metric="kills" onclick="return false;">823,007</a></td>
+            <td><a href="#" class="member-link" data-name="ZINK" data-metric="weekly_contribution" onclick="return false;">76,100</a></td>
+            <td><a href="#" class="member-link" data-name="ZINK" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="ZINK" data-metric="tribe_assistance" onclick="return false;">266</a></td>
+        </tr>
+        
+        <tr>
+            <td>84</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Воха4б" data-metric="power" onclick="return false;">Воха4б</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Воха4б" data-metric="power" onclick="return false;">22,257,925</a></td>
+            <td><a href="#" class="member-link" data-name="Воха4б" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Воха4б" data-metric="weekly_contribution" onclick="return false;">65,700</a></td>
+            <td><a href="#" class="member-link" data-name="Воха4б" data-metric="construction" onclick="return false;">31,911</a></td>
+            <td><a href="#" class="member-link" data-name="Воха4б" data-metric="tribe_assistance" onclick="return false;">471</a></td>
+        </tr>
+        
+        <tr>
+            <td>85</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Бумс" data-metric="power" onclick="return false;">Бумс</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Бумс" data-metric="power" onclick="return false;">22,149,133</a></td>
+            <td><a href="#" class="member-link" data-name="Бумс" data-metric="kills" onclick="return false;">764</a></td>
+            <td><a href="#" class="member-link" data-name="Бумс" data-metric="weekly_contribution" onclick="return false;">64,800</a></td>
+            <td><a href="#" class="member-link" data-name="Бумс" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Бумс" data-metric="tribe_assistance" onclick="return false;">260</a></td>
+        </tr>
+        
+        <tr>
+            <td>86</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="bzbz" data-metric="power" onclick="return false;">bzbz</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="bzbz" data-metric="power" onclick="return false;">22,034,550</a></td>
+            <td><a href="#" class="member-link" data-name="bzbz" data-metric="kills" onclick="return false;">697,858</a></td>
+            <td><a href="#" class="member-link" data-name="bzbz" data-metric="weekly_contribution" onclick="return false;">46,700</a></td>
+            <td><a href="#" class="member-link" data-name="bzbz" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="bzbz" data-metric="tribe_assistance" onclick="return false;">105</a></td>
+        </tr>
+        
+        <tr>
+            <td>87</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Кристид" data-metric="power" onclick="return false;">Кристид</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Кристид" data-metric="power" onclick="return false;">21,972,233</a></td>
+            <td><a href="#" class="member-link" data-name="Кристид" data-metric="kills" onclick="return false;">59,942</a></td>
+            <td><a href="#" class="member-link" data-name="Кристид" data-metric="weekly_contribution" onclick="return false;">70,300</a></td>
+            <td><a href="#" class="member-link" data-name="Кристид" data-metric="construction" onclick="return false;">13,587</a></td>
+            <td><a href="#" class="member-link" data-name="Кристид" data-metric="tribe_assistance" onclick="return false;">426</a></td>
+        </tr>
+        
+        <tr>
+            <td>88</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Yennnnn" data-metric="power" onclick="return false;">Yennnnn</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Yennnnn" data-metric="power" onclick="return false;">21,968,129</a></td>
+            <td><a href="#" class="member-link" data-name="Yennnnn" data-metric="kills" onclick="return false;">287,014</a></td>
+            <td><a href="#" class="member-link" data-name="Yennnnn" data-metric="weekly_contribution" onclick="return false;">46,400</a></td>
+            <td><a href="#" class="member-link" data-name="Yennnnn" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Yennnnn" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>89</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Bluey" data-metric="power" onclick="return false;">Bluey</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Bluey" data-metric="power" onclick="return false;">21,765,886</a></td>
+            <td><a href="#" class="member-link" data-name="Bluey" data-metric="kills" onclick="return false;">10,849</a></td>
+            <td><a href="#" class="member-link" data-name="Bluey" data-metric="weekly_contribution" onclick="return false;">78,800</a></td>
+            <td><a href="#" class="member-link" data-name="Bluey" data-metric="construction" onclick="return false;">7,381</a></td>
+            <td><a href="#" class="member-link" data-name="Bluey" data-metric="tribe_assistance" onclick="return false;">144</a></td>
+        </tr>
+        
+        <tr>
+            <td>90</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Zlithx" data-metric="power" onclick="return false;">Zlithx</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Zlithx" data-metric="power" onclick="return false;">21,597,257</a></td>
+            <td><a href="#" class="member-link" data-name="Zlithx" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Zlithx" data-metric="weekly_contribution" onclick="return false;">47,400</a></td>
+            <td><a href="#" class="member-link" data-name="Zlithx" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Zlithx" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>91</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="DarkSuperman" data-metric="power" onclick="return false;">DarkSuperman</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="DarkSuperman" data-metric="power" onclick="return false;">21,539,921</a></td>
+            <td><a href="#" class="member-link" data-name="DarkSuperman" data-metric="kills" onclick="return false;">244,603</a></td>
+            <td><a href="#" class="member-link" data-name="DarkSuperman" data-metric="weekly_contribution" onclick="return false;">33,800</a></td>
+            <td><a href="#" class="member-link" data-name="DarkSuperman" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="DarkSuperman" data-metric="tribe_assistance" onclick="return false;">118</a></td>
+        </tr>
+        
+        <tr>
+            <td>92</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="1Abanob" data-metric="power" onclick="return false;">1Abanob</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="1Abanob" data-metric="power" onclick="return false;">21,007,131</a></td>
+            <td><a href="#" class="member-link" data-name="1Abanob" data-metric="kills" onclick="return false;">716,381</a></td>
+            <td><a href="#" class="member-link" data-name="1Abanob" data-metric="weekly_contribution" onclick="return false;">67,600</a></td>
+            <td><a href="#" class="member-link" data-name="1Abanob" data-metric="construction" onclick="return false;">30,647</a></td>
+            <td><a href="#" class="member-link" data-name="1Abanob" data-metric="tribe_assistance" onclick="return false;">307</a></td>
+        </tr>
+        
+        <tr>
+            <td>93</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="BigZik" data-metric="power" onclick="return false;">BigZik</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="BigZik" data-metric="power" onclick="return false;">20,851,447</a></td>
+            <td><a href="#" class="member-link" data-name="BigZik" data-metric="kills" onclick="return false;">662</a></td>
+            <td><a href="#" class="member-link" data-name="BigZik" data-metric="weekly_contribution" onclick="return false;">50,100</a></td>
+            <td><a href="#" class="member-link" data-name="BigZik" data-metric="construction" onclick="return false;">8,993</a></td>
+            <td><a href="#" class="member-link" data-name="BigZik" data-metric="tribe_assistance" onclick="return false;">150</a></td>
+        </tr>
+        
+        <tr>
+            <td>94</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="ReyGhaniWin" data-metric="power" onclick="return false;">ReyGhaniWin</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="ReyGhaniWin" data-metric="power" onclick="return false;">20,567,718</a></td>
+            <td><a href="#" class="member-link" data-name="ReyGhaniWin" data-metric="kills" onclick="return false;">647,844</a></td>
+            <td><a href="#" class="member-link" data-name="ReyGhaniWin" data-metric="weekly_contribution" onclick="return false;">34,600</a></td>
+            <td><a href="#" class="member-link" data-name="ReyGhaniWin" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="ReyGhaniWin" data-metric="tribe_assistance" onclick="return false;">130</a></td>
+        </tr>
+        
+        <tr>
+            <td>95</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Wellder" data-metric="power" onclick="return false;">Wellder</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Wellder" data-metric="power" onclick="return false;">20,350,687</a></td>
+            <td><a href="#" class="member-link" data-name="Wellder" data-metric="kills" onclick="return false;">1,854,161</a></td>
+            <td><a href="#" class="member-link" data-name="Wellder" data-metric="weekly_contribution" onclick="return false;">7,600</a></td>
+            <td><a href="#" class="member-link" data-name="Wellder" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Wellder" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>96</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="LANCELOT" data-metric="power" onclick="return false;">LANCELOT</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="LANCELOT" data-metric="power" onclick="return false;">19,862,156</a></td>
+            <td><a href="#" class="member-link" data-name="LANCELOT" data-metric="kills" onclick="return false;">48,593</a></td>
+            <td><a href="#" class="member-link" data-name="LANCELOT" data-metric="weekly_contribution" onclick="return false;">69,100</a></td>
+            <td><a href="#" class="member-link" data-name="LANCELOT" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="LANCELOT" data-metric="tribe_assistance" onclick="return false;">165</a></td>
+        </tr>
+        
+        <tr>
+            <td>97</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Бякабука" data-metric="power" onclick="return false;">Бякабука</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Бякабука" data-metric="power" onclick="return false;">19,128,858</a></td>
+            <td><a href="#" class="member-link" data-name="Бякабука" data-metric="kills" onclick="return false;">254,803</a></td>
+            <td><a href="#" class="member-link" data-name="Бякабука" data-metric="weekly_contribution" onclick="return false;">42,900</a></td>
+            <td><a href="#" class="member-link" data-name="Бякабука" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Бякабука" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>98</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="FreakyJD" data-metric="power" onclick="return false;">FreakyJD</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="FreakyJD" data-metric="power" onclick="return false;">18,800,147</a></td>
+            <td><a href="#" class="member-link" data-name="FreakyJD" data-metric="kills" onclick="return false;">24,486</a></td>
+            <td><a href="#" class="member-link" data-name="FreakyJD" data-metric="weekly_contribution" onclick="return false;">70,200</a></td>
+            <td><a href="#" class="member-link" data-name="FreakyJD" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="FreakyJD" data-metric="tribe_assistance" onclick="return false;">254</a></td>
+        </tr>
+        
+        <tr>
+            <td>99</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Magnifica" data-metric="power" onclick="return false;">Magnifica</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Magnifica" data-metric="power" onclick="return false;">18,426,879</a></td>
+            <td><a href="#" class="member-link" data-name="Magnifica" data-metric="kills" onclick="return false;">584,834</a></td>
+            <td><a href="#" class="member-link" data-name="Magnifica" data-metric="weekly_contribution" onclick="return false;">45,500</a></td>
+            <td><a href="#" class="member-link" data-name="Magnifica" data-metric="construction" onclick="return false;">35,658</a></td>
+            <td><a href="#" class="member-link" data-name="Magnifica" data-metric="tribe_assistance" onclick="return false;">541</a></td>
+        </tr>
+        
+        <tr>
+            <td>100</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="Razsiel" data-metric="power" onclick="return false;">Razsiel</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="Razsiel" data-metric="power" onclick="return false;">11,215,003</a></td>
+            <td><a href="#" class="member-link" data-name="Razsiel" data-metric="kills" onclick="return false;">8,126,185</a></td>
+            <td><a href="#" class="member-link" data-name="Razsiel" data-metric="weekly_contribution" onclick="return false;">67,700</a></td>
+            <td><a href="#" class="member-link" data-name="Razsiel" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="Razsiel" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>101</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="itomaic" data-metric="power" onclick="return false;">itomaic</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="itomaic" data-metric="power" onclick="return false;">7,201,015</a></td>
+            <td><a href="#" class="member-link" data-name="itomaic" data-metric="kills" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="itomaic" data-metric="weekly_contribution" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="itomaic" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="itomaic" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>102</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="CainCulto" data-metric="power" onclick="return false;">CainCulto</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="CainCulto" data-metric="power" onclick="return false;">1,412,971</a></td>
+            <td><a href="#" class="member-link" data-name="CainCulto" data-metric="kills" onclick="return false;">585</a></td>
+            <td><a href="#" class="member-link" data-name="CainCulto" data-metric="weekly_contribution" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="CainCulto" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="CainCulto" data-metric="tribe_assistance" onclick="return false;">0</a></td>
+        </tr>
+        
+        <tr>
+            <td>103</td>
+            <td class="member-name-cell">
+                <strong><a href="#" class="member-link" data-name="BestGodOOZx" data-metric="power" onclick="return false;">BestGodOOZx</a></strong>
+            </td>
+            <td><a href="#" class="member-link" data-name="BestGodOOZx" data-metric="power" onclick="return false;">639,914</a></td>
+            <td><a href="#" class="member-link" data-name="BestGodOOZx" data-metric="kills" onclick="return false;">13,595,875</a></td>
+            <td><a href="#" class="member-link" data-name="BestGodOOZx" data-metric="weekly_contribution" onclick="return false;">69,500</a></td>
+            <td><a href="#" class="member-link" data-name="BestGodOOZx" data-metric="construction" onclick="return false;">0</a></td>
+            <td><a href="#" class="member-link" data-name="BestGodOOZx" data-metric="tribe_assistance" onclick="return false;">161</a></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            Generated by FateWarScraper
+        </div>
+    </div>
+
+    <!-- Modal for Graph -->
+    <div id="graphModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalMemberName">Member Progress</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="chartContainer">
+                <canvas id="progressChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let historyData = [];
+        let myChart = null;
+
+        $(document).ready(function() {
+            // Initialize DataTable
+            const table = $('#membersTable').DataTable({
+                "pageLength": 50,
+                "order": [[ 0, "asc" ]],
+                "responsive": true,
+                "language": { "search": "Search Member:" }
+            });
+
+            // Load history.json with better error reporting
+            console.log("Fetching history.json...");
+            fetch('history.json', { cache: "no-store" })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    historyData = data;
+                    console.log("History loaded successfully:", historyData.length, "snapshots");
+                })
+                .catch(err => {
+                    console.error('Could not load history:', err);
+                    // Add a small indicator that history is missing
+                    $('.summary').append('<div style="color: red; font-size: 10px; margin-left: auto;">History data unavailable</div>');
+                });
+
+            // Handle name clicks (delegated for DataTables compatibility)
+            // Using a more specific selector and binding to the document or table body
+            $(document).on('click', '.member-link', function(e) {
+                e.preventDefault();
+                const name = $(this).attr('data-name');
+                const metric = $(this).attr('data-metric') || 'power';
+                console.log("Clicked member:", name, "Metric:", metric);
+                if (name) {
+                    showGraph(name, metric);
+                }
+                return false;
+            });
+
+            // Handle alliance tracking clicks (delegated for consistency)
+            $(document).on('click', '#alliancePowerContainer, #totalMembersContainer', function() {
+                console.log("Clicked alliance tracking");
+                showAllianceGraph();
+            });
+
+            // Modal Close
+            $('.close').click(function() {
+                $('#graphModal').hide();
+            });
+            $(window).click(function(event) {
+                if (event.target == document.getElementById('graphModal')) {
+                    $('#graphModal').hide();
+                }
+            });
+        });
+
+        function showGraph(memberName, metric) {
+            const metricLabels = {
+                'power': 'Power',
+                'kills': 'Kills',
+                'weekly_contribution': 'Weekly Contribution',
+                'construction': 'Construction',
+                'tribe_assistance': 'Assistance'
+                // 'gold_donation': 'Gold Donation'
+            };
+            const title = memberName + "'s " + (metricLabels[metric] || metric) + " Progress";
+            $('#modalMemberName').text(title);
+            $('#graphModal').show();
+
+            const labels = [];
+            const dataValues = [];
+
+            historyData.forEach(snapshot => {
+                const member = snapshot.members.find(m => m.name === memberName);
+                if (member && (member[metric] !== undefined && member[metric] !== null)) {
+                    const date = new Date(snapshot.timestamp).toLocaleDateString();
+                    labels.push(date);
+                    dataValues.push(member[metric]);
+                }
+            });
+
+            if (dataValues.length === 0) {
+                alert('No progress data found for ' + memberName + ' (' + metric + '). Please wait for more scans to be completed.');
+                return;
+            }
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: metricLabels[metric] || metric,
+                        data: dataValues,
+                        borderColor: '#1877f2',
+                        backgroundColor: 'rgba(24, 119, 242, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return (metricLabels[metric] || metric) + ': ' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function showAllianceGraph() {
+            $('#modalMemberName').text("Alliance Total Power Progress");
+            $('#graphModal').show();
+
+            const labels = [];
+            const powerData = [];
+
+            historyData.forEach(snapshot => {
+                const totalPower = snapshot.members.reduce((sum, m) => sum + (m.power || 0), 0);
+                const date = new Date(snapshot.timestamp).toLocaleDateString();
+                labels.push(date);
+                powerData.push(totalPower);
+            });
+
+            if (powerData.length === 0) {
+                alert('No history data found. Please wait for more scans to be completed.');
+                return;
+            }
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Total Alliance Power',
+                        data: powerData,
+                        borderColor: '#42b72a',
+                        backgroundColor: 'rgba(66, 183, 42, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Total Power: ' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
