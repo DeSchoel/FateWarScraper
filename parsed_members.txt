@@ -28,7 +28,7 @@
 26    | RosGuard             | 41,950,838   | 0            | 0          | 0          | 0          | Read Rank: 27 | Name: RosGuard | Power: 41,950,838
 27    | DRANGER              | 41,671,718   | 0            | 0          | 0          | 0          | Read Rank: 28 | Name: DRANGER | Power: 41,671,718
 28    | Zph                  | 41,200,037   | 0            | 0          | 0          | 0          | Read Rank: 29 | Name: Zph | Power: 41,200,037
-29    | VonGodeuro           | 41,145,225   | 0            | 0          | 0          | 0          | Read Rank: 30 | Name: VonGodeuro | Power: 41 145 225
-30    | Homeland             | 40,449,072   | 0            | 0          | 0          | 0          | Read Rank: 31 | Name: Homeland | Power: 40,449,072
-31    | Batangbata           | 40,397,304   | 0            | 0          | 0          | 0          | Read Rank: 32 | Name: Batangbata | Power: 40,397,304
-32    | bigcheese            | 194,788      | 0            | 0          | 0          | 0          | Read Rank: 16 | Name: bigcheese | Power: 47,- 194,788
+29    | Homeland             | 40,449,072   | 0            | 0          | 0          | 0          | Read Rank: 31 | Name: Homeland | Power: 40,449,072
+30    | Batangbata           | 40,397,304   | 0            | 0          | 0          | 0          | Read Rank: 32 | Name: Batangbata | Power: 40,397,304
+31    | bigcheese            | 194,788      | 0            | 0          | 0          | 0          | Read Rank: 16 | Name: bigcheese | Power: 47,- 194,788
+32    | VonGodeuro           | 145,225      | 0            | 0          | 0          | 0          | Read Rank: 30 | Name: VonGodeuro | Power: 41 145 225
