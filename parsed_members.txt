@@ -1,7 +1,7 @@
 ﻿Rank  | Name                 | Power        | Kills        | Weekly     | Const.     | Asst.      | Raw Line
 --------------------------------------------------------------------------------------------------------------
 1     | GrandPriest67414261  | 19,502       | 0            | 0          | 0          | 0          | Read Rank: n | Name: Grand Priest 67,414,261 | Power: ader 19,502
-2     | PappvPappe           | 150          | 150          | 0          | 150        | 150        | Read Rank: n | Name: PappvPappe | Power: v Instructor
-3     | TecchiFireb          | 15           | 0            | 0          | 0          | 0          | Read Rank: n | Name: TecchiFireb | Power: g Instruc:-
-4     | XSTORMx              | 15           | 0            | 0          | 0          | 0          | Read Rank:  | Name: XSTORMx | Power: ower Ins:
-5     | bigcheese            | 5            | 0            | 0          | 0          | 0          | Read Rank: n | Name: bigcheese | Power: ster
+2     | PappvPa              | 150          | 0            | 0          | 0          | 0          | Read Rank: n | Name: PappvPa | Power: v Instructor
+3     | TecchiFir            | 15           | 0            | 0          | 0          | 0          | Read Rank: n | Name: TecchiFir | Power: g Instruc:-
+4     | xSTORM               | 15           | 0            | 0          | 0          | 0          | Read Rank:  | Name: xSTORM〉 | Power: ower Ins:
+5     | bigchees             | 5            | 0            | 0          | 0          | 0          | Read Rank: n | Name: bigchees | Power: ster
