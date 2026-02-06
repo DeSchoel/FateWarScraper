@@ -5,26 +5,26 @@
 3     | vlvl                 | 54,186,984   | 0            | 0          | 0          | 0          | Read Rank: 7 | Name: vlvl | Power: 54,186,984
 4     | ботаник              | 53,657,901   | 0            | 0          | 0          | 0          | Read Rank: 8 | Name: ботаник | Power: 53,657,901
 5     | Ojisan91             | 53,563,447   | 0            | 0          | 0          | 0          | Read Rank: 9 | Name: Ojisan91 | Power: 53,563,447
-6     | Аджика               | 49,731,249   | 0            | 0          | 0          | 0          | Read Rank: 11 | Name: Аджика | Power: 49,731,249
-7     | TecchiFireball       | 49,469,143   | 0            | 0          | 0          | 0          | Read Rank: 12 | Name: TecchiFireball | Power: 49,469,143
-8     | Dead_Anarchist       | 49,097,986   | 0            | 0          | 0          | 0          | Read Rank: 13 | Name: Dead_ Anarchist | Power: 49,097,980
+6     | AboFahad             | 52,168,337   | 0            | 0          | 0          | 0          | Read Rank: 10 | Name: AboFahad | Power: 52,168,337
+7     | Аджика               | 49,731,249   | 0            | 0          | 0          | 0          | Read Rank: 11 | Name: Аджика | Power: 49,731,249
+8     | TecchiFireball       | 49,469,143   | 0            | 0          | 0          | 0          | Read Rank: 12 | Name: TecchiFireball | Power: 49,469,143
 9     | Сiмона               | 48,721,697   | 0            | 0          | 0          | 0          | Read Rank: 14 | Name: Сiмона | Power: 48,721,697
 10    | AntyDeath            | 47,611,799   | 0            | 0          | 0          | 0          | Read Rank: 15 | Name: AntyDeath | Power: 47,611,799
-11    | Marinel              | 45,394,660   | 0            | 0          | 0          | 0          | Read Rank: 17 | Name: Marinel | Power: 45,394,660
-12    | Măcelaru             | 44,499,794   | 0            | 0          | 0          | 0          | Read Rank: 18 | Name: Măcelaru | Power: 44,499,794
-13    | saneqek              | 44,297,848   | 0            | 13,200     | 0          | 0          | Read Rank: 19 | Name: saneqek | Power: 44,297 = ,848
-14    | Kalbaram             | 44,231,601   | 0            | 0          | 0          | 0          | Read Rank: 20 | Name: Kalbaram | Power: 44,231,601
-15    | XSTORMX              | 44,043,496   | 0            | 0          | 0          | 0          | Read Rank: 21 | Name: XSTORMX | Power: 44,043,496
-16    | CHADZ                | 43,904,326   | 0            | 0          | 0          | 0          | Read Rank: 22 | Name: CHADZ | Power: 43,904,326
-17    | Серый777666          | 43,612,506   | 0            | 0          | 0          | 0          | Read Rank: 23 | Name: Серый777666 | Power: 43,612,506
-18    | Solosparkzzz         | 42,790,039   | 0            | 0          | 0          | 0          | Read Rank: 24 | Name: Solosparkzzz | Power: 42,790,039
-19    | TrepanatioXXL        | 42,763,695   | 0            | 0          | 0          | 0          | Read Rank: 25 | Name: TrepanatioXXL | Power: 42,763,695
-20    | xesseku              | 42,731,751   | 0            | 0          | 0          | 0          | Read Rank: 26 | Name: xesseku | Power: 42,731,751
-21    | RosGuard             | 41,950,838   | 0            | 0          | 0          | 0          | Read Rank: 27 | Name: RosGuard | Power: 41,950,838
-22    | DRANGER              | 41,671,718   | 0            | 0          | 0          | 0          | Read Rank: 28 | Name: DRANGER | Power: 41,671,718
-23    | Zph                  | 41,200,037   | 0            | 0          | 0          | 0          | Read Rank: 29 | Name: Zph | Power: 41,200,037
-24    | VonGodeuro           | 41,145,225   | 0            | 0          | 0          | 0          | Read Rank: 20 | Name: VonGodeuro | Power: 41 145 225
-25    | Homeland             | 40,449,072   | 0            | 0          | 0          | 0          | Read Rank: 31 | Name: Homeland | Power: 40,449,072
-26    | Batangbata           | 40,397,304   | 0            | 0          | 0          | 0          | Read Rank: 32 | Name: Batangbata | Power: 40,397,304
-27    | AboFahad             | 5,216,833    | 0            | 0          | 0          | 0          | Read Rank: 10 | Name: AboFahad | Power: 52,168,33
-28    | bigcheese            | 4,719,478    | 0            | 0          | 0          | 0          | Read Rank: 16 | Name: bigcheese | Power: 47,194,78
+11    | Măcelaru             | 44,499,794   | 0            | 0          | 0          | 0          | Read Rank: 18 | Name: Măcelaru | Power: 44,499,794
+12    | saneqek              | 44,297,848   | 0            | 13,200     | 0          | 0          | Read Rank: 19 | Name: saneqek | Power: 44,297_ ,848
+13    | Kalbaram             | 44,231,601   | 0            | 0          | 0          | 0          | Read Rank: 20 | Name: Kalbaram | Power: 44,231,601
+14    | CHADZ                | 43,904,325   | 0            | 0          | 0          | 0          | Read Rank: 22 | Name: CHADZ | Power: 43,904,325
+15    | Серый777666          | 43,612,506   | 0            | 0          | 0          | 0          | Read Rank: 23 | Name: Серый777666 | Power: 43,612,506
+16    | Solosparkzzz         | 42,790,039   | 0            | 0          | 0          | 0          | Read Rank: 24 | Name: Solosparkzzz | Power: 42,790,039
+17    | TrepanatioXXL        | 42,763,695   | 0            | 0          | 0          | 0          | Read Rank: 25 | Name: TrepanatioXXL | Power: 42,763,695
+18    | xesseku              | 42,731,751   | 0            | 0          | 0          | 0          | Read Rank: 26 | Name: xesseku | Power: 42,731,751
+19    | DRANGER              | 41,671,718   | 0            | 0          | 0          | 0          | Read Rank: 28 | Name: DRANGER | Power: 41,671,718
+20    | Zph                  | 41,200,037   | 0            | 0          | 0          | 0          | Read Rank: 29 | Name: Zph | Power: 41,200,037
+21    | VonGodeuro           | 41,145,225   | 0            | 0          | 0          | 0          | Read Rank: 20 | Name: VonGodeuro | Power: 41 145 225
+22    | Homeland             | 40,449,074   | 0            | 0          | 0          | 0          | Read Rank: 31 | Name: Homeland | Power: 40,449,074
+23    | Batangbata           | 40,397,304   | 0            | 0          | 0          | 0          | Read Rank: 32 | Name: Batangbata | Power: 40,397,304
+24    | Dead_Anarchist       | 4,909,798    | 3,855,924    | 0          | 0          | 0          | Read Rank: 13 | Name: Dead_ Anarchist | Power: 49,097,980
+25    | bigcheese            | 4,719,478    | 0            | 0          | 0          | 0          | Read Rank: 16 | Name: bigcheese | Power: 47,194,78
+26    | Marinel              | 4,539,466    | 0            | 0          | 0          | 0          | Read Rank: 17 | Name: Marinel | Power: 45,394,66
+27    | XSTORMX              | 4,404,349    | 0            | 0          | 0          | 0          | Read Rank: 21 | Name: XSTORMX | Power: 44,043,49
+28    | RosGuard             | 4,195,083    | 0            | 0          | 0          | 0          | Read Rank: 27 | Name: RosGuard | Power: 41,950,83:
