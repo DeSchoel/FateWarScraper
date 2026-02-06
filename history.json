@@ -6272,5 +6272,24 @@
         "is_valid": true
       }
     ]
+  },
+  {
+    "timestamp": "2026-02-06T14:19:38.440302",
+    "members": [
+      {
+        "rank": 1,
+        "name": "usBerserker",
+        "power": 61,
+        "kills": null,
+        "weekly_contribution": null,
+        "construction": null,
+        "tribe_assistance": null,
+        "read_rank": 5,
+        "power_rank": 1,
+        "rank_mismatch": true,
+        "raw_line": "Read Rank: 5 | Name: us Berserker | Power: 61",
+        "is_valid": true
+      }
+    ]
   }
 ]
