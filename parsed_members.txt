@@ -1,3 +1,7 @@
 ﻿Rank  | Name                 | Power        | Kills        | Weekly     | Const.     | Asst.      | Raw Line
 --------------------------------------------------------------------------------------------------------------
-1     | usBerserker          | 61           | 0            | 0          | 0          | 0          | Read Rank: 5 | Name: us Berserker | Power: 61
+1     | GrandPriest67414261  | 19,502       | 0            | 0          | 0          | 0          | Read Rank: n | Name: Grand Priest 67,414,261 | Power: ader 19,502
+2     | PappvPappe           | 150          | 150          | 150        | 150        | 150        | Read Rank: n | Name: PappvPappe | Power: v Instructor
+3     | TecchiFireb          | 15           | 15           | 15         | 0          | 15         | Read Rank: n | Name: TecchiFireb | Power: g Instruc:-
+4     | XSTORMx              | 15           | 15           | 15         | 15         | 15         | Read Rank:  | Name: XSTORMx | Power: ower Ins:
+5     | bigcheese            | 5            | 5            | 5          | 0          | 5          | Read Rank: n | Name: bigcheese | Power: ster
